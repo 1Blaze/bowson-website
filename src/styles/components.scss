@@ -1,0 +1,46 @@
+.section {
+  padding: 40px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  //   background-color: blue;
+}
+
+.centerFlex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+}
+
+.orangeButton {
+  background: #ea580c;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    box-shadow: 0 6px 14px rgba(234, 88, 12, 0.25);
+    transform: translateY(-1px);
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+.reqQuote {
+  width: 152.21px;
+  height: 36.6px;
+}

@@ -1,0 +1,469 @@
+---
+// Navbar.astro
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+const navItems = [
+  { label: "Home", href: "/" },
+  {
+    label: "Services",
+    href: "/services",
+    items: [
+      { label: "CNC Punching", href: "/services/cnc-punching" },
+      { label: "Laser Cutting", href: "/services/laser-cutting" },
+      { label: "Bending", href: "/services/bending" },
+      { label: "MIG/TIG Welding & Fabrication", href: "/services/welding-fabrication" },
+      { label: "Powder Coating", href: "/services/powder-coating" },
+      { label: "3D CAD Design", href: "/services/3d-cad-design" },
+    ],
+  },
+  {
+    label: "Sectors",
+    href: "/sectors",
+    items: [
+      { label: "Automotive", href: "/sectors/automotive" },
+      { label: "Construction", href: "/sectors/construction" },
+      { label: "Agriculture", href: "/sectors/agriculture" },
+      { label: "General Engineering", href: "/sectors/general-engineering" },
+    ],
+  },
+  { label: "About Us", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+---
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbar-top">
+      <a href="/" class="logo">
+        <img src="/logo.svg" alt="Bowson Engineering Limited" width="160" height="42" fetchpriority="high" />
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="nav-links">
+        {
+          navItems.map((item) => {
+            const hasDropdown = !!item.items?.length;
+            const id = hasDropdown ? `dropdown-${slug(item.label)}` : undefined;
+            return (
+              <li class="nav-item">
+                {hasDropdown ? (
+                  <>
+                    <button class="nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls={id} data-dropdown-trigger>
+                      {item.label}
+                      <span class="chevron" aria-hidden="true">
+                        ▾
+                      </span>
+                    </button>
+                    <ul class="dropdown-panel" id={id} data-dropdown-panel>
+                      {item.items!.map((sub) => (
+                        <li>
+                          <a href={sub.href}>{sub.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a href={item.href}>{item.label}</a>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <div class="nav-actions">
+        <a href="tel:01782749000" class="phone-link">
+          <svg class="phone-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.25 1.01l-2.2 2.21z"></path>
+          </svg>
+          01782 749000
+        </a>
+        <a href="/quote" class="quote-btn">Get a Quote</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div class="mobile-menu" id="mobile-menu">
+      <ul>
+        {
+          navItems.map((item) => {
+            const hasDropdown = !!item.items?.length;
+            const id = hasDropdown ? `mobile-dropdown-${slug(item.label)}` : undefined;
+            return (
+              <li>
+                {hasDropdown ? (
+                  <>
+                    <button class="mobile-trigger" type="button" aria-expanded="false" aria-controls={id} data-mobile-trigger>
+                      {item.label}
+                      <span class="chevron" aria-hidden="true">
+                        ▾
+                      </span>
+                    </button>
+                    <ul class="mobileSubmenu" id={id} data-mobileSubmenu>
+                      {item.items!.map((sub) => (
+                        <li>
+                          <a href={sub.href}>{sub.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a href={item.href}>{item.label}</a>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div class="mobile-actions">
+        <a href="tel:01782749000" class="phone-link">01782 749000</a>
+        <a href="/quote" class="quote-btn">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid #eee;
+  }
+
+  .navbar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    background: #fff;
+  }
+
+  .logo img {
+    display: block;
+    height: 42px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-item > a,
+  .nav-trigger {
+    text-decoration: none;
+    color: #1a1a1a;
+  }
+
+  .nav-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .nav-item > a:hover,
+  .nav-trigger:hover {
+    color: #2b7fff;
+  }
+
+  .chevron {
+    font-size: 0.7rem;
+    color: #555;
+    transition: transform 0.15s ease;
+  }
+
+  .nav-trigger[aria-expanded='true'] .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Desktop dropdown panel */
+  .dropdown-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem;
+    list-style: none;
+    margin: 0;
+    z-index: 20;
+  }
+
+  .dropdown-panel.open {
+    display: block;
+  }
+
+  .dropdown-panel li a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-panel li a:hover {
+    background: #f4f7ff;
+    color: #2b7fff;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .phone-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .quote-btn {
+    background: #2b7fff;
+    color: #fff;
+    padding: 0.6rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .quote-btn:hover {
+    background: #1a6ae0;
+  }
+
+  /* Hamburger — hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #1a1a1a;
+    border-radius: 2px;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .hamburger[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile menu panel */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: 1px solid #eee;
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-menu > ul > li > a {
+    display: block;
+    padding: 0.6rem 0;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .mobile-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.6rem 0;
+    background: none;
+    border: none;
+    font: inherit;
+    font-weight: 500;
+    color: #1a1a1a;
+    cursor: pointer;
+  }
+
+  .mobile-trigger[aria-expanded='true'] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .mobileSubmenu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0.5rem 1rem;
+  }
+
+  .mobileSubmenu.open {
+    display: block;
+  }
+
+  .mobileSubmenu a {
+    display: block;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #444;
+    font-size: 0.95rem;
+  }
+
+  .mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .mobile-actions .quote-btn {
+    text-align: center;
+  }
+
+  /* Breakpoint */
+  @media (max-width: 900px) {
+    .nav-links,
+    .nav-actions {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .navbar-top {
+      padding: 0.75rem 1.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hamburger span,
+    .chevron {
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Hamburger toggle
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburgerBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', String(!!isOpen));
+    if (!isOpen) closeAllMobileSubmenus();
+  });
+
+  // Desktop dropdowns
+  const desktopTriggers = document.querySelectorAll<HTMLButtonElement>('[data-dropdown-trigger]');
+
+  function closeAllDesktopDropdowns(except?: HTMLButtonElement) {
+    desktopTriggers.forEach((trigger) => {
+      if (trigger === except) return;
+      trigger.setAttribute('aria-expanded', 'false');
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      panel?.classList.remove('open');
+    });
+  }
+
+  desktopTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      closeAllDesktopDropdowns(trigger);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      panel?.classList.toggle('open', !isOpen);
+    });
+  });
+
+  document.addEventListener('click', () => closeAllDesktopDropdowns());
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllDesktopDropdowns();
+      (document.activeElement as HTMLElement)?.blur();
+    }
+  });
+
+  // Mobile accordion submenus
+  const mobileTriggers = document.querySelectorAll<HTMLButtonElement>('[data-mobile-trigger]');
+
+  function closeAllMobileSubmenus() {
+    mobileTriggers.forEach((trigger) => {
+      trigger.setAttribute('aria-expanded', 'false');
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      panel?.classList.remove('open');
+    });
+  }
+
+  mobileTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      panel?.classList.toggle('open', !isOpen);
+    });
+  });
+</script>

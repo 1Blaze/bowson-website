@@ -1,0 +1,157 @@
+---
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+const navItems = [
+  { label: "Home", href: "/" },
+  {
+    label: "Services",
+    href: "/services",
+    items: [
+      { label: "CNC Punching", href: "/services/cnc-punching" },
+      { label: "Laser Cutting", href: "/services/laser-cutting" },
+      { label: "Bending", href: "/services/bending" },
+      { label: "MIG/TIG Welding & Fabrication", href: "/services/welding-fabrication" },
+      { label: "Powder Coating", href: "/services/powder-coating" },
+      { label: "3D CAD Design", href: "/services/3d-cad-design" },
+    ],
+  },
+  {
+    label: "Sectors",
+    href: "/sectors",
+    items: [
+      { label: "Automotive", href: "/sectors/automotive" },
+      { label: "Construction", href: "/sectors/construction" },
+      { label: "Agriculture", href: "/sectors/agriculture" },
+      { label: "General Engineering", href: "/sectors/general-engineering" },
+    ],
+  },
+  { label: "About Us", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+
+import Image from 'astro/components/Image.astro';
+import './Navbar.scss';
+
+import logo from '@assets/images/Logo.webp';
+---
+
+<header class="header">
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="navbarTop">
+      <a href="/" class="logo"> <Image src={logo} alt="A bird." /></a>
+      <ul class="navLinks">TODO LINKS</ul>
+      <div class="navActions"></div>
+      <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobileMenu" id="mobileMenu">
+      <ul>
+        {
+          navItems.map((item) => {
+            const hasDropdown = !!item.items?.length;
+            const id = hasDropdown ? `mobile-dropdown-${slug(item.label)}` : undefined;
+            // TODO: style this
+            return (
+              <li>
+                {hasDropdown ? (
+                  <>
+                    <button class="mobileTrigger" type="button" aria-expanded="false" aria-controls={id} data-mobile-trigger>
+                      {item.label}
+                      <span class="chevron" aria-hidden="true">
+                        ▾
+                      </span>
+                    </button>
+                    <ul class="mobileSubmenu" id={id} data-mobileSubmenu>
+                      {item.items!.map((sub) => (
+                        <li>
+                          <a href={sub.href}>{sub.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a href={item.href}>{item.label}</a>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+      <!-- TODO -->
+      <!-- <div class="mobile-actions">
+        <a href="tel:01782749000" class="phone-link">01782 749000</a>
+        <a href="/quote" class="quote-btn">Get a Quote</a>
+      </div> -->
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Hamburger toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburgerBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', String(!!isOpen));
+    if (!isOpen) closeAllMobileSubmenus();
+  });
+
+  // Desktop dropdowns
+  const desktopTriggers = document.querySelectorAll<HTMLButtonElement>('[data-dropdown-trigger]');
+
+  function closeAllDesktopDropdowns(except?: HTMLButtonElement) {
+    desktopTriggers.forEach((trigger) => {
+      if (trigger === except) return;
+      trigger.setAttribute('aria-expanded', 'false');
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      panel?.classList.remove('open');
+    });
+  }
+
+  desktopTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      closeAllDesktopDropdowns(trigger);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      panel?.classList.toggle('open', !isOpen);
+    });
+  });
+
+  document.addEventListener('click', () => closeAllDesktopDropdowns());
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllDesktopDropdowns();
+      (document.activeElement as HTMLElement)?.blur();
+    }
+  });
+
+  // Mobile accordion submenus
+  const mobileTriggers = document.querySelectorAll<HTMLButtonElement>('[data-mobile-trigger]');
+
+  function closeAllMobileSubmenus() {
+    mobileTriggers.forEach((trigger) => {
+      trigger.setAttribute('aria-expanded', 'false');
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      panel?.classList.remove('open');
+    });
+  }
+
+  mobileTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      panel?.classList.toggle('open', !isOpen);
+    });
+  });
+</script>

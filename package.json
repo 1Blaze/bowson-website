@@ -1,5 +1,5 @@
 {
-  "name": "violet-velocity",
+  "name": "bowson-website",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,6 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.1.2"
+    "astro": "^7.1.2",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "devDependencies": {
+    "sass": "^1.101.3"
   }
 }

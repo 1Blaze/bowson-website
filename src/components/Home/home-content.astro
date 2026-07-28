@@ -1,0 +1,257 @@
+---
+import Phone from '@assets/svgs/phone.svg'
+import Calendar from '@assets/svgs/calendar.svg'
+import Factory from '@assets/svgs/factory.svg'
+import Shield from '@assets/svgs/shield.svg'
+import Merit from '@assets/svgs/merit.svg'
+---
+
+<section class="section home">
+  <div class="blueBlob"></div>
+  <div class="topGap">
+    <div class="established">
+      <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
+      </svg>
+      <p>Established 1990 · Stoke-on-Trent</p>
+    </div>
+    <div class="topTextGap">
+      <h1>
+        Sheet metal fabrication &amp; engineering in {' '}
+        <span class="blueColour">Stoke-on-Trent</span>.
+      </h1>
+      <p class="homeDesc">
+        Bowson Engineering is a family-owned business with strong values at the heart of everything we do. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating. We engage with customer design from the outset, using SolidWorks 3D modelling to optimise work processes,
+        reduce cost and deliver reliable quality with fast turnaround — from custom one-offs to larger batch runs.
+      </p>
+    </div>
+    <div class="buttonRow">
+      <!-- TODO: make this work / localise some other component so it can be re used -->
+      <button class="orangeButton reqQuote"><p>Request a Quote</p></button>
+      <div class="centerFlex phoneGap">
+        <Phone />
+        <!-- <p>01782 749000</p> -->
+        <a href="tel:+441782749000">01782 749000</a>
+        <!-- TODO: make this clickable for on phone -->
+      </div>
+    </div>
+    <div class="imgHouse">
+      <div class="img">Placeholder</div>
+    </div>
+    <div class="infoGrid">
+      <div class="gridItem">
+        <div class="icon"><Calendar /></div>
+        <div><p>1990</p><span>Established</span></div>
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Factory /></div>
+        <div><p>35+</p><span>Years of expertise</span></div>
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Shield /></div>
+        <div><p>ISO 9001</p><span>Quality Standard</span></div>
+        <!-- TODO: Change this -->
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Merit /></div>
+        <div><p>One-offs → Batch</p><span>Volumes</span></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="mainBlock">
+      <p class="blueTitle">What we do</p>
+      <div class="textBlock">
+        <h2 class="h2Title">In-house services from design to finished product.</h2>
+        <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+      </div>
+      <div>Image Here</div>
+    </div>
+  </div>
+</section>
+
+<!-- TODO: MAKE THE SECTIONS JUST GREAT SCSS -->
+<!-- TOOD: go through all of this and compare to the next pages and then re use components and re use styles so it is easier lol -->
+
+<style lang="scss">
+  .home {
+    position: relative;
+    width: 100%;
+    h1 {
+      font-family: var(--font-barlow);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      color: #0f172a;
+
+      span {
+        width: 100%;
+      }
+
+      .blueColour {
+        color: #0393cf;
+      }
+    }
+
+    .homeDesc {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #4b5563;
+    }
+  }
+
+  .topTextGap {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: relative;
+    width: 100%;
+  }
+
+  .topGap {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    position: relative;
+    width: 100%;
+  }
+
+  .established {
+    width: 335px;
+    height: 45.6px;
+    background: #f8f9fa;
+    border: 0.8px solid #e5e9f0;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    padding: 0 13px;
+    gap: 13px;
+    position: relative;
+
+    p {
+      font-style: bold;
+      font-weight: 600;
+      font-size: 12px;
+      color: #0393cf;
+    }
+  }
+
+  .phoneGap {
+    gap: 8px;
+
+    a {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      color: #0f172a;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  .blueBlob {
+    position: absolute;
+    width: 300px;
+    height: 420px;
+    right: 0;
+    top: -128px;
+    background: #0284c70d;
+    filter: blur(50px);
+    border-radius: 50px;
+  }
+
+  .imgHouse {
+    border-radius: 16px;
+    width: 359.2px;
+    height: 213.25px;
+    background: linear-gradient(135deg, #dceefb 0%, #eef6fb 15%, #ffffff 45%, #fdf3ea 75%, #fbe4cd 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .img {
+      width: 335.2px;
+      height: 189.25px;
+      border: 1px solid #e5e9f0;
+      box-shadow:
+        0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+        0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+      border-radius: 12px;
+    }
+  }
+
+  .infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 0;
+
+    .gridItem {
+      padding: 0 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+
+      .icon {
+        min-width: 48px;
+        height: 48px;
+        background: rgba(2, 132, 199, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      p {
+        font-family: var(--font-barlow);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16.4px;
+        color: #0f172a;
+      }
+
+      span {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 11.2px;
+        color: #4b5563;
+      }
+    }
+  }
+
+  .textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .mainBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      font-weight: 400;
+      font-size: 18px;
+      color: #4b5563;
+    }
+  }
+
+  .blueTitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    color: #0393cf;
+  }
+
+  .h2Title {
+    font-family: var(--font-barlow);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    color: #0f172a;
+  }
+
+  // TODO: make all px rem and shit
+</style>
