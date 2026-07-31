@@ -1,0 +1,161 @@
+---
+import logo from '@assets/images/Logo.webp';
+import { Image } from 'astro:assets';
+
+interface FeaturedWorkItem {
+  image: ImageMetadata;
+  title: string;
+  category?: string;
+  href?: string;
+}
+
+const items: FeaturedWorkItem[] = [
+    { image: logo, title: 'Job name', category: 'Fabrication' },
+    { image: logo, title: 'Job name', category: 'Powder coating' },
+    { image: logo, title: 'Job name' },
+    { image: logo, title: 'Job name' },
+]
+---
+
+<!-- TODO: make ul role etc for everything -->
+<div class="featured">
+  <ul class="featuredUl" role="list" tabindex="0" aria-label="featured-work">
+    {
+      items.map((item, index) => (
+        <li class="featuredWork">
+          <a href="">
+            <Image src={item.image} alt={item.title} />
+            <div class="featuredOverlay" />
+            <div class="featuredText">
+              <p>Agriculture & forestry</p>
+              <h4>Deer Towers</h4>
+              <span>Galvanised steel lookout towers replacing traditional wooden...</span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="swipeSee">Swipe to see more {'->'}</p>
+</div>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .featured {
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .swipeSee {
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      color: #4b5563;
+
+      @include bp(lg) {
+        display: none;
+      }
+    }
+  }
+
+  .featuredUl {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding-block: 0;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    // scroll-padding-inline: $edge-inset;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+    }
+
+    @include bp(lg) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: visible;
+      padding-inline: 0;
+      scroll-snap-type: none;
+    }
+  }
+
+  .featuredWork {
+    flex: 0 0 auto;
+    width: 237px;
+    scroll-snap-align: start;
+    height: 178px;
+    background: #f1f5f9;
+    border: 0.8px solid #e5e9f0;
+    box-shadow:
+      0px 1px 3px rgba(15, 23, 42, 0.06),
+      0px 1px 2px rgba(15, 23, 42, 0.04);
+    border-radius: 12px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .featuredOverlay {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      //   inset: 0;
+      background: linear-gradient(180deg, rgba(231, 232, 234, 0) 0%, rgba(154, 162, 176, 0.4) 45%, rgba(74, 86, 104, 0.65) 70%, rgba(28, 37, 52, 0.85) 100%);
+      pointer-events: none;
+    }
+
+    .featuredText {
+      position: absolute;
+      top: 0;
+      text-decoration: none;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 27px 12px;
+      gap: 9px;
+
+      p {
+        font-weight: 600;
+        font-size: 11px;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+
+      h4 {
+        font-weight: 800;
+        font-size: 16px;
+        color: #ffffff;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #ffffff;
+      }
+    }
+
+    @include bp(lg) {
+      width: auto;
+    }
+  }
+</style>

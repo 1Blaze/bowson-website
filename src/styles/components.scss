@@ -1,5 +1,7 @@
 .section {
   padding: 40px 26px;
+  // padding: 40px 0;
+  // margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 70px;
@@ -26,6 +28,9 @@
   border: none;
   cursor: pointer;
   transition: 0.2s;
+  width: fit-content;
+  height: 36.6px;
+  padding: 0 20px;
 
   &:hover {
     box-shadow: 0 6px 14px rgba(234, 88, 12, 0.25);
@@ -40,7 +45,88 @@
   }
 }
 
-.reqQuote {
-  width: 152.21px;
-  height: 36.6px;
+.servicesDisplay {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  .serviceItem {
+    width: 335.2px;
+    height: 391.4px;
+    background: #ffffff;
+    border: 0.8px solid #e5e9f0;
+    box-shadow:
+      0px 4px 6px -4px rgba(0, 0, 0, 0.1),
+      0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: 0.2s;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 250px;
+      background: black;
+    }
+
+    h3 {
+      font-family: var(--font-barlow);
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      color: #0f172a;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .serviceTextGap {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 28px;
+    }
+
+    .serviceButton {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      background-color: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      right: 26px;
+
+      path {
+        stroke: black;
+        transition: 0.3s;
+      }
+
+      &:hover {
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        background-color: #0393cf;
+
+        path {
+          stroke: white;
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow:
+        0px 4px 6px -4px rgba(0, 0, 0, 0.2),
+        0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+      transform: translateY(-1px);
+    }
+  }
 }

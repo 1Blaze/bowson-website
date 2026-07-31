@@ -4,6 +4,17 @@ import Calendar from '@assets/svgs/calendar.svg'
 import Factory from '@assets/svgs/factory.svg'
 import Shield from '@assets/svgs/shield.svg'
 import Merit from '@assets/svgs/merit.svg'
+import Check from '@assets/svgs/check.svg'
+import ServiceGrid from '../service-grid.astro'
+import SectorGrid from '../sector-grid.astro'
+import Featured from './featured.astro'
+import Reviews from './reviews.astro'
+import CallToAction from '../call-to-action.astro'
+
+const points = [
+  'Family-owned since 1990 with strong values at the heart of the business',
+  'Full in-house capability — CNC punching, laser, bending, fabrication & powder coating',
+];
 ---
 
 <section class="section home">
@@ -27,7 +38,7 @@ import Merit from '@assets/svgs/merit.svg'
     </div>
     <div class="buttonRow">
       <!-- TODO: make this work / localise some other component so it can be re used -->
-      <button class="orangeButton reqQuote"><p>Request a Quote</p></button>
+      <a href="/"><button class="orangeButton"><p>Request a Quote</p></button></a>
       <div class="centerFlex phoneGap">
         <Phone />
         <!-- <p>01782 749000</p> -->
@@ -58,16 +69,69 @@ import Merit from '@assets/svgs/merit.svg'
       </div>
     </div>
   </div>
+  <div class="mainBlock">
+    <p class="blueTitle">What we do</p>
+    <div class="textBlock">
+      <h2 class="h2Title">In-house services from design to finished product.</h2>
+      <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+    </div>
+    <ServiceGrid />
+  </div>
+  <div class="mainBlock">
+    <p class="blueTitle">Industries we serve</p>
+    <div class="textBlock">
+      <h2 class="h2Title">Trusted across UK industry.</h2>
+      <h3>From manufacturers to construction sites, we deliver durable, well-engineered sheet metal products to demanding sectors.</h3>
+    </div>
+    <SectorGrid />
+  </div>
   <div>
+    <!-- TODO: Image here on web - do not show on mobile -->
+    <div>img</div>
     <div class="mainBlock">
-      <p class="blueTitle">What we do</p>
+      <p class="blueTitle">About Bowson Engineering</p>
       <div class="textBlock">
-        <h2 class="h2Title">In-house services from design to finished product.</h2>
-        <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+        <h2 class="h2Title">A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h2>
+        <h3>From manufacturers to construction sites, we deliver durable, well-engineered sheet metal products to demanding sectors.</h3>
       </div>
-      <div>Image Here</div>
+      <ul class="aboutList">
+        {
+          points.map((point) => (
+            <li>
+              <Check />
+              <p>{point}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <!-- TODO: make this work / localise some other component so it can be re used -->
+      <a href="/about"><button class="orangeButton"><p>About us</p></button></a>
     </div>
   </div>
+  <div class="mainBlock">
+    <p class="blueTitle">Featured work</p>
+    <div class="textBlock">
+      <h2 class="h2Title">Bespoke products, engineered in Stoke-On-Trent.</h2>
+      <h3>A small selection of past projects — from deer towers and pallet gates to machine guards, kennels and bespoke stillages.</h3>
+    </div>
+    <Featured />
+  </div>
+  <div class="mainBlock">
+    <p class="blueTitle blueTitleCentre">What clients say</p>
+    <div class="textBlock blueTitleCentre">
+      <h2 class="h2Title blueTitleCentre">Engineered relationships, built to last.</h2>
+      <h3>Real client testimonials will be added during launch — placeholders shown below. TODO</h3>
+    </div>
+    <Reviews />
+    <p class="designedText">Designed & manufactured with industry-standard software</p>
+    <div class="softwareGrid">
+      <div class="softwareItem"></div>
+      <div class="softwareItem"></div>
+      <div class="softwareItem"></div>
+      <div class="softwareItem"></div>
+    </div>
+  </div>
+  <CallToAction />
 </section>
 
 <!-- TODO: MAKE THE SECTIONS JUST GREAT SCSS -->
@@ -223,7 +287,7 @@ import Merit from '@assets/svgs/merit.svg'
   .textBlock {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
   }
 
   .mainBlock {
@@ -245,12 +309,64 @@ import Merit from '@assets/svgs/merit.svg'
     color: #0393cf;
   }
 
+  .blueTitleCentre {
+    text-align: center;
+  }
+
   .h2Title {
     font-family: var(--font-barlow);
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
     color: #0f172a;
+  }
+
+  .aboutList {
+    padding: 0 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      svg {
+        flex-shrink: 0;
+        margin-top: 0.15rem; // nudge to align with text baseline
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        color: #0f172a;
+      }
+    }
+  }
+
+  .designedText {
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    color: #4b5563;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .softwareGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    .softwareItem {
+      width: 160px;
+      height: 80px;
+      background: #ffffff;
+      border: 0.8px solid #e5e9f0;
+      border-radius: 8px;
+    }
   }
 
   // TODO: make all px rem and shit

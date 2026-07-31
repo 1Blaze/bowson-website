@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@assets/images/Logo.webp';
+import Arrow from '@assets/svgs/arrow-button.svg'
+
+
+type ServiceType = {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  link: string
+};
+
+const services: ServiceType[] = [
+  {
+    title: 'CNC Punching',
+    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
+    image: logo,
+    link: 'cnc-punching'
+  },
+];
+---
+
+<div class="servicesDisplay">
+  {
+    services.map((service) => (
+      <a href={`/services/${service.link}`} class="serviceItem">
+        <Image src={service.image} alt={service.title} />
+        <div class="serviceTextGap">
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <button class="serviceButton">
+            <Arrow />
+          </button>
+        </div>
+      </a>
+    ))
+  }
+</div>
