@@ -1,16 +1,98 @@
+---
+import ArrowQuote from '@assets/svgs/arrow-quote.svg'
+---
+
 <div class="callToAction">
   <div class="top">
     <div class="topBlob2"></div>
     <div class="topBlob1"></div>
+    <div class="topText">
+      <span>Start your project</span>
+      <h3>Ready to get a quotation?</h3>
+      <p>Call us to discuss your requirements or fill in the form and a member of our team will get back to you with a no-obligation quote.</p>
+    </div>
+    <div class="topDesc">
+      <div class="topRow">
+        <div class="iconBox">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M14.6667 11.28V13.28C14.6674 13.4657 14.6294 13.6494 14.555 13.8195C14.4806 13.9897 14.3715 14.1424 14.2347 14.2679C14.0979 14.3934 13.9364 14.489 13.7605 14.5485C13.5846 14.6079 13.3983 14.63 13.2133 14.6133C11.1619 14.3904 9.19134 13.6894 7.46001 12.5667C5.84923 11.5431 4.48356 10.1774 3.46001 8.56665C2.33333 6.82745 1.63217 4.84731 1.41334 2.78665C1.39668 2.60229 1.41859 2.41649 1.47767 2.24107C1.53676 2.06564 1.63172 1.90444 1.75652 1.76773C1.88131 1.63102 2.03321 1.52179 2.20253 1.447C2.37186 1.37221 2.5549 1.33349 2.74001 1.33332H4.74001C5.06354 1.33013 5.3772 1.4447 5.62251 1.65567C5.86783 1.86664 6.02806 2.15961 6.07334 2.47998C6.15801 3.11998 6.31401 3.74865 6.54001 4.35332C6.6297 4.59193 6.64911 4.85126 6.59594 5.10057C6.54277 5.34988 6.41925 5.57872 6.24001 5.75998L5.39334 6.60665C6.34238 8.27568 7.72431 9.65761 9.39334 10.6067L10.24 9.75998C10.4213 9.58074 10.6501 9.45722 10.8994 9.40405C11.1487 9.35088 11.4081 9.37029 11.6467 9.45998C12.2513 9.68598 12.88 9.84198 13.52 9.92665C13.8439 9.97234 14.1396 10.1355 14.351 10.385C14.5624 10.6345 14.6748 10.953 14.6667 11.28Z"
+              stroke="white"
+              stroke-width="1.33333"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="iconText">
+          <span>Call Us</span>
+          <a href="tel:+441782749000">01782 749000</a>
+          <!-- TODO: make this clickable for on phone -->
+        </div>
+      </div>
+      <div class="topRow">
+        <div class="iconBox">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.3333 2.66699H2.66667C1.93029 2.66699 1.33334 3.26395 1.33334 4.00033V12.0003C1.33334 12.7367 1.93029 13.3337 2.66667 13.3337H13.3333C14.0697 13.3337 14.6667 12.7367 14.6667 12.0003V4.00033C14.6667 3.26395 14.0697 2.66699 13.3333 2.66699Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M14.6667 4.66699L8.68667 8.46699C8.48085 8.59594 8.24288 8.66433 8 8.66433C7.75712 8.66433 7.51916 8.59594 7.31334 8.46699L1.33334 4.66699" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="iconText">
+          <span>Email</span>
+          <a href="mailto:info@bowson.co.uk">info@bowson.co.uk</a>
+          <!-- TODO: make this clickable for on phone -->
+        </div>
+      </div>
+    </div>
   </div>
+
+  <form class="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+    <input type="hidden" name="access_key" value="76671095-15eb-4056-aee2-01748f9ecf42" />
+    <input type="hidden" name="subject" value="New RFQ — Bowson Engineering website" />
+    <input type="hidden" name="from_name" value="Bowson Engineering website" />
+    {
+      /* Honeypot: real users never see or fill this. Bots often do. Web3Forms
+      auto-rejects submissions where this field is non-empty. */
+    }
+    <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+    <div class="formCol">
+      <label for="name" class="required">Your Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required placeholder="Jane Smith" />
+    </div>
+    <div class="formCol">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" autocomplete="company" required placeholder="Business Ltd" />
+    </div>
+    <div class="formCol">
+      <label for="email" class="required">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.co.uk" />
+    </div>
+    <div class="formCol">
+      <label for="phone" class="required">Phone Number</label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="07900 000000" />
+    </div>
+    <div class="formCol">
+      <label for="desc" class="required">Tell us about your project</label>
+      <textarea id="desc" name="desc" required placeholder="Description, quantities, materials, any other information available..."></textarea>
+    </div>
+    <div class="formCol">
+      <span>We aim to response within one working day.</span>
+      <button class="orangeButton" type="submit">
+        <p>Request Quote</p>
+        <ArrowQuote />
+      </button>
+    </div>
+    <!-- TODO: change form to live and to my email -->
+  </form>
 </div>
 
 <style lang="scss">
   .callToAction {
     width: 100%;
-    height: 1045px;
+    // height: 1045px;
+    height: fit-content;
     background: #ffffff;
-    border: 0.8px solid #e5e9f0;
+    border: 1px solid #e5e9f0;
     box-shadow:
       0px 1px 3px rgba(15, 23, 42, 0.06),
       0px 1px 2px rgba(15, 23, 42, 0.04);
@@ -24,6 +106,96 @@
       background: #0f172a;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 35px;
+
+      .topText {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        span {
+          font-weight: 600;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        h3 {
+          font-family: var(--font-barlow);
+          font-weight: 700;
+          font-size: 30px;
+          color: #ffffff;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.75);
+        }
+      }
+
+      .topDesc {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .topRow {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        transition: 0.3s;
+        cursor: pointer;
+        width: fit-content;
+
+        .iconBox {
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          path {
+            transition: 0.3s;
+          }
+        }
+
+        .iconText {
+          display: flex;
+          flex-direction: column;
+          height: 40px;
+          justify-content: space-between;
+
+          span {
+            font-weight: 400;
+            font-size: 11.2px;
+            color: rgba(255, 255, 255, 0.6);
+          }
+
+          a {
+            font-family: var(--font-barlow);
+            font-weight: 600;
+            font-size: 18px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: 0.3s;
+          }
+        }
+
+        &:hover {
+          a {
+            color: #0393cf !important;
+          }
+
+          path {
+            stroke: #0393cf !important;
+          }
+        }
+      }
 
       .topBlob2 {
         position: absolute;
@@ -50,6 +222,82 @@
         transform: translateZ(0);
         filter: blur(32px);
         border-radius: 50px;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding: 33px;
+
+      .formCol {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+          font-weight: 600;
+          font-size: 12px;
+          color: #0f172a;
+        }
+
+        input {
+          width: 100%;
+          height: 37.6px;
+          background: #ffffff;
+          border: 0.8px solid #e5e9f0;
+          border-radius: 6px;
+          font-weight: 400;
+          font-size: 16px;
+          color: black;
+          padding: 0 12px;
+
+          &::placeholder {
+            color: rgba(33, 37, 41, 0.75);
+          }
+        }
+
+        input:focus {
+          outline: none;
+        }
+
+        label.required::after {
+          content: ' *';
+          color: #ea580c;
+          font-weight: bold;
+        }
+
+        textarea {
+          width: 100%;
+          height: 110px;
+          background: #ffffff;
+          border: 0.8px solid #e5e9f0;
+          border-radius: 6px;
+          font-weight: 400;
+          font-size: 16px;
+          color: black;
+          padding: 10px 12px;
+
+          &::placeholder {
+            color: rgba(33, 37, 41, 0.75);
+          }
+        }
+
+        span {
+          font-weight: 400;
+          font-size: 12px;
+          color: #4b5563;
+        }
+      }
+
+      .botcheck {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
       }
     }
   }
