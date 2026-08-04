@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar.astro";
 import Footer from "../components/Footer/Footer.astro";
 import '@/styles/global.scss'
 import '@/styles/components.scss'
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -17,10 +18,11 @@ import '@/styles/components.scss'
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-barlow" />
     <title>Astro Basics</title>
+    <ClientRouter />
   </head>
   <body>
     <Navbar />
-    <main id="content"><slot /></main>
+    <main role="main" id="content"><slot /></main>
     <Footer />
   </body>
 </html>

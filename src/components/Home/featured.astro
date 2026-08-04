@@ -43,10 +43,11 @@ const items: FeaturedWorkItem[] = [
   @use '../../styles/breakpoints' as *;
 
   .featured {
-    max-width: 1440px;
+    // max-width: 1440px;
     display: flex;
     flex-direction: column;
     gap: 25px;
+    margin-top: 30px;
 
     .swipeSee {
       font-weight: 500;
@@ -96,7 +97,8 @@ const items: FeaturedWorkItem[] = [
     flex: 0 0 auto;
     width: 237px;
     scroll-snap-align: start;
-    height: 178px;
+    // height: 178px;
+    aspect-ratio: 237 / 178;
     background: #f1f5f9;
     border: 0.8px solid #e5e9f0;
     box-shadow:
@@ -106,6 +108,11 @@ const items: FeaturedWorkItem[] = [
     text-decoration: none;
     position: relative;
     overflow: hidden;
+
+    @include bp(lg) {
+      width: 100%;
+      // max-width: 300px;
+    }
 
     img {
       width: 100%;

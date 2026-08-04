@@ -1,8 +1,10 @@
+@use './breakpoints.scss' as *;
+
 .section {
-  padding: 40px 26px;
+  padding: 40px 0px;
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  // gap: 70px;
 }
 
 .centerFlex {
@@ -52,8 +54,16 @@
   grid-template-columns: 1fr;
   gap: 24px;
 
+  @include bp(lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 25px;
+    gap: 50px;
+  }
+
   .serviceItem {
-    width: 335.2px;
+    // width: 335.2px;
+    width: 100%;
     height: 391.4px;
     background: #ffffff;
     border: 0.8px solid #e5e9f0;
@@ -69,10 +79,18 @@
     text-decoration: none;
     overflow: hidden;
 
+    @include bp(lg) {
+      height: 420px;
+    }
+
     img {
       width: 100%;
       height: 250px;
       background: black;
+
+      @include bp(lg) {
+        height: 290px;
+      }
     }
 
     h3 {

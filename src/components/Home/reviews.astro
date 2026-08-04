@@ -4,12 +4,18 @@
   <div class="review"></div>
 </div>
 
-<!-- TODO: different for mobile and home -->
 <style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
   .reviews {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+
+    @include bp(lg) {
+      margin-top: 30px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   .reviewHighlighted {
@@ -28,5 +34,9 @@
       0px 1px 3px rgba(15, 23, 42, 0.06),
       0px 1px 2px rgba(15, 23, 42, 0.04);
     border-radius: 12px;
+
+    @include bp(lg) {
+      width: 100%;
+    }
   }
 </style>

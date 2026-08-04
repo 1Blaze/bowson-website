@@ -1,10 +1,11 @@
 @use 'sass:map';
+@use 'sass:math';
 
 $breakpoints: (
   sm: 480px,
   md: 768px,
   lg: 1024px,
-  xl: 1280px,
+  xl: 1480px,
 );
 
 @mixin bp($name) {
@@ -15,4 +16,43 @@ $breakpoints: (
   } @else {
     @warn "Unknown breakpoint: #{$name}";
   }
+}
+
+$fluid-min-vw: 375px !default;
+$fluid-max-vw: 1440px !default;
+$fluid-root-font-size: 16 !default;
+
+@function strip-unit($value) {
+  @if not unitless($value) {
+    @return math.div($value, $value * 0 + 1);
+  }
+  @return $value;
+}
+
+@function fluid($min-size, $max-size, $min-vw: $fluid-min-vw, $max-vw: $fluid-max-vw) {
+  @if unit($min-size) != unit($max-size) {
+    @error '$min-size and $max-size must use the same unit.';
+  }
+  @if unit($min-vw) != 'px' or unit($max-vw) != 'px' {
+    @error '$min-vw and $max-vw must be in px.';
+  }
+  @if $min-vw >= $max-vw {
+    @error '$min-vw must be smaller than $max-vw.';
+  }
+  @if strip-unit($min-size) > strip-unit($max-size) {
+    @error '$min-size must be less than or equal to $max-size.';
+  }
+
+  $unit: unit($min-size);
+  $min-size-px: if($unit == 'rem', strip-unit($min-size) * $fluid-root-font-size, strip-unit($min-size));
+  $max-size-px: if($unit == 'rem', strip-unit($max-size) * $fluid-root-font-size, strip-unit($max-size));
+
+  $min-width: strip-unit($min-vw);
+  $max-width: strip-unit($max-vw);
+
+  $slope: math.div($max-size-px - $min-size-px, $max-width - $min-width);
+  $intercept-px: $min-size-px - ($slope * $min-width);
+  $intercept: if($unit == 'rem', math.div($intercept-px, $fluid-root-font-size), $intercept-px);
+
+  @return clamp(#{$min-size}, #{$intercept}#{$unit} + #{$slope * 100}vw, #{$max-size});
 }

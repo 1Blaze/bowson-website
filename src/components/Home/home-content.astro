@@ -14,6 +14,8 @@ import CallToAction from '../call-to-action.astro'
 const points = [
   'Family-owned since 1990 with strong values at the heart of the business',
   'Full in-house capability — CNC punching, laser, bending, fabrication & powder coating',
+  'Full in-house capability — CNC punching, laser, bending, fabrication & powder coating',
+  'Full in-house capability — CNC punching, laser, bending, fabrication & powder coating',
 ];
 ---
 
@@ -21,53 +23,55 @@ const points = [
   <div class="blueBlob"></div>
   <div class="orangeBlob"></div>
   <div class="topGap">
-    <div class="established">
-      <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
-      </svg>
-      <p>Established 1990 · Stoke-on-Trent</p>
-    </div>
-    <div class="topTextGap">
-      <h1>
-        Sheet metal fabrication &amp; engineering in {' '}
-        <span class="blueColour">Stoke-on-Trent</span>.
-      </h1>
-      <p class="homeDesc">
-        Bowson Engineering is a family-owned business with strong values at the heart of everything we do. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating. We engage with customer design from the outset, using SolidWorks 3D modelling to optimise work processes,
-        reduce cost and deliver reliable quality with fast turnaround — from custom one-offs to larger batch runs.
-      </p>
-    </div>
-    <div class="buttonRow">
-      <!-- TODO: make this work / localise some other component so it can be re used -->
-      <a href="/"><button class="orangeButton"><p>Request a Quote</p></button></a>
-      <div class="centerFlex phoneGap">
-        <Phone />
-        <!-- <p>01782 749000</p> -->
-        <a href="tel:+441782749000">01782 749000</a>
-        <!-- TODO: make this clickable for on phone -->
+    <div class="intro">
+      <div class="established">
+        <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
+        </svg>
+        <p>Established 1990 · Stoke-on-Trent</p>
+      </div>
+      <div class="topTextGap">
+        <h1>
+          Sheet metal fabrication &amp; engineering in {' '}
+          <span class="blueColour">Stoke-on-Trent</span>.
+        </h1>
+        <p class="homeDesc">
+          Bowson Engineering is a family-owned business with strong values at the heart of everything we do. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating. We engage with customer design from the outset, using SolidWorks 3D modelling to optimise work processes,
+          reduce cost and deliver reliable quality with fast turnaround — from custom one-offs to larger batch runs.
+        </p>
+      </div>
+      <div class="buttonRow">
+        <!-- TODO: make this work / localise some other component so it can be re used -->
+        <a href="/"><button class="orangeButton"><p>Request a Quote</p></button></a>
+        <div class="centerFlex phoneGap">
+          <Phone />
+          <a href="tel:+441782749000">01782 749000</a>
+          <!-- TODO: make this clickable for on phone -->
+        </div>
       </div>
     </div>
     <div class="imgHouse">
       <div class="img">Placeholder</div>
+      <div class="capabilities"></div>
     </div>
-    <div class="infoGrid">
-      <div class="gridItem">
-        <div class="icon"><Calendar /></div>
-        <div><p>1990</p><span>Established</span></div>
-      </div>
-      <div class="gridItem">
-        <div class="icon"><Factory /></div>
-        <div><p>35+</p><span>Years of expertise</span></div>
-      </div>
-      <div class="gridItem">
-        <div class="icon"><Shield /></div>
-        <div><p>ISO 9001</p><span>Quality Standard</span></div>
-        <!-- TODO: Change this -->
-      </div>
-      <div class="gridItem">
-        <div class="icon"><Merit /></div>
-        <div><p>One-offs → Batch</p><span>Volumes</span></div>
-      </div>
+  </div>
+  <div class="infoGrid">
+    <div class="gridItem">
+      <div class="icon"><Calendar /></div>
+      <div><p>1990</p><span>Established</span></div>
+    </div>
+    <div class="gridItem">
+      <div class="icon"><Factory /></div>
+      <div><p>35+</p><span>Years of expertise</span></div>
+    </div>
+    <div class="gridItem">
+      <div class="icon"><Shield /></div>
+      <div><p>ISO 9001</p><span>Quality Standard</span></div>
+      <!-- TODO: Change this -->
+    </div>
+    <div class="gridItem">
+      <div class="icon"><Merit /></div>
+      <div><p>One-offs → Batch</p><span>Volumes</span></div>
     </div>
   </div>
   <div class="mainBlock">
@@ -78,7 +82,7 @@ const points = [
     </div>
     <ServiceGrid />
   </div>
-  <div class="mainBlock">
+  <div class="mainBlock darkerBg">
     <p class="blueTitle">Industries we serve</p>
     <div class="textBlock">
       <h2 class="h2Title">Trusted across UK industry.</h2>
@@ -86,14 +90,21 @@ const points = [
     </div>
     <SectorGrid />
   </div>
-  <div>
-    <!-- TODO: Image here on web - do not show on mobile -->
-    <div>img</div>
-    <div class="mainBlock">
+  <div class="topGap">
+    <div class="aboutImage">
+      <div class="img">Placeholder</div>
+      <div class="yearsIn">
+        <h4>35+</h4>
+        <p>Years in business</p>
+      </div>
+    </div>
+    <div class="mainBlockNoPadding">
       <p class="blueTitle">About Bowson Engineering</p>
       <div class="textBlock">
-        <h2 class="h2Title">A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h2>
-        <h3>From manufacturers to construction sites, we deliver durable, well-engineered sheet metal products to demanding sectors.</h3>
+        <h2 class="h2Title h2TitleFullWidth">A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h2>
+        <h3 class="h2TitleFullWidth">
+          From our Fenton facility we manufacture bespoke sheet metal products for clients across the UK. We engage with customer design and look at cost-effective ways to manufacture — optimising work processes to create savings and shorten lead times. Whether you need a single custom item or a larger batch run, our team takes the project from concept through to finished product.
+        </h3>
       </div>
       <ul class="aboutList">
         {
@@ -117,11 +128,11 @@ const points = [
     </div>
     <Featured />
   </div>
-  <div class="mainBlock">
+  <div class="mainBlock darkerBg">
     <p class="blueTitle blueTitleCentre">What clients say</p>
     <div class="textBlock blueTitleCentre">
-      <h2 class="h2Title blueTitleCentre">Engineered relationships, built to last.</h2>
-      <h3>Real client testimonials will be added during launch — placeholders shown below. TODO</h3>
+      <h2 class="h2Title h2TitleFullWidth blueTitleCentre">Engineered relationships, built to last.</h2>
+      <h3 class="h2TitleFullWidth">Real client testimonials will be added during launch — placeholders shown below. TODO</h3>
     </div>
     <Reviews />
     <p class="designedText">Designed & manufactured with industry-standard software</p>
@@ -137,17 +148,25 @@ const points = [
 
 <!-- TODO: MAKE THE SECTIONS JUST GREAT SCSS -->
 <!-- TOOD: go through all of this and compare to the next pages and then re use components and re use styles so it is easier lol -->
+<!-- TODO: make all rem and shit -->
 
 <style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
   .home {
     position: relative;
     width: 100%;
+
     h1 {
       font-family: var(--font-barlow);
       font-style: normal;
       font-weight: 700;
-      font-size: 36px;
+      font-size: fluid(2.25rem, 3.75rem);
       color: #0f172a;
+
+      @include bp(xl) {
+        width: 85%;
+      }
 
       span {
         width: 100%;
@@ -162,7 +181,12 @@ const points = [
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
+      font-size: fluid(1rem, 1.2rem);
       color: #4b5563;
+
+      @include bp(xl) {
+        width: 85%;
+      }
     }
   }
 
@@ -180,10 +204,24 @@ const points = [
     gap: 36px;
     position: relative;
     width: 100%;
+    padding: 0 26px;
+
+    @include bp(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr; // check Figma's actual column ratio, may not be 50/50
+      align-items: center;
+      padding: 0 100px;
+    }
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
   }
 
   .established {
-    width: 335px;
+    width: fit-content;
     height: 45.6px;
     background: #f8f9fa;
     border: 0.8px solid #e5e9f0;
@@ -193,6 +231,10 @@ const points = [
     padding: 0 13px;
     gap: 13px;
     position: relative;
+
+    @include bp(lg) {
+      height: 27px;
+    }
 
     p {
       font-style: bold;
@@ -239,21 +281,42 @@ const points = [
 
   .imgHouse {
     border-radius: 16px;
-    width: 359.2px;
-    height: 213.25px;
+    width: 100%;
+    aspect-ratio: 742 / 418;
     background: linear-gradient(135deg, #dceefb 0%, #eef6fb 15%, #ffffff 45%, #fdf3ea 75%, #fbe4cd 100%);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+
+    .capabilities {
+      display: none;
+      position: absolute;
+      width: 383px;
+      height: 96px;
+      background: #ffffff;
+      border: 0.8px solid #e5e9f0;
+      box-shadow:
+        0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+        0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+      border-radius: 12px;
+      bottom: -25px;
+      left: 70px;
+
+      @include bp(lg) {
+        display: flex;
+      }
+    }
 
     .img {
-      width: 335.2px;
-      height: 189.25px;
+      width: 93%;
+      height: 93%;
       border: 1px solid #e5e9f0;
       box-shadow:
         0px 6px 12px -6px rgba(15, 23, 42, 0.08),
         0px 12px 30px -10px rgba(2, 132, 199, 0.25);
       border-radius: 12px;
+      object-fit: cover;
     }
   }
 
@@ -261,6 +324,20 @@ const points = [
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px 0;
+    padding: 0 26px;
+    margin: 70px 0 35px 0;
+
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      align-items: center;
+      padding: 0 100px;
+      height: 145.6px;
+      background: #f8fafc;
+      border-width: 1px 0px;
+      border-style: solid;
+      border-color: #e5e9f0;
+      // margin: -20px 0;
+    }
 
     .gridItem {
       padding: 0 20px;
@@ -306,11 +383,41 @@ const points = [
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 35px 26px;
+
+    @include bp(lg) {
+      padding: 35px 100px;
+    }
 
     h3 {
       font-weight: 400;
       font-size: 18px;
       color: #4b5563;
+
+      @include bp(lg) {
+        width: 60%;
+      }
+    }
+  }
+
+  .mainBlockNoPadding {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 35px 0px;
+
+    @include bp(lg) {
+      padding: 35px 0px;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 18px;
+      color: #4b5563;
+
+      @include bp(lg) {
+        width: 60%;
+      }
     }
   }
 
@@ -329,8 +436,21 @@ const points = [
     font-family: var(--font-barlow);
     font-style: normal;
     font-weight: 600;
-    font-size: 28px;
+    // font-size: 28px;
+    font-size: fluid(1.75rem, 2.75rem);
     color: #0f172a;
+
+    @include bp(lg) {
+      width: 50%;
+    }
+
+    @include bp(xl) {
+      width: 40%;
+    }
+  }
+
+  .h2TitleFullWidth {
+    width: 100% !important;
   }
 
   .aboutList {
@@ -358,6 +478,68 @@ const points = [
     }
   }
 
+  .aboutImage {
+    display: none;
+    border-radius: 16px;
+    width: 90%;
+    aspect-ratio: 478 / 360;
+    background: linear-gradient(to bottom right, #fde9de 0%, #fef3ee 25%, #ffffff 50%, #eef7fb 75%, #dceef7 100%);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include bp(lg) {
+      display: flex;
+    }
+
+    .yearsIn {
+      position: absolute;
+      width: fit-content;
+      height: 82.8px;
+
+      background: #0393cf;
+      box-shadow:
+        0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+        0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+      border-radius: 12px;
+      border-radius: 12px;
+      bottom: -15px;
+      right: -10px;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+      padding: 0 20px;
+
+      @include bp(lg) {
+        display: flex;
+      }
+
+      h4 {
+        font-family: var(--font-barlow);
+        font-weight: 700;
+        font-size: 30px;
+        color: #ffffff;
+      }
+
+      p {
+        font-weight: 600;
+        font-size: 11.2px;
+        color: #ffffff;
+      }
+    }
+
+    .img {
+      width: 93%;
+      height: 93%;
+      border: 1px solid #e5e9f0;
+      box-shadow:
+        0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+        0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+      border-radius: 12px;
+      object-fit: cover;
+    }
+  }
+
   .designedText {
     font-weight: 600;
     font-size: 12px;
@@ -365,6 +547,10 @@ const points = [
     color: #4b5563;
     width: 80%;
     margin: 0 auto;
+
+    @include bp(lg) {
+      margin-top: 30px;
+    }
   }
 
   .softwareGrid {
@@ -372,13 +558,25 @@ const points = [
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
     .softwareItem {
       width: 160px;
       height: 80px;
       background: #ffffff;
       border: 0.8px solid #e5e9f0;
       border-radius: 8px;
+
+      @include bp(lg) {
+        width: 100%;
+      }
     }
+  }
+
+  .darkerBg {
+    background-color: #f8fafc;
   }
 
   // TODO: make all px rem and shit
