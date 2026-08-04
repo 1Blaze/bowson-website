@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import logo from '@assets/images/Logo.webp';
 import Arrow from '@assets/svgs/arrow-button.svg'
+import Reveal from './reveal.astro';
 
 type ServiceType = {
   title: string;
@@ -17,21 +18,53 @@ const services: ServiceType[] = [
     image: logo,
     link: 'manufacturing'
   },
+    {
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines.',
+    image: logo,
+    link: 'manufacturing'
+  },
+    {
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines.',
+    image: logo,
+    link: 'manufacturing'
+  },
+    {
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines.',
+    image: logo,
+    link: 'manufacturing'
+  },
+    {
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines.',
+    image: logo,
+    link: 'manufacturing'
+  },
+    {
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines.',
+    image: logo,
+    link: 'manufacturing'
+  },
 ];
 ---
 
 <div class="servicesDisplay">
   {
-    services.map((service) => (
+    services.map((service, i) => (
       <a href={`/sectors/${service.link}`} class="serviceItem">
-        <Image src={service.image} alt={service.title} />
-        <div class="serviceTextGap">
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
-          <button class="serviceButton">
-            <Arrow />
-          </button>
-        </div>
+        <Reveal delay={i * 70}>
+          <Image src={service.image} alt={service.title} />
+          <div class="serviceTextGap">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <button class="serviceButton">
+              <Arrow />
+            </button>
+          </div>
+        </Reveal>
       </a>
     ))
   }

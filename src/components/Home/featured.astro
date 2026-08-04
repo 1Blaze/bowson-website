@@ -1,6 +1,7 @@
 ---
 import logo from '@assets/images/Logo.webp';
 import { Image } from 'astro:assets';
+import Reveal from '../reveal.astro';
 
 interface FeaturedWorkItem {
   image: ImageMetadata;
@@ -22,17 +23,19 @@ const items: FeaturedWorkItem[] = [
   <ul class="featuredUl" role="list" tabindex="0" aria-label="featured-work">
     {
       items.map((item, index) => (
-        <li class="featuredWork">
+        <Reveal as="li" delay={index * 70} from="left">
           <a href="">
-            <Image src={item.image} alt={item.title} />
-            <div class="featuredOverlay" />
-            <div class="featuredText">
-              <p>Agriculture & forestry</p>
-              <h4>Deer Towers</h4>
-              <span>Galvanised steel lookout towers replacing traditional wooden...</span>
+            <div class="featuredWork">
+              <Image src={item.image} alt={item.title} />
+              <div class="featuredOverlay" />
+              <div class="featuredText">
+                <p>Agriculture & forestry</p>
+                <h4>Deer Towers</h4>
+                <span>Galvanised steel lookout towers replacing traditional wooden...</span>
+              </div>
             </div>
           </a>
-        </li>
+        </Reveal>
       ))
     }
   </ul>
@@ -108,6 +111,12 @@ const items: FeaturedWorkItem[] = [
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    transition: 0.3s;
+
+    a {
+      height: 100%;
+      position: relative;
+    }
 
     @include bp(lg) {
       width: 100%;
@@ -163,6 +172,14 @@ const items: FeaturedWorkItem[] = [
 
     @include bp(lg) {
       width: auto;
+    }
+
+    &:hover {
+      box-shadow:
+        0px 4px 6px -4px rgba(0, 0, 0, 0.2),
+        0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+      scale: 1.01;
     }
   }
 </style>

@@ -10,6 +10,7 @@ import SectorGrid from '../sector-grid.astro'
 import Featured from './featured.astro'
 import Reviews from './reviews.astro'
 import CallToAction from '../call-to-action.astro'
+import Reveal from '../reveal.astro'
 
 const points = [
   'Family-owned since 1990 with strong values at the heart of the business',
@@ -22,125 +23,149 @@ const points = [
 <section class="section home">
   <div class="blueBlob"></div>
   <div class="orangeBlob"></div>
-  <div class="topGap">
-    <div class="intro">
-      <div class="established">
-        <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
-        </svg>
-        <p>Established 1990 · Stoke-on-Trent</p>
+  <Reveal>
+    <div class="topGap">
+      <div class="intro">
+        <div class="established">
+          <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
+          </svg>
+          <p>Established 1990 · Stoke-on-Trent</p>
+        </div>
+        <div class="topTextGap">
+          <h1>
+            Sheet metal fabrication &amp; engineering in {' '}
+            <span class="blueColour">Stoke-on-Trent</span>.
+          </h1>
+          <p class="homeDesc">
+            Bowson Engineering is a family-owned business with strong values at the heart of everything we do. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating. We engage with customer design from the outset, using SolidWorks 3D modelling to optimise work processes,
+            reduce cost and deliver reliable quality with fast turnaround — from custom one-offs to larger batch runs.
+          </p>
+        </div>
+        <div class="buttonRow">
+          <!-- TODO: make this work / localise some other component so it can be re used -->
+          <a href="/"><button class="orangeButton"><p>Request a Quote</p></button></a>
+          <div class="centerFlex phoneGap">
+            <Phone />
+            <a href="tel:+441782749000">01782 749000</a>
+            <!-- TODO: make this clickable for on phone -->
+          </div>
+        </div>
       </div>
-      <div class="topTextGap">
-        <h1>
-          Sheet metal fabrication &amp; engineering in {' '}
-          <span class="blueColour">Stoke-on-Trent</span>.
-        </h1>
-        <p class="homeDesc">
-          Bowson Engineering is a family-owned business with strong values at the heart of everything we do. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating. We engage with customer design from the outset, using SolidWorks 3D modelling to optimise work processes,
-          reduce cost and deliver reliable quality with fast turnaround — from custom one-offs to larger batch runs.
-        </p>
-      </div>
-      <div class="buttonRow">
-        <!-- TODO: make this work / localise some other component so it can be re used -->
-        <a href="/"><button class="orangeButton"><p>Request a Quote</p></button></a>
-        <div class="centerFlex phoneGap">
-          <Phone />
-          <a href="tel:+441782749000">01782 749000</a>
-          <!-- TODO: make this clickable for on phone -->
+      <div class="imgHouse">
+        <div class="img">Placeholder</div>
+        <div class="capabilities">
+          <span>In-house capability</span>
+          <p>Design → Punch → Bend → Weld → Coat</p>
         </div>
       </div>
     </div>
-    <div class="imgHouse">
-      <div class="img">Placeholder</div>
-      <div class="capabilities"></div>
-    </div>
-  </div>
-  <div class="infoGrid">
-    <div class="gridItem">
-      <div class="icon"><Calendar /></div>
-      <div><p>1990</p><span>Established</span></div>
-    </div>
-    <div class="gridItem">
-      <div class="icon"><Factory /></div>
-      <div><p>35+</p><span>Years of expertise</span></div>
-    </div>
-    <div class="gridItem">
-      <div class="icon"><Shield /></div>
-      <div><p>ISO 9001</p><span>Quality Standard</span></div>
-      <!-- TODO: Change this -->
-    </div>
-    <div class="gridItem">
-      <div class="icon"><Merit /></div>
-      <div><p>One-offs → Batch</p><span>Volumes</span></div>
-    </div>
-  </div>
+  </Reveal>
+
+  <Reveal>
+    <div class="infoGridWrapper">
+      <div class="infoGrid">
+        <div class="gridItem">
+          <div class="icon"><Calendar /></div>
+          <div><p>1990</p><span>Established</span></div>
+        </div>
+        <div class="gridItem">
+          <div class="icon"><Factory /></div>
+          <div><p>35+</p><span>Years of expertise</span></div>
+        </div>
+        <div class="gridItem">
+          <div class="icon"><Shield /></div>
+          <div><p>ISO 9001</p><span>Quality Standard</span></div>
+          <!-- TODO: Change this -->
+        </div>
+        <div class="gridItem">
+          <div class="icon"><Merit /></div>
+          <div><p>One-offs → Batch</p><span>Volumes</span></div>
+        </div>
+      </div>
+    </div></Reveal
+  >
   <div class="mainBlock">
-    <p class="blueTitle">What we do</p>
-    <div class="textBlock">
-      <h2 class="h2Title">In-house services from design to finished product.</h2>
-      <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
-    </div>
+    <Reveal>
+      <p class="blueTitle">What we do</p>
+      <div class="textBlock">
+        <h2 class="h2Title">In-house services from design to finished product.</h2>
+        <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+      </div>
+    </Reveal>
     <ServiceGrid />
   </div>
-  <div class="mainBlock darkerBg">
-    <p class="blueTitle">Industries we serve</p>
-    <div class="textBlock">
-      <h2 class="h2Title">Trusted across UK industry.</h2>
-      <h3>From manufacturers to construction sites, we deliver durable, well-engineered sheet metal products to demanding sectors.</h3>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <Reveal>
+        <p class="blueTitle">Industries we serve</p>
+        <div class="textBlock">
+          <h2 class="h2Title">Trusted across UK industry.</h2>
+          <h3>From manufacturers to construction sites, we deliver durable, well-engineered sheet metal products to demanding sectors.</h3>
+        </div>
+      </Reveal>
+      <SectorGrid />
     </div>
-    <SectorGrid />
   </div>
   <div class="topGap">
-    <div class="aboutImage">
-      <div class="img">Placeholder</div>
-      <div class="yearsIn">
-        <h4>35+</h4>
-        <p>Years in business</p>
+    <Reveal from="left">
+      <div class="aboutImage">
+        <div class="img">Placeholder</div>
+        <div class="yearsIn">
+          <h4>35+</h4>
+          <p>Years in business</p>
+        </div>
       </div>
-    </div>
-    <div class="mainBlockNoPadding">
-      <p class="blueTitle">About Bowson Engineering</p>
-      <div class="textBlock">
-        <h2 class="h2Title h2TitleFullWidth">A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h2>
-        <h3 class="h2TitleFullWidth">
-          From our Fenton facility we manufacture bespoke sheet metal products for clients across the UK. We engage with customer design and look at cost-effective ways to manufacture — optimising work processes to create savings and shorten lead times. Whether you need a single custom item or a larger batch run, our team takes the project from concept through to finished product.
-        </h3>
+    </Reveal>
+    <Reveal from="right">
+      <div class="mainBlockNoPadding">
+        <p class="blueTitle">About Bowson Engineering</p>
+        <div class="textBlock">
+          <h2 class="h2Title h2TitleFullWidth">A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h2>
+          <h3 class="h2TitleFullWidth">
+            From our Fenton facility we manufacture bespoke sheet metal products for clients across the UK. We engage with customer design and look at cost-effective ways to manufacture — optimising work processes to create savings and shorten lead times. Whether you need a single custom item or a larger batch run, our team takes the project from concept through to finished product.
+          </h3>
+        </div>
+        <ul class="aboutList">
+          {
+            points.map((point) => (
+              <li>
+                <Check />
+                <p>{point}</p>
+              </li>
+            ))
+          }
+        </ul>
+        <!-- TODO: make this work / localise some other component so it can be re used -->
+        <a href="/about"><button class="orangeButton"><p>About us</p></button></a>
       </div>
-      <ul class="aboutList">
-        {
-          points.map((point) => (
-            <li>
-              <Check />
-              <p>{point}</p>
-            </li>
-          ))
-        }
-      </ul>
-      <!-- TODO: make this work / localise some other component so it can be re used -->
-      <a href="/about"><button class="orangeButton"><p>About us</p></button></a>
-    </div>
+    </Reveal>
   </div>
   <div class="mainBlock">
-    <p class="blueTitle">Featured work</p>
-    <div class="textBlock">
-      <h2 class="h2Title">Bespoke products, engineered in Stoke-On-Trent.</h2>
-      <h3>A small selection of past projects — from deer towers and pallet gates to machine guards, kennels and bespoke stillages.</h3>
-    </div>
+    <Reveal>
+      <p class="blueTitle">Featured work</p>
+      <div class="textBlock">
+        <h2 class="h2Title">Bespoke products, engineered in Stoke-On-Trent.</h2>
+        <h3>A small selection of past projects — from deer towers and pallet gates to machine guards, kennels and bespoke stillages.</h3>
+      </div>
+    </Reveal>
     <Featured />
   </div>
-  <div class="mainBlock darkerBg">
-    <p class="blueTitle blueTitleCentre">What clients say</p>
-    <div class="textBlock blueTitleCentre">
-      <h2 class="h2Title h2TitleFullWidth blueTitleCentre">Engineered relationships, built to last.</h2>
-      <h3 class="h2TitleFullWidth">Real client testimonials will be added during launch — placeholders shown below. TODO</h3>
-    </div>
-    <Reviews />
-    <p class="designedText">Designed & manufactured with industry-standard software</p>
-    <div class="softwareGrid">
-      <div class="softwareItem"></div>
-      <div class="softwareItem"></div>
-      <div class="softwareItem"></div>
-      <div class="softwareItem"></div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <p class="blueTitle blueTitleCentre">What clients say</p>
+      <div class="textBlock blueTitleCentre">
+        <h2 class="h2Title h2TitleFullWidth blueTitleCentre">Engineered relationships, built to last.</h2>
+        <h3 class="h2TitleFullWidth">Real client testimonials will be added during launch — placeholders shown below. TODO</h3>
+      </div>
+      <Reviews />
+      <p class="designedText">Designed & manufactured with industry-standard software</p>
+      <div class="softwareGrid">
+        <div class="softwareItem"></div>
+        <div class="softwareItem"></div>
+        <div class="softwareItem"></div>
+        <div class="softwareItem"></div>
+      </div>
     </div>
   </div>
   <CallToAction />
@@ -164,9 +189,9 @@ const points = [
       font-size: fluid(2.25rem, 3.75rem);
       color: #0f172a;
 
-      @include bp(xl) {
-        width: 85%;
-      }
+      // @include bp(xl) {
+      //   width: 85%;
+      // }
 
       span {
         width: 100%;
@@ -184,9 +209,9 @@ const points = [
       font-size: fluid(1rem, 1.2rem);
       color: #4b5563;
 
-      @include bp(xl) {
-        width: 85%;
-      }
+      // @include bp(xl) {
+      //   width: 85%;
+      // }
     }
   }
 
@@ -208,9 +233,17 @@ const points = [
 
     @include bp(lg) {
       display: grid;
-      grid-template-columns: 1fr 1.5fr; // check Figma's actual column ratio, may not be 50/50
+      grid-template-columns: 1fr 1.33fr; // check Figma's actual column ratio, may not be 50/50
       align-items: center;
       padding: 0 100px;
+      // margin-inline: auto;
+      // max-width: 1440px;
+    }
+
+    @include bp(xl) {
+      // padding: 0;
+      margin-inline: auto;
+      max-width: 1440px;
     }
   }
 
@@ -292,7 +325,7 @@ const points = [
     .capabilities {
       display: none;
       position: absolute;
-      width: 383px;
+      width: fit-content;
       height: 96px;
       background: #ffffff;
       border: 0.8px solid #e5e9f0;
@@ -302,9 +335,26 @@ const points = [
       border-radius: 12px;
       bottom: -25px;
       left: 70px;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 17px;
+      gap: 5px;
 
       @include bp(lg) {
         display: flex;
+      }
+
+      span {
+        font-weight: 600;
+        font-size: 12px;
+        color: #4b5563;
+      }
+
+      p {
+        font-family: var(--font-barlow);
+        font-weight: 700;
+        font-size: 20px;
+        color: #0f172a;
       }
     }
 
@@ -320,23 +370,34 @@ const points = [
     }
   }
 
+  .infoGridWrapper {
+    margin: 70px 0 35px 0;
+    @include bp(lg) {
+      background: #f8fafc;
+      border-width: 1px 0px;
+      border-style: solid;
+      border-color: #e5e9f0;
+      height: 145.6px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
   .infoGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px 0;
     padding: 0 26px;
-    margin: 70px 0 35px 0;
+    // margin: 70px 0 35px 0;
 
     @include bp(lg) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       align-items: center;
+      gap: 177px;
       padding: 0 100px;
-      height: 145.6px;
-      background: #f8fafc;
-      border-width: 1px 0px;
-      border-style: solid;
-      border-color: #e5e9f0;
-      // margin: -20px 0;
+      max-width: 1440px;
+      margin-inline: auto;
+      width: 100%;
     }
 
     .gridItem {
@@ -384,9 +445,15 @@ const points = [
     flex-direction: column;
     gap: 20px;
     padding: 35px 26px;
+    width: 100%;
 
     @include bp(lg) {
       padding: 35px 100px;
+    }
+
+    @include bp(xl) {
+      margin-inline: auto;
+      max-width: 1440px;
     }
 
     h3 {
@@ -419,6 +486,10 @@ const points = [
         width: 60%;
       }
     }
+
+    a {
+      text-decoration: none;
+    }
   }
 
   .blueTitle {
@@ -442,10 +513,6 @@ const points = [
 
     @include bp(lg) {
       width: 50%;
-    }
-
-    @include bp(xl) {
-      width: 40%;
     }
   }
 

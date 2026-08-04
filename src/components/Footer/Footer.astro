@@ -9,36 +9,66 @@ const socialMedias = [
     { name: 'Facebook', href: 'https://www.facebook.com/BowsonEng', Icon: FacebookIcon },
 ]
 // TODO: the rest
+
+const explore = [
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+]
+
+const services = [
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/' },
+]
 ---
 
 <footer class="footer">
   <div class="footerPadding">
-    <div class="footerTop">
-      <div class="imageHouse"><a href="/"><Image src={logo} alt="Bowson Engineering Logo" /></a></div>
-      <p>Established in 1990 and based in Stoke-on-Trent, Bowson Engineering is a family-owned sheet metal manufacturer specialising in CNC punching, laser cutting, bending, fabrication and powder coating.</p>
-    </div>
-    <div class="socials">
-      {
-        socialMedias.map(({ name, href, Icon }) => (
-          <a class="socialLogo" href={href} target="_blank" rel="noopener noreferrer" aria-label={name}>
-            <Icon />
-          </a>
-        ))
-      }
+    <div class="footerSocials">
+      <div class="footerTop">
+        <div class="imageHouse"><a href="/"><Image src={logo} alt="Bowson Engineering Logo" /></a></div>
+        <p>Established in 1990 and based in Stoke-on-Trent, Bowson Engineering is a family-owned sheet metal manufacturer specialising in CNC punching, laser cutting, bending, fabrication and powder coating.</p>
+      </div>
+      <div class="socials">
+        {
+          socialMedias.map(({ name, href, Icon }) => (
+            <a class="socialLogo" href={href} target="_blank" rel="noopener noreferrer" aria-label={name}>
+              <Icon />
+            </a>
+          ))
+        }
+      </div>
     </div>
     <div class="footerRow">
       <div class="footerLinks">
         <p class="footerBold">Explore</p>
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="/about-us">About Us</a></li>
+          {
+            explore.map((item) => (
+              <li>
+                <a href={item.href}>{item.name}</a>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <div class="footerLinks">
         <p class="footerBold">Services</p>
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="/about-us">About Us</a></li>
+          {
+            services.map((item) => (
+              <li>
+                <a href={item.href}>{item.name}</a>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <!-- TODO: complete these -->
@@ -63,19 +93,44 @@ const socialMedias = [
       </ul>
     </div>
   </div>
-  <div class="footerBottom"><p>© 2026 Bowson Engineering Limited. All rights reserved.</p><p>Registered in England · Stoke-on-Trent, United Kingdom</p></div>
+  <div class="footerBottomHouse">
+    <div class="footerBottom"><p>© 2026 Bowson Engineering Limited. All rights reserved.</p><p>Registered in England · Stoke-on-Trent, United Kingdom</p></div>
+  </div>
 </footer>
 
 <style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
   .footer {
     width: 100%;
     background-color: #0f172a;
+
+    .footerSocials {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
 
     .footerPadding {
       padding: 48px 20px;
       display: flex;
       flex-direction: column;
       gap: 48px;
+
+      @include bp(lg) {
+        padding: 48px 100px;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        justify-content: center;
+        // margin-inline: auto;
+        // max-width: 1440px;
+      }
+
+      @include bp(xl) {
+        padding: 48px 0px;
+        margin-inline: auto;
+        max-width: 1440px;
+      }
     }
 
     .footerTop {
@@ -209,20 +264,37 @@ const socialMedias = [
       }
     }
 
-    .footerBottom {
+    .footerBottomHouse {
       height: 96px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       width: 100%;
+
+      @include bp(lg) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .footerBottom {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       gap: 12px;
+      position: relative;
+      height: 100%;
 
       p {
         font-weight: 400;
         font-size: 12px;
         color: rgba(255, 255, 255, 0.55);
+      }
+
+      @include bp(lg) {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1440px;
+        margin-inline: auto;
       }
     }
   }

@@ -1,8 +1,15 @@
+@use '../../styles/breakpoints.scss' as *;
+
 .header {
   position: relative;
   width: 100%;
   z-index: 2;
   background: #fff;
+
+  .navbarActive {
+    color: #0393cf !important;
+    stroke: #0393cf !important;
+  }
 
   .navbar {
     display: flex;
@@ -20,6 +27,35 @@
       padding: 0 1.25rem;
       height: 80px;
       width: 100%;
+
+      @include bp(lg) {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1440px;
+        margin-inline: auto;
+        padding: 0 100px;
+      }
+    }
+
+    .phoneGap {
+      gap: 8px;
+      display: flex;
+
+      a {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #0f172a;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .navInfo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
     }
 
     img {
@@ -27,20 +63,86 @@
       height: 36px;
     }
 
+    .navItem {
+      position: relative;
+    }
+
     .navLinks {
       display: flex;
       align-items: center;
-      //   gap: 1.75rem;
-      //   list-style: none;
-      //   margin: 0;
-      //   padding: 0;
-      //   font-size: 0.95rem;
-      //   font-weight: 500;
+      gap: 24px;
+      list-style: none;
+      position: relative;
+
+      .navTrigger {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: none;
+        outline: none;
+        border: none;
+
+        .chevron {
+          transition: 0.3s;
+        }
+
+        &[aria-expanded='true'] .chevron {
+          transform: rotate(180deg);
+        }
+
+        &:hover {
+          p {
+            color: #0393cf;
+          }
+
+          path {
+            stroke: #0393cf;
+          }
+        }
+      }
+
+      .dropdownPanel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 0;
+        min-width: 220px;
+        background: #ffffff;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        padding: 0.5rem;
+        list-style: none;
+        margin: 0;
+        z-index: 20;
+
+        &.open {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      a,
+      p {
+        font-weight: 600;
+        font-size: 14px;
+        color: #0f172a;
+        text-decoration: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      a {
+        &:hover {
+          color: #0393cf;
+        }
+      }
     }
 
     @media (max-width: 900px) {
       .navLinks,
-      .navActions {
+      .navInfo {
         display: none;
       }
 
@@ -115,10 +217,9 @@
     display: block;
     padding: 0.6rem 0;
     text-decoration: none;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    color: rgba(15, 23, 42, 0.85);
+    font-weight: 700;
+    font-size: 20px;
+    color: #0f172a;
   }
 
   .mobileTrigger {
@@ -131,10 +232,9 @@
     border: none;
     cursor: pointer;
 
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    color: rgba(15, 23, 42, 0.85);
+    font-weight: 700;
+    font-size: 20px;
+    color: #0f172a;
   }
 
   .mobileTrigger[aria-expanded='true'] .chevron {
@@ -156,18 +256,8 @@
     display: block;
     padding: 0.5rem 0;
     text-decoration: none;
-    color: #444;
-    font-size: 0.95rem;
+    font-weight: 500;
+    font-size: 20px;
+    color: #0f172a;
   }
-
-  // .mobile-actions {
-  //   display: flex;
-  //   flex-direction: column;
-  //   gap: 0.75rem;
-  //   margin-top: 1.25rem;
-  // }
-
-  // .mobile-actions .quote-btn {
-  //   text-align: center;
-  // }
 }

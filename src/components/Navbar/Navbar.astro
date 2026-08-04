@@ -32,18 +32,68 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
+const currentPath = Astro.url.pathname;
+
+const isActive = (href: string) =>
+  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+
 import Image from 'astro/components/Image.astro';
 import './Navbar.scss';
 
 import logo from '@assets/images/Logo.webp';
+import Phone from '@assets/svgs/phone.svg'
+
 ---
 
 <header class="header">
   <nav class="navbar" aria-label="Main navigation">
     <div class="navbarTop">
       <a href="/" class="logo"><Image src={logo} alt="Bowson Engineering Logo" /></a>
-      <ul class="navLinks">TODO LINKS</ul>
-      <div class="navActions"></div>
+      <ul class="navLinks">
+        {
+          navItems.map((item) => {
+            const hasDropdown = !!item.items?.length;
+            const id = hasDropdown ? `dropdown-${slug(item.label)}` : undefined;
+            const active = isActive(item.href);
+            return (
+              <li class="navItem">
+                {hasDropdown ? (
+                  <>
+                    <button class={'navTrigger'} type="button" aria-haspopup="true" aria-expanded="false" aria-controls={id} data-dropdown-trigger>
+                      <p class={active ? 'navbarActive' : ''}>{item.label}</p>
+                      <svg class={active ? 'navbarActive chevron' : 'chevron'} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <ul class="dropdownPanel" id={id} data-dropdown-panel>
+                      {item.items!.map((sub) => (
+                        <li>
+                          <a href={sub.href} class={active ? 'navbarActive' : ''}>
+                            {sub.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a href={item.href} class={active ? 'navbarActive' : ''}>
+                    {item.label}
+                  </a>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div class="navInfo">
+        <div class="phoneGap">
+          <Phone />
+          <a href="tel:+441782749000">01782 749000</a>
+          <!-- TODO: make this clickable for on phone -->
+        </div>
+        <!-- TODO: make it work -->
+        <button class="blueButton"><p>Get a Quote</p></button>
+      </div>
       <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" id="hamburgerBtn">
         <span></span>
         <span></span>
@@ -57,7 +107,7 @@ import logo from '@assets/images/Logo.webp';
           navItems.map((item) => {
             const hasDropdown = !!item.items?.length;
             const id = hasDropdown ? `mobile-dropdown-${slug(item.label)}` : undefined;
-            // TODO: style this
+            const active = isActive(item.href);
             return (
               <li>
                 {hasDropdown ? (
@@ -77,18 +127,15 @@ import logo from '@assets/images/Logo.webp';
                     </ul>
                   </>
                 ) : (
-                  <a href={item.href}>{item.label}</a>
+                  <a href={item.href} class={active ? 'navbarActive' : ''}>
+                    {item.label}
+                  </a>
                 )}
               </li>
             );
           })
         }
       </ul>
-      <!-- TODO -->
-      <!-- <div class="mobile-actions">
-        <a href="tel:01782749000" class="phone-link">01782 749000</a>
-        <a href="/quote" class="quote-btn">Get a Quote</a>
-      </div> -->
     </div>
   </nav>
 </header>
