@@ -5,6 +5,14 @@ import Footer from "../components/Footer/Footer.astro";
 import '@/styles/global.scss'
 import '@/styles/components.scss'
 import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const title = Astro.props.title
+const description = Astro.props.description
 ---
 
 <!doctype html>
@@ -17,7 +25,8 @@ import { ClientRouter } from "astro:transitions";
     <meta name="generator" content={Astro.generator} />
     <Font cssVariable="--font-inter" />
     <Font cssVariable="--font-barlow" />
-    <title>Astro Basics</title>
+    <!-- TODO: all this stuff so its SEO optimised and shit -->
+    <title>{title}</title>
     <ClientRouter />
   </head>
   <body>

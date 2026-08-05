@@ -1,4 +1,5 @@
 import { defineConfig, fontProviders } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   fonts: [
@@ -15,4 +16,6 @@ export default defineConfig({
       weights: [400, 600, 700, 900],
     },
   ],
+  site: 'https://bowson.co.uk',
+  integrations: [sitemap()],
 });

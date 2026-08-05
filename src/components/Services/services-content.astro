@@ -1,0 +1,54 @@
+---
+import InfoGrid from '../info-grid.astro';
+import '../Reused.scss';
+import Phone from '@assets/svgs/phone.svg'
+import Reveal from '../reveal.astro';
+---
+
+<section class="sectionHome">
+  <div class="sectionTop">
+    <div class="imgBg">
+      <!-- TODO: change to astro image -->
+      <img src="https://www.bowson.co.uk/images/speasyimagegallery/albums/1/images/img-8270.jpg" alt="" />
+      <div class="imgOverlay"></div>
+    </div>
+    <div class="sectionImgOver">
+      <div class="sectionTopButtons">
+        <span>Services</span>
+        <h1>In-house engineering from design to finished product.</h1>
+      </div>
+      <p class="sectionTopDesc">CNC punching, laser cutting, press brake bending, MIG/TIG welding, powder coating and SolidWorks design — all under one roof in Stoke-on-Trent. One PO, one supplier, finished parts.</p>
+      <div class="sectionTopButtons">
+        <button class="orangeButton" type="submit">
+          <p>Request a Quote</p>
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.666687 5.33337H10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M5.33337 0.666687L10 5.33335L5.33337 10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <!-- TODO: make work and change to assets -->
+        </button>
+        <div class="hollowButton">
+          <Phone />
+          <a href="tel:+441782749000">01782 749000</a>
+          <!-- TODO: make this clickable for on phone -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <InfoGrid borderAndBg={true} />
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">What we do</p>
+      <div class="textBlock">
+        <h2 class="h2Title">In-house services from design to finished product.</h2>
+        <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+      </div>
+    </div>
+    <!-- <ServiceGrid /> -->
+  </div>
+  <!-- <ServiceGrid /> -->
+</section>
+
+<!-- <style lang="scss">
+  @use '../../styles/breakpoints' as *;
+</style> -->

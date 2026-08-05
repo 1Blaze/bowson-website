@@ -7,6 +7,7 @@ const navItems = [
     label: "Services",
     href: "/services",
     items: [
+      { label: "Services", href: "/services" },
       { label: "CNC Punching", href: "/services/cnc-punching" },
       { label: "Laser Cutting", href: "/services/laser-cutting" },
       { label: "Bending", href: "/services/bending" },
@@ -19,13 +20,14 @@ const navItems = [
     label: "Sectors",
     href: "/sectors",
     items: [
+      { label: "Sectors", href: "/sectors" },
       { label: "Automotive", href: "/sectors/automotive" },
       { label: "Construction", href: "/sectors/construction" },
       { label: "Agriculture", href: "/sectors/agriculture" },
       { label: "General Engineering", href: "/sectors/general-engineering" },
     ],
   },
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Projects", href: "/projects" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
@@ -59,16 +61,16 @@ import Phone from '@assets/svgs/phone.svg'
               <li class="navItem">
                 {hasDropdown ? (
                   <>
-                    <button class={'navTrigger'} type="button" aria-haspopup="true" aria-expanded="false" aria-controls={id} data-dropdown-trigger>
+                    <a href={item.href} class={active ? 'navTrigger navbarActive' : 'navTrigger'}>
                       <p class={active ? 'navbarActive' : ''}>{item.label}</p>
-                      <svg class={active ? 'navbarActive chevron' : 'chevron'} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
-                    </button>
-                    <ul class="dropdownPanel" id={id} data-dropdown-panel>
+                    </a>
+                    <ul class="dropdownPanel">
                       {item.items!.map((sub) => (
                         <li>
-                          <a href={sub.href} class={active ? 'navbarActive' : ''}>
+                          <a href={sub.href} class={isActive(sub.href) ? 'navbarActive' : ''}>
                             {sub.label}
                           </a>
                         </li>

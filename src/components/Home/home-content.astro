@@ -1,9 +1,5 @@
 ---
 import Phone from '@assets/svgs/phone.svg'
-import Calendar from '@assets/svgs/calendar.svg'
-import Factory from '@assets/svgs/factory.svg'
-import Shield from '@assets/svgs/shield.svg'
-import Merit from '@assets/svgs/merit.svg'
 import Check from '@assets/svgs/check.svg'
 import ServiceGrid from '../service-grid.astro'
 import SectorGrid from '../sector-grid.astro'
@@ -11,6 +7,9 @@ import Featured from './featured.astro'
 import Reviews from './reviews.astro'
 import CallToAction from '../call-to-action.astro'
 import Reveal from '../reveal.astro'
+import InfoGrid from '../info-grid.astro'
+
+import '../Reused.scss'
 
 const points = [
   'Family-owned since 1990 with strong values at the heart of the business',
@@ -61,36 +60,15 @@ const points = [
       </div>
     </div>
   </Reveal>
-
-  <Reveal>
-    <div class="infoGridWrapper">
-      <div class="infoGrid">
-        <div class="gridItem">
-          <div class="icon"><Calendar /></div>
-          <div><p>1990</p><span>Established</span></div>
-        </div>
-        <div class="gridItem">
-          <div class="icon"><Factory /></div>
-          <div><p>35+</p><span>Years of expertise</span></div>
-        </div>
-        <div class="gridItem">
-          <div class="icon"><Shield /></div>
-          <div><p>ISO 9001</p><span>Quality Standard</span></div>
-          <!-- TODO: Change this -->
-        </div>
-        <div class="gridItem">
-          <div class="icon"><Merit /></div>
-          <div><p>One-offs → Batch</p><span>Volumes</span></div>
-        </div>
-      </div>
-    </div></Reveal
-  >
+  <InfoGrid borderAndBg={false} />
   <div class="mainBlock">
     <Reveal>
-      <p class="blueTitle">What we do</p>
-      <div class="textBlock">
-        <h2 class="h2Title">In-house services from design to finished product.</h2>
-        <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+      <div class="mainBlockText">
+        <p class="blueTitle">What we do</p>
+        <div class="textBlock">
+          <h2 class="h2Title">In-house services from design to finished product.</h2>
+          <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+        </div>
       </div>
     </Reveal>
     <ServiceGrid />
@@ -98,10 +76,12 @@ const points = [
   <div class="darkerBg">
     <div class="mainBlock">
       <Reveal>
-        <p class="blueTitle">Industries we serve</p>
-        <div class="textBlock">
-          <h2 class="h2Title">Trusted across UK industry.</h2>
-          <h3>From manufacturers to construction sites, we deliver durable, well-engineered sheet metal products to demanding sectors.</h3>
+        <div class="mainBlockText">
+          <p class="blueTitle">Industries we serve</p>
+          <div class="textBlock">
+            <h2 class="h2Title">Trusted across UK industry.</h2>
+            <h3>From manufacturers to construction sites, we deliver durable, well-engineered sheet metal products to demanding sectors.</h3>
+          </div>
         </div>
       </Reveal>
       <SectorGrid />
@@ -143,10 +123,12 @@ const points = [
   </div>
   <div class="mainBlock">
     <Reveal>
-      <p class="blueTitle">Featured work</p>
-      <div class="textBlock">
-        <h2 class="h2Title">Bespoke products, engineered in Stoke-On-Trent.</h2>
-        <h3>A small selection of past projects — from deer towers and pallet gates to machine guards, kennels and bespoke stillages.</h3>
+      <div class="mainBlockText">
+        <p class="blueTitle">Featured work</p>
+        <div class="textBlock">
+          <h2 class="h2Title">Bespoke products, engineered in Stoke-On-Trent.</h2>
+          <h3>A small selection of past projects — from deer towers and pallet gates to machine guards, kennels and bespoke stillages.</h3>
+        </div>
       </div>
     </Reveal>
     <Featured />
@@ -230,12 +212,14 @@ const points = [
     position: relative;
     width: 100%;
     padding: 0 26px;
+    margin-bottom: 35px;
 
     @include bp(lg) {
       display: grid;
       grid-template-columns: 1fr 1.33fr; // check Figma's actual column ratio, may not be 50/50
       align-items: center;
       padding: 0 100px;
+      // margin-bottom: 0;
       // margin-inline: auto;
       // max-width: 1440px;
     }
@@ -370,103 +354,6 @@ const points = [
     }
   }
 
-  .infoGridWrapper {
-    margin: 70px 0 35px 0;
-    @include bp(lg) {
-      background: #f8fafc;
-      border-width: 1px 0px;
-      border-style: solid;
-      border-color: #e5e9f0;
-      height: 145.6px;
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  .infoGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 0;
-    padding: 0 26px;
-    // margin: 70px 0 35px 0;
-
-    @include bp(lg) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      align-items: center;
-      gap: 177px;
-      padding: 0 100px;
-      max-width: 1440px;
-      margin-inline: auto;
-      width: 100%;
-    }
-
-    .gridItem {
-      padding: 0 20px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 16px;
-
-      .icon {
-        min-width: 48px;
-        height: 48px;
-        background: rgba(2, 132, 199, 0.1);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      p {
-        font-family: var(--font-barlow);
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16.4px;
-        color: #0f172a;
-      }
-
-      span {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 11.2px;
-        color: #4b5563;
-      }
-    }
-  }
-
-  .textBlock {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .mainBlock {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 35px 26px;
-    width: 100%;
-
-    @include bp(lg) {
-      padding: 35px 100px;
-    }
-
-    @include bp(xl) {
-      margin-inline: auto;
-      max-width: 1440px;
-    }
-
-    h3 {
-      font-weight: 400;
-      font-size: 18px;
-      color: #4b5563;
-
-      @include bp(lg) {
-        width: 60%;
-      }
-    }
-  }
-
   .mainBlockNoPadding {
     display: flex;
     flex-direction: column;
@@ -490,17 +377,6 @@ const points = [
     a {
       text-decoration: none;
     }
-  }
-
-  .blueTitle {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    color: #0393cf;
-  }
-
-  .blueTitleCentre {
-    text-align: center;
   }
 
   .h2Title {

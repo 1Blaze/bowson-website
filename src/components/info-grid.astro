@@ -1,0 +1,37 @@
+---
+import Calendar from '@assets/svgs/calendar.svg'
+import Factory from '@assets/svgs/factory.svg'
+import Shield from '@assets/svgs/shield.svg'
+import Merit from '@assets/svgs/merit.svg'
+import Reveal from './reveal.astro'
+
+interface Props {
+  borderAndBg: boolean
+}
+
+const borderAndBg = Astro.props.borderAndBg
+---
+
+<Reveal>
+  <div class={borderAndBg ? 'infoGridWrapperBorderBg' : 'infoGridWrapper'}>
+    <div class="infoGrid">
+      <div class="gridItem">
+        <div class="icon"><Calendar /></div>
+        <div><p>1990</p><span>Established</span></div>
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Factory /></div>
+        <div><p>35+</p><span>Years of expertise</span></div>
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Shield /></div>
+        <div><p>ISO 9001</p><span>Quality Standard</span></div>
+        <!-- TODO: Change this -->
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Merit /></div>
+        <div><p>One-offs → Batch</p><span>Volumes</span></div>
+      </div>
+    </div>
+  </div>
+</Reveal>

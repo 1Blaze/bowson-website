@@ -11,7 +11,7 @@ const reviews = [
 <div class="reviews">
   {
     reviews.map((review, i) => (
-      <Reveal delay={i * 70} from="right">
+      <Reveal delay={270 - i * 70} from="right">
         <div class={`review ${i === 1 && 'reviewHighlighted'}`}>
           <div class="reviewGap">
             {/* TODO: add to asset */}

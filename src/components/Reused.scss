@@ -1,0 +1,121 @@
+@use '../styles/breakpoints' as *;
+
+.sectionHome {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTop {
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  .sectionImgOver {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    padding: 80px 26px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    .sectionTopButtons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 12px;
+    color: #ea580c;
+  }
+
+  h1 {
+    font-family: var(--font-barlow);
+    font-weight: 700;
+    font-size: 36px;
+    color: #ffffff;
+  }
+
+  .sectionTopDesc {
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .imgBg {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+
+    img {
+      height: 613px;
+      width: 100%;
+    }
+
+    .imgOverlay {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 613px;
+      background: linear-gradient(90deg, #8fa4b8 0%, #8298b8 28%, #7d93b8 34%, #9bb0c8 50%, #c2d3e2 70%, #dbe8f2 90%, #e2edf6 100%), radial-gradient(ellipse at 50% 40%, #0d2d4a 0%, #0a2138 45%, #051220 100%);
+      background-blend-mode: overlay;
+      opacity: 0.9;
+    }
+  }
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 35px 26px;
+  width: 100%;
+
+  .mainBlockText {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @include bp(lg) {
+    padding: 35px 100px;
+  }
+
+  @include bp(xl) {
+    margin-inline: auto;
+    max-width: 1440px;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: 18px;
+    color: #4b5563;
+
+    @include bp(lg) {
+      width: 60%;
+    }
+  }
+}
+
+.blueTitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: #0393cf;
+}
+
+.blueTitleCentre {
+  text-align: center;
+}
