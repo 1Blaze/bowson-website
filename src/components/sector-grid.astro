@@ -54,18 +54,19 @@ const services: ServiceType[] = [
 <div class="servicesDisplay">
   {
     services.map((service, i) => (
-      <a href={`/sectors/${service.link}`} class="serviceItem">
-        <Reveal delay={i * 70}>
+      <Reveal delay={i * 70}>
+        <a href={`/sectors/${service.link}`} class="serviceItem">
           <Image src={service.image} alt={service.title} />
           <div class="serviceTextGap">
             <h3>{service.title}</h3>
             <p>{service.description}</p>
-            <button class="serviceButton">
+            <div class="serviceLearnMore">
+              <span>Learn more</span>
               <Arrow />
-            </button>
+            </div>
           </div>
-        </Reveal>
-      </a>
+        </a>
+      </Reveal>
     ))
   }
 </div>

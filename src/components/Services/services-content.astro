@@ -3,6 +3,9 @@ import InfoGrid from '../info-grid.astro';
 import '../Reused.scss';
 import Phone from '@assets/svgs/phone.svg'
 import Reveal from '../reveal.astro';
+import ServiceGrid from '../service-grid.astro';
+import HowWeWork from './how-we-work.astro';
+import WhyBowson from './why-bowson.astro';
 ---
 
 <section class="sectionHome">
@@ -40,15 +43,168 @@ import Reveal from '../reveal.astro';
     <div class="mainBlockText">
       <p class="blueTitle">What we do</p>
       <div class="textBlock">
-        <h2 class="h2Title">In-house services from design to finished product.</h2>
-        <h3>We subcontract our services individually or combined — engaging with customer design to find the most cost-effective way to manufacture.</h3>
+        <h2 class="h2Title">Six in-house services, one supplier.</h2>
+        <h3>Pick a service to see equipment, capacities and typical applications — or get in touch and we'll match the right combination to your project.</h3>
       </div>
     </div>
-    <!-- <ServiceGrid /> -->
+    <ServiceGrid />
   </div>
-  <!-- <ServiceGrid /> -->
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">How we work</p>
+        <div class="textBlock">
+          <h2 class="h2Title">From enquiry to finished product.</h2>
+        </div>
+      </div>
+      <HowWeWork />
+    </div>
+  </div>
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Why Bowson</p>
+      <div class="textBlock">
+        <h2 class="h2Title">A family-run shop that takes ownership of the whole job.</h2>
+        <h3>We've been making bespoke sheet metal products in Stoke-on-Trent since 1990. Because every step happens under one roof, you get a single point of contact, faster turnaround and parts that arrive finished.</h3>
+      </div>
+    </div>
+    <WhyBowson />
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Materials & Capacity</p>
+        <div class="textBlock">
+          <h2 class="h2Title">At-a-glance capacities.</h2>
+          <h3>Pick a service to see equipment, capacities and typical applications — or get in touch and we'll match the right combination to your project.</h3>
+        </div>
+      </div>
+      <div class="capacityTables">
+        <Reveal from="left">
+          <table class="capacityTable">
+            <tr class="top">
+              <th>Material</th>
+              <th>Punch</th>
+              <th>Laser</th>
+              <th>Bend</th>
+            </tr>
+            <tr>
+              <td class="bold">Mild Steel</td>
+              <td>3mm</td>
+              <td>30mm</td>
+              <td>6mm</td>
+            </tr>
+            <tr>
+              <td class="bold">Stainless Steel</td>
+              <td>2mm</td>
+              <td>30mm</td>
+              <td>5mm</td>
+            </tr>
+            <tr>
+              <td class="bold">Aluminium</td>
+              <td>4mm</td>
+              <td>30mm</td>
+              <td>6mm</td>
+            </tr>
+          </table>
+        </Reveal>
+        <Reveal from="right" delay="100">
+          <table class="capacityTable smallerTable">
+            <tr class="top">
+              <th>Name</th>
+              <th>Working Aera</th>
+            </tr>
+            <tr>
+              <td class="bold">CNC Punch</td>
+              <td>3000 x 1250</td>
+            </tr>
+            <tr>
+              <td class="bold">Laser Cutting</td>
+              <td>4000 x 2000</td>
+            </tr>
+            <tr>
+              <td class="bold">Press Brake</td>
+              <td>3000 x 130 Ton</td>
+            </tr>
+            <tr>
+              <td class="bold">Powder Coating</td>
+              <td>3.3w x 2.4h x 4l</td>
+            </tr>
+          </table>
+        </Reveal>
+      </div>
+    </div>
+  </div>
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Services FAQs</p>
+      <div class="textBlock">
+        <h2 class="h2Title">Sheet metal questions - answered.</h2>
+        <h3>The questions we hear most across our services. Materials, lead times, tolerances, deliveries — straight answers, no jargon.</h3>
+      </div>
+    </div>
+    <!-- <WhyBowson /> -->
+  </div>
 </section>
 
-<!-- <style lang="scss">
+<style lang="scss">
   @use '../../styles/breakpoints' as *;
-</style> -->
+
+  .capacityTables {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include bp(lg) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .capacityTable {
+    // background: #0f172a;
+    background: #ffffff;
+    border: 0.8px solid #e5e9f0;
+    box-shadow:
+      0px 1px 3px rgba(15, 23, 42, 0.06),
+      0px 1px 2px rgba(15, 23, 42, 0.04);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    border-collapse: collapse;
+    width: 100%;
+    height: 301px;
+  }
+
+  .top {
+    background: #0f172a;
+  }
+
+  th {
+    font-weight: 600;
+    color: #ffffff;
+    padding: 0 8px;
+    // height: 75px;
+    width: 25%;
+  }
+
+  td {
+    font-weight: 400;
+    font-size: 14px;
+    color: #4b5563;
+    //   width: 25%;
+    padding: 0 8px;
+    // height: 75px;
+    text-align: center;
+  }
+
+  tr {
+    border-top: 0.8px solid #e5e9f0;
+  }
+
+  .bold {
+    font-weight: 600;
+    font-size: 14px;
+    color: #0f172a;
+  }
+</style>

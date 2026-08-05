@@ -7,7 +7,6 @@ const navItems = [
     label: "Services",
     href: "/services",
     items: [
-      { label: "Services", href: "/services" },
       { label: "CNC Punching", href: "/services/cnc-punching" },
       { label: "Laser Cutting", href: "/services/laser-cutting" },
       { label: "Bending", href: "/services/bending" },
@@ -20,7 +19,6 @@ const navItems = [
     label: "Sectors",
     href: "/sectors",
     items: [
-      { label: "Sectors", href: "/sectors" },
       { label: "Automotive", href: "/sectors/automotive" },
       { label: "Construction", href: "/sectors/construction" },
       { label: "Agriculture", href: "/sectors/agriculture" },
@@ -61,13 +59,13 @@ import Phone from '@assets/svgs/phone.svg'
               <li class="navItem">
                 {hasDropdown ? (
                   <>
-                    <a href={item.href} class={active ? 'navTrigger navbarActive' : 'navTrigger'}>
+                    <a href={item.href} class={active ? 'navTrigger navbarActive' : 'navTrigger'} data-dropdown-trigger aria-expanded="false" aria-controls={id}>
                       <p class={active ? 'navbarActive' : ''}>{item.label}</p>
                       <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 9L12 15L18 9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </a>
-                    <ul class="dropdownPanel">
+                    <ul class="dropdownPanel" id={id}>
                       {item.items!.map((sub) => (
                         <li>
                           <a href={sub.href} class={isActive(sub.href) ? 'navbarActive' : ''}>
@@ -121,6 +119,11 @@ import Phone from '@assets/svgs/phone.svg'
                       </span>
                     </button>
                     <ul class="mobileSubmenu" id={id} data-mobileSubmenu>
+                      <li>
+                        <a href={item.href} class={isActive(item.href) ? 'navbarActive' : ''}>
+                          {item.label}
+                        </a>
+                      </li>
                       {item.items!.map((sub) => (
                         <li>
                           <a href={sub.href}>{sub.label}</a>
@@ -143,21 +146,24 @@ import Phone from '@assets/svgs/phone.svg'
 </header>
 
 <script>
-  // Hamburger toggle
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
+  // IMPORTANT: everything here is bound to `document`, never to a specific
+  // button/menu element captured via getElementById at parse time.
+  //
+  // Why: Astro's client-side router (ClientRouter / ViewTransitions) swaps
+  // the DOM on internal navigations but only runs module scripts ONCE per
+  // browsing session. If you bind listeners directly to elements you looked
+  // up when the script first ran, those references go stale the moment the
+  // router replaces the page — the *visible* hamburger button after a soft
+  // navigation is a brand new node with no listener attached.
+  //
+  // Delegating to `document` sidesteps this entirely: `document` itself is
+  // never replaced, so the single listener below keeps working no matter
+  // how many times the router morphs the content inside it. This also works
+  // fine if you're NOT using client-side routing — it's just a normal
+  // delegated listener in that case.
 
-  hamburgerBtn?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.toggle('open');
-    hamburgerBtn.setAttribute('aria-expanded', String(!!isOpen));
-    if (!isOpen) closeAllMobileSubmenus();
-  });
-
-  // Desktop dropdowns
-  const desktopTriggers = document.querySelectorAll<HTMLButtonElement>('[data-dropdown-trigger]');
-
-  function closeAllDesktopDropdowns(except?: HTMLButtonElement) {
-    desktopTriggers.forEach((trigger) => {
+  function closeAllDesktopDropdowns(except?: HTMLElement) {
+    document.querySelectorAll<HTMLElement>('[data-dropdown-trigger]').forEach((trigger) => {
       if (trigger === except) return;
       trigger.setAttribute('aria-expanded', 'false');
       const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
@@ -165,42 +171,57 @@ import Phone from '@assets/svgs/phone.svg'
     });
   }
 
-  desktopTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
-      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-      closeAllDesktopDropdowns(trigger);
-      trigger.setAttribute('aria-expanded', String(!isOpen));
-      panel?.classList.toggle('open', !isOpen);
-    });
-  });
-
-  document.addEventListener('click', () => closeAllDesktopDropdowns());
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeAllDesktopDropdowns();
-      (document.activeElement as HTMLElement)?.blur();
-    }
-  });
-
-  // Mobile accordion submenus
-  const mobileTriggers = document.querySelectorAll<HTMLButtonElement>('[data-mobile-trigger]');
-
   function closeAllMobileSubmenus() {
-    mobileTriggers.forEach((trigger) => {
+    document.querySelectorAll<HTMLButtonElement>('[data-mobile-trigger]').forEach((trigger) => {
       trigger.setAttribute('aria-expanded', 'false');
       const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
       panel?.classList.remove('open');
     });
   }
 
-  mobileTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const panel = document.getElementById(trigger.getAttribute('aria-controls') || '');
-      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-      trigger.setAttribute('aria-expanded', String(!isOpen));
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+
+    // Hamburger toggle
+    if (target.closest('#hamburgerBtn')) {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const isOpen = mobileMenu?.classList.toggle('open');
+      hamburgerBtn?.setAttribute('aria-expanded', String(!!isOpen));
+      if (!isOpen) closeAllMobileSubmenus();
+      return;
+    }
+
+    // Mobile accordion submenus
+    const mobileTrigger = target.closest<HTMLElement>('[data-mobile-trigger]');
+    if (mobileTrigger) {
+      const panel = document.getElementById(mobileTrigger.getAttribute('aria-controls') || '');
+      const isOpen = mobileTrigger.getAttribute('aria-expanded') === 'true';
+      mobileTrigger.setAttribute('aria-expanded', String(!isOpen));
       panel?.classList.toggle('open', !isOpen);
-    });
+      return;
+    }
+
+    // Desktop dropdowns
+    const desktopTrigger = target.closest<HTMLElement>('[data-dropdown-trigger]');
+    if (desktopTrigger) {
+      e.stopPropagation();
+      const panel = document.getElementById(desktopTrigger.getAttribute('aria-controls') || '');
+      const isOpen = desktopTrigger.getAttribute('aria-expanded') === 'true';
+      closeAllDesktopDropdowns(desktopTrigger);
+      desktopTrigger.setAttribute('aria-expanded', String(!isOpen));
+      panel?.classList.toggle('open', !isOpen);
+      return;
+    }
+
+    // Click anywhere else closes open desktop dropdowns
+    closeAllDesktopDropdowns();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllDesktopDropdowns();
+      (document.activeElement as HTMLElement)?.blur();
+    }
   });
 </script>

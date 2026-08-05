@@ -119,3 +119,24 @@
 .blueTitleCentre {
   text-align: center;
 }
+
+.darkerBg {
+  background-color: #f8fafc;
+}
+
+.h2Title {
+  font-family: var(--font-barlow);
+  font-style: normal;
+  font-weight: 600;
+  // font-size: 28px;
+  font-size: fluid(1.75rem, 2.75rem);
+  color: #0f172a;
+
+  @include bp(lg) {
+    width: 50%;
+  }
+}
+
+.h2TitleFullWidth {
+  width: 100% !important;
+}
