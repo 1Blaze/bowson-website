@@ -1,9 +1,10 @@
 @use './breakpoints.scss' as *;
 
 .section {
-  padding: 40px 0px;
+  // padding: 40px 0px;
   display: flex;
   flex-direction: column;
+  padding-top: 40px;
   // gap: 70px;
 }
 
@@ -221,19 +222,6 @@
       padding: 28px;
     }
 
-    .serviceLearnMore {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
-
-      span {
-        font-weight: 600;
-        font-size: 14px;
-        color: #0393cf;
-      }
-    }
-
     &:hover {
       box-shadow:
         0px 4px 6px -4px rgba(0, 0, 0, 0.2),
@@ -241,6 +229,19 @@
       transform: translateY(-5px);
       scale: 1.01;
     }
+  }
+}
+
+.serviceLearnMore {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+
+  span {
+    font-weight: 600;
+    font-size: 14px;
+    color: #0393cf;
   }
 }
 
@@ -255,7 +256,8 @@
     border-width: 1px 0px;
     border-style: solid;
     border-color: #e5e9f0;
-    margin: 35px 0;
+    // margin: 35px 0;
+    margin-top: 35px;
   }
 }
 
@@ -271,7 +273,7 @@
 
   @include bp(lg) {
     // margin: 35px 0;
-    margin-bottom: 35px;
+    // margin-bottom: 35px;
   }
 }
 

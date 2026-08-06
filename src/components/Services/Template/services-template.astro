@@ -1,5 +1,10 @@
 ---
 import { GetService } from "~/src/data/services";
+import Phone from '@assets/svgs/phone.svg'
+import Arrow from '@assets/svgs/arrow-button.svg'
+import '../../Reused.scss';
+import CallToAction from "../../call-to-action.astro";
+import Faqs from "../../faqs.astro";
 
 interface Props {
   id: string
@@ -9,3 +14,199 @@ const id = Astro.props.id
 
 const data = GetService(id)
 ---
+
+<!-- TODO ANIMATIONS -->
+<section class="sectionHome">
+  <div class="sectionTop">
+    <div class="imgBg">
+      <!-- TODO: change to astro image -->
+      <img src="https://www.bowson.co.uk/images/speasyimagegallery/albums/1/images/img-8270.jpg" alt="" />
+      <div class="imgOverlay"></div>
+    </div>
+    <div class="sectionImgOver">
+      <div class="sectionTopFlex">
+        <span>Services</span>
+        <h1>CNC Punching</h1>
+      </div>
+      <p class="sectionTopDesc">Accurate, repeatable turret punching for shapes, holes, louvres and perforations across mild steel, stainless steel and aluminium.</p>
+      <div class="sectionTopButtons">
+        <button class="orangeButton" type="submit">
+          <p>Request a Quote</p>
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.666687 5.33337H10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M5.33337 0.666687L10 5.33335L5.33337 10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <!-- TODO: make work and change to assets -->
+        </button>
+        <div class="hollowButton whitePath">
+          <Phone />
+          <a href="tel:+441782749000">01782 749000</a>
+          <!-- TODO: make this clickable for on phone and the button an A not just the number -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mainBlock servicesGrid">
+    <div class="mainBlockText">
+      <p class="blueTitle">Overview</p>
+      <div class="textBlock">
+        <h2 class="h2Title">What we offer.</h2>
+        <h3 class="h2TitleFullWidth">We operate a Trumpf TC200 CNC turret punch capable of producing intricate sheet metal blanks at production volumes. The machine handles complex perforated panels, vent louvres, mounting holes and bespoke profiles with consistent accuracy across every part.</h3>
+        <h3 class="h2TitleFullWidth">We operate a Trumpf TC200 CNC turret punch capable of producing intricate sheet metal blanks at production volumes. The machine handles complex perforated panels, vent louvres, mounting holes and bespoke profiles with consistent accuracy across every part.</h3>
+        <h3 class="h2TitleFullWidth">We operate a Trumpf TC200 CNC turret punch capable of producing intricate sheet metal blanks at production volumes. The machine handles complex perforated panels, vent louvres, mounting holes and bespoke profiles with consistent accuracy across every part.</h3>
+      </div>
+    </div>
+    <div class="capabilities">
+      <p>Capabilities & Specs</p>
+      <ul>
+        <li>
+          <div class="capabilityCircle">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 3L4.5 8.5L2 6" stroke="#0393CF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <!-- TODO: add as an asset -->
+          </div>
+          <span>Trumpf TC 200</span>
+        </li>
+        <li>
+          <div class="capabilityCircle">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 3L4.5 8.5L2 6" stroke="#0393CF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <!-- TODO: add as an asset -->
+          </div>
+          <span>Trumpf TC 200</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Equipment & Process</p>
+        <div class="textBlock">
+          <h2 class="h2Title">The kit behind the work</h2>
+        </div>
+      </div>
+      <!-- <HowWeWork /> -->
+      <div class="servicesDisplay">
+        <div class="serviceItem">
+          <!-- <Image src={service.image} alt={service.title} /> -->
+          <div class="serviceTextGap">
+            <h3>CNC Punching</h3>
+            <p>Precision turret punching for mild steel, aluminium, stainless and more</p>
+          </div>
+        </div>
+        <!-- {
+          services.map((service, i) => (
+            <Reveal delay={i * 70} from="up">
+              <a href={`/services/${service.link}`} class="serviceItem">
+                <Image src={service.image} alt={service.title} />
+                <div class="serviceTextGap">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <div class="serviceLearnMore">
+                    <span>Learn more</span>
+                    <Arrow />
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+          ))
+        } -->
+      </div>
+    </div>
+  </div>
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Typical applications</p>
+      <div class="textBlock">
+        <h2 class="h2Title">Where it's used</h2>
+      </div>
+    </div>
+    <div class="whereItsUsed">
+      <!-- TODO Do these -->
+      <div class="item"><p>Machine guarding</p></div>
+      <div class="item"><p>Machine guarding</p></div>
+    </div>
+    <!-- TODO -->
+    <div class="serviceLearnMore">
+      <span>See bespoke projects</span>
+      <Arrow />
+    </div>
+  </div>
+  <Faqs darkerBg={true} />
+  <div class="mainBlock mainBlockGrid">
+    <div class="mainBlockText">
+      <p class="blueTitle">Related services</p>
+      <div class="textBlock">
+        <h2 class="h2Title h2TitleFullWidth">You might also need.</h2>
+      </div>
+    </div>
+    <!-- <WhyBowson /> -->
+    <div class="servicesDisplay">
+      <!-- TODO THIS -->
+      <!-- {
+        services.map((service, i) => (
+          <Reveal delay={i * 70} from="up">
+            <a href={`/services/${service.link}`} class="serviceItem">
+              <Image src={service.image} alt={service.title} />
+              <div class="serviceTextGap">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <div class="serviceLearnMore">
+                  <span>Learn more</span>
+                  <Arrow />
+                </div>
+              </div>
+            </a>
+          </Reveal>
+        ))
+      } -->
+    </div>
+  </div>
+  <CallToAction />
+</section>
+
+<style lang="scss">
+  @use '../../../styles/breakpoints' as *;
+
+  .sectionTop {
+    --heroHeight: 470px !important;
+  }
+
+  .servicesGrid {
+    @include bp(lg) {
+      display: grid !important;
+      grid-template-columns: 1fr 0.6fr;
+      align-items: center;
+    }
+  }
+
+  .whereItsUsed {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include bp(lg) {
+      flex-direction: row;
+    }
+
+    .item {
+      width: fit-content;
+      height: 38.6px;
+      background: #f8fafc;
+      border: 1px solid #e5e9f0;
+      border-radius: 999px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        color: #0f172a;
+      }
+    }
+  }
+</style>

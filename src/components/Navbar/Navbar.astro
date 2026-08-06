@@ -37,6 +37,8 @@ const currentPath = Astro.url.pathname;
 const isActive = (href: string) =>
   href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 
+const strictIsActive = (href: string) => href === currentPath ;
+
 import Image from 'astro/components/Image.astro';
 import './Navbar.scss';
 
@@ -107,7 +109,7 @@ import Phone from '@assets/svgs/phone.svg'
           navItems.map((item) => {
             const hasDropdown = !!item.items?.length;
             const id = hasDropdown ? `mobile-dropdown-${slug(item.label)}` : undefined;
-            const active = isActive(item.href);
+            const active = strictIsActive(item.href);
             return (
               <li>
                 {hasDropdown ? (
@@ -120,13 +122,15 @@ import Phone from '@assets/svgs/phone.svg'
                     </button>
                     <ul class="mobileSubmenu" id={id} data-mobileSubmenu>
                       <li>
-                        <a href={item.href} class={isActive(item.href) ? 'navbarActive' : ''}>
+                        <a href={item.href} class={active ? 'navbarActive' : ''}>
                           {item.label}
                         </a>
                       </li>
                       {item.items!.map((sub) => (
                         <li>
-                          <a href={sub.href}>{sub.label}</a>
+                          <a href={sub.href} class={isActive(sub.href) ? 'navbarActive' : ''}>
+                            {sub.label}
+                          </a>
                         </li>
                       ))}
                     </ul>
