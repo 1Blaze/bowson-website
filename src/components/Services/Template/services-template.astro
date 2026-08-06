@@ -1,0 +1,11 @@
+---
+import { GetService } from "~/src/data/services";
+
+interface Props {
+  id: string
+}
+
+const id = Astro.props.id
+
+const data = GetService(id)
+---
