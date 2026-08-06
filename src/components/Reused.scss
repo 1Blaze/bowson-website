@@ -12,6 +12,7 @@
   position: relative;
   width: 100%;
   --heroHeight: 613px;
+  z-index: 1;
 
   @include bp(lg) {
     --heroHeight: 565px;

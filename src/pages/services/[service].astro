@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export function getStaticPaths() {
+  return [
+    { params: { service: "cnc-punch" }},
+  ];
+}
+
+// TODO: fill these out when I do the rest of the shit
+
+const { service } = Astro.params;
+---
+
+<Layout title="Our Services - Metal Fabrication Specialists" description="TODO Description"> {service} </Layout>
+
+<!-- TODO Description
+- Grenville Engineering is a leading UK sheet metal fabrication and laser cutting company based in Stoke-on-Trent, serving clients nationwide.
+- ASA Fabrications Ltd offers a comprehensive range of metal fabrication services, including CNC laser cutting, press braking, welding and finishing. 
+
+-->
