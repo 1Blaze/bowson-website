@@ -1,6 +1,7 @@
 ---
 import ServicesTemplate from '~/src/components/Services/Template/services-template.astro';
 import Layout from '../../layouts/Layout.astro';
+import { GetService } from '~/src/data/services';
 export function getStaticPaths() {
   return [
     { params: { service: "cnc-punching" }},
@@ -10,9 +11,12 @@ export function getStaticPaths() {
 // TODO: fill these out when I do the rest of the shit
 
 const { service } = Astro.params;
+const data = GetService(service)
 ---
 
-<Layout title="Our Services - Metal Fabrication Specialists" description="TODO Description"> <ServicesTemplate id={service} /> </Layout>
+<Layout title={data.seoTitle} description={data.seoDesc}>
+  <ServicesTemplate id={service} />
+</Layout>
 
 <!-- TODO Description
 - Grenville Engineering is a leading UK sheet metal fabrication and laser cutting company based in Stoke-on-Trent, serving clients nationwide.
