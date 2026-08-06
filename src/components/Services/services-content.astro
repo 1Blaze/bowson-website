@@ -2,10 +2,12 @@
 import InfoGrid from '../info-grid.astro';
 import '../Reused.scss';
 import Phone from '@assets/svgs/phone.svg'
+import ArrowButton from '@assets/svgs/arrow-button.svg'
 import Reveal from '../reveal.astro';
 import ServiceGrid from '../service-grid.astro';
 import HowWeWork from './how-we-work.astro';
 import WhyBowson from './why-bowson.astro';
+import Questions from './questions.astro';
 ---
 
 <section class="sectionHome">
@@ -16,7 +18,7 @@ import WhyBowson from './why-bowson.astro';
       <div class="imgOverlay"></div>
     </div>
     <div class="sectionImgOver">
-      <div class="sectionTopButtons">
+      <div class="sectionTopFlex">
         <span>Services</span>
         <h1>In-house engineering from design to finished product.</h1>
       </div>
@@ -30,10 +32,10 @@ import WhyBowson from './why-bowson.astro';
           </svg>
           <!-- TODO: make work and change to assets -->
         </button>
-        <div class="hollowButton">
+        <div class="hollowButton whitePath">
           <Phone />
           <a href="tel:+441782749000">01782 749000</a>
-          <!-- TODO: make this clickable for on phone -->
+          <!-- TODO: make this clickable for on phone and the button an A not just the number -->
         </div>
       </div>
     </div>
@@ -60,12 +62,12 @@ import WhyBowson from './why-bowson.astro';
       <HowWeWork />
     </div>
   </div>
-  <div class="mainBlock">
+  <div class="mainBlock mainBlockGrid">
     <div class="mainBlockText">
       <p class="blueTitle">Why Bowson</p>
       <div class="textBlock">
-        <h2 class="h2Title">A family-run shop that takes ownership of the whole job.</h2>
-        <h3>We've been making bespoke sheet metal products in Stoke-on-Trent since 1990. Because every step happens under one roof, you get a single point of contact, faster turnaround and parts that arrive finished.</h3>
+        <h2 class="h2Title h2TitleFullWidth">A family-run shop that takes ownership of the whole job.</h2>
+        <h3 class="h3FullWidth">We've been making bespoke sheet metal products in Stoke-on-Trent since 1990. Because every step happens under one roof, you get a single point of contact, faster turnaround and parts that arrive finished.</h3>
       </div>
     </div>
     <WhyBowson />
@@ -76,11 +78,11 @@ import WhyBowson from './why-bowson.astro';
         <p class="blueTitle">Materials & Capacity</p>
         <div class="textBlock">
           <h2 class="h2Title">At-a-glance capacities.</h2>
-          <h3>Pick a service to see equipment, capacities and typical applications — or get in touch and we'll match the right combination to your project.</h3>
+          <h3 class="h3FullWidth">Our day-to-day envelope. If your part sits outside these limits we'll usually still have a route — just ask.</h3>
         </div>
       </div>
       <div class="capacityTables">
-        <Reveal from="left">
+        <Reveal from="left" class="tableBigger">
           <table class="capacityTable">
             <tr class="top">
               <th>Material</th>
@@ -108,7 +110,7 @@ import WhyBowson from './why-bowson.astro';
             </tr>
           </table>
         </Reveal>
-        <Reveal from="right" delay="100">
+        <Reveal from="right" delay="100" class="tableSmaller">
           <table class="capacityTable smallerTable">
             <tr class="top">
               <th>Name</th>
@@ -135,15 +137,34 @@ import WhyBowson from './why-bowson.astro';
       </div>
     </div>
   </div>
-  <div class="mainBlock">
+  <div class="mainBlock mainBlockGrid">
     <div class="mainBlockText">
       <p class="blueTitle">Services FAQs</p>
       <div class="textBlock">
-        <h2 class="h2Title">Sheet metal questions - answered.</h2>
-        <h3>The questions we hear most across our services. Materials, lead times, tolerances, deliveries — straight answers, no jargon.</h3>
+        <h2 class="h2Title h2TitleFullWidth">Sheet metal questions - answered.</h2>
+        <h3 class="h3FullWidth">The questions we hear most across our services. Materials, lead times, tolerances, deliveries — straight answers, no jargon.</h3>
+      </div>
+      <div class="stillQuestion">
+        <div class="stillTop">
+          <p>Still have a question?</p>
+          <span>Speak to our team directly — drawings, sketches or just an idea.</span>
+        </div>
+        <div class="buttonRow">
+          <div class="darkBlueButton whitePath">
+            <Phone />
+            <a href="tel:+441782749000">01782 749000</a>
+            <!-- TODO: make this clickable for on phone and the button an A not just the number -->
+          </div>
+          <a href="/">
+            <button class="hollowButton darkPath"
+              ><p>Get a Quote</p>
+              <ArrowButton />
+            </button>
+          </a>
+        </div>
       </div>
     </div>
-    <!-- <WhyBowson /> -->
+    <Questions />
   </div>
 </section>
 
@@ -154,10 +175,12 @@ import WhyBowson from './why-bowson.astro';
     display: flex;
     flex-direction: column;
     gap: 24px;
+    margin-top: 25px;
 
     @include bp(lg) {
       flex-direction: row;
-      align-items: center;
+      // align-items: center;
+      align-items: stretch;
     }
   }
 
@@ -206,5 +229,59 @@ import WhyBowson from './why-bowson.astro';
     font-weight: 600;
     font-size: 14px;
     color: #0f172a;
+  }
+
+  .stillQuestion {
+    width: 100%;
+    height: fit-content;
+    background: #ffffff;
+    border: 0.8px solid #e5e9f0;
+    box-shadow:
+      0px 1px 3px rgba(15, 23, 42, 0.06),
+      0px 1px 2px rgba(15, 23, 42, 0.04);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    .stillTop {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      p {
+        font-weight: 600;
+        font-size: 14px;
+        color: #0f172a;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #4b5563;
+      }
+    }
+  }
+
+  .hollowButton {
+    p {
+      color: #0f172a !important;
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    border: 0.8px solid #e5e9f0 !important;
+  }
+
+  .buttonRow {
+    gap: 12px;
+    flex-direction: column;
+
+    @include bp(tiny) {
+      flex-direction: row;
+    }
   }
 </style>
