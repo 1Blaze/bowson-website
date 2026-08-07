@@ -1,6 +1,8 @@
 ---
 import InfoGrid from '../info-grid.astro';
 import '../Reused.scss';
+import { Image } from 'astro:assets';
+import Punch from '@assets/images/Punch_TODO_Change.webp'
 import Phone from '@assets/svgs/phone.svg'
 import ArrowButton from '@assets/svgs/arrow-button.svg'
 import Reveal from '../reveal.astro';
@@ -8,14 +10,29 @@ import ServiceGrid from '../service-grid.astro';
 import HowWeWork from './how-we-work.astro';
 import WhyBowson from './why-bowson.astro';
 import CallToAction from '../call-to-action.astro';
-import Faqs from '../faqs.astro';
+import Faqs, { type QuestionAskedType } from '../faqs.astro';
+
+const questionData: QuestionAskedType = {
+  title: 'Sheet metal questions - answered',
+  description: 'The questions we hear most across our services. Materials, lead times, tolerances, deliveries — straight answers, no jargon.',
+  questions: [
+      {
+          question: 'Can you handle one-offs and prototypes, or just production runs?',
+          answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
+      },
+          {
+          question: 'Do I need finished drawings to get a quote',
+          answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
+      }
+  ]
+}
+// TODO: text for all of this
 ---
 
 <section class="sectionHome">
   <div class="sectionTop">
     <div class="imgBg">
-      <!-- TODO: change to astro image -->
-      <img src="https://www.bowson.co.uk/images/speasyimagegallery/albums/1/images/img-8270.jpg" alt="" />
+      <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
       <div class="imgOverlay"></div>
     </div>
     <div class="sectionImgOver">
@@ -133,7 +150,7 @@ import Faqs from '../faqs.astro';
       </div>
     </div>
   </div>
-  <Faqs darkerBg={false} />
+  <Faqs darkerBg={false} questionData={questionData} />
   <CallToAction />
 </section>
 

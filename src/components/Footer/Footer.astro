@@ -1,6 +1,10 @@
 ---
 import Image from 'astro/components/Image.astro';
 import logo from '@assets/images/Logo.webp';
+import Phone from '@assets/svgs/phone.svg';
+import Mail from '@assets/svgs/mail.svg';
+import Clock from '@assets/svgs/clock.svg';
+import Location from '@assets/svgs/location.svg';
 import YoutubeIcon from './Icons/Youtube.astro';
 import FacebookIcon from './Icons/Facebook.astro';
 import LinkedIn from './Icons/LinkedIn.astro';
@@ -27,6 +31,17 @@ const services = [
   { name: 'Powder Coating', href: '/services/powder-coating' },
   { name: '3D Cad Design', href: '/services/3d-cad-design' },
   { name: 'Laser Cutting', href: '/services/laser-cutting' },
+]
+
+type VisitType = {
+  name: string;
+  svg: typeof Phone;
+  href: string
+};
+
+const visits: VisitType[] = [
+  { name: '01782 749000', svg: Phone, href: 'tel:+441782749000' },
+  { name: 'info@bowson.co.uk', svg: Mail, href: 'mailto:info@bowson.co.uk' },
 ]
 ---
 
@@ -75,21 +90,46 @@ const services = [
     </div>
     <div class="footerVisit">
       <p class="footerBold">Visit Us</p>
-      <ul class="visitList">
+      <ul class="visitList bluePath footerSvgs">
         <li>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M8.40067 14.5323C9.64067 13.4617 13.3333 9.99501 13.3333 6.66634C13.3333 5.25185 12.7714 3.8953 11.7712 2.89511C10.771 1.89491 9.41449 1.33301 8 1.33301C6.58551 1.33301 5.22896 1.89491 4.22876 2.89511C3.22857 3.8953 2.66667 5.25185 2.66667 6.66634C2.66667 9.99501 6.35933 13.4617 7.59933 14.5323C7.71485 14.6192 7.85547 14.6662 8 14.6662C8.14453 14.6662 8.28515 14.6192 8.40067 14.5323Z"
-              stroke="#0393CF"
-              stroke-width="1.33333"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <path d="M8 8.66699C9.10457 8.66699 10 7.77156 10 6.66699C10 5.56242 9.10457 4.66699 8 4.66699C6.89543 4.66699 6 5.56242 6 6.66699C6 7.77156 6.89543 8.66699 8 8.66699Z" stroke="#0393CF" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-          <!-- TODO: make them all svgs -->
-          <p>Oak House, Dewsbury Road Fenton Ind Est, Fenton Stoke-on-Trent, ST4 2TE</p>
+          <a href="https://maps.app.goo.gl/MSDCLWn35raHv1AEA" target="_blank" rel="noopener noreferrer">
+            <Location />
+            <address>Oak House, Dewsbury Road Fenton Ind Est, Fenton Stoke-on-Trent, ST4 2TE</address>
+          </a>
         </li>
-        <!-- TODO: make all the stuff work etc -->
+        {
+          visits.map((item) => {
+            const Icon = item.svg;
+            return (
+              <li>
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                  <Icon />
+                  <p>{item.name}</p>
+                </a>
+              </li>
+            );
+          })
+        }
+        <li>
+          <div class="timings">
+            <Clock />
+            <div>
+              <!-- TODO change times on google to match this -->
+              <div class="timeRow">
+                <span>Mon-Thu</span>
+                <time datetime="07:30">7:30</time><span>–</span><time datetime="15:30">15:30</time>
+              </div>
+              <div class="timeRow">
+                <span>Friday:</span>
+                <time datetime="07:30">7:30</time><span>–</span><time datetime="12:30">12:30</time>
+              </div>
+              <div class="timeRow">
+                <span>Sat-Sun:</span>
+                <span>Closed</span>
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -208,30 +248,51 @@ const services = [
         gap: 5px;
       }
 
-      li {
+      .timings,
+      a {
         display: flex;
         align-items: flex-start;
         gap: 0.5rem;
         margin-bottom: 0.5rem;
         width: 60%;
+        text-decoration: none;
 
         svg {
           flex-shrink: 0;
-          margin-top: 0.15rem; // nudge to align with text baseline
+          margin-top: 0.075rem; // nudge to align with text baseline
         }
 
-        p {
+        p,
+        address {
           text-decoration: none;
           font-weight: 400;
           font-size: 14px;
           color: rgba(255, 255, 255, 0.7);
           cursor: pointer;
           transition: 0.3s;
+          font-style: normal;
 
           &:hover {
             color: #0393cf !important;
           }
         }
+
+        span,
+        time {
+          text-decoration: none;
+          font-weight: 400;
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+          font-style: normal;
+        }
+      }
+
+      .timeRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        // justify-content: space-between;
       }
     }
 

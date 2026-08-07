@@ -1,10 +1,14 @@
 ---
 import { GetService } from "~/src/data/services";
+import { Image } from 'astro:assets';
+import Punch from '@assets/images/Punch_TODO_Change.webp'
 import Phone from '@assets/svgs/phone.svg'
 import Arrow from '@assets/svgs/arrow-button.svg'
+import ListCircle from '@assets/svgs/list-circle.svg'
 import '../../Reused.scss';
 import CallToAction from "../../call-to-action.astro";
 import Faqs from "../../faqs.astro";
+import Reveal from "../../reveal.astro";
 
 interface Props {
   id: string
@@ -15,28 +19,22 @@ const id = Astro.props.id
 const data = GetService(id)
 ---
 
-<!-- TODO ANIMATIONS -->
 <section class="sectionHome">
   <div class="sectionTop">
     <div class="imgBg">
-      <!-- TODO: change to astro image -->
-      <img src="https://www.bowson.co.uk/images/speasyimagegallery/albums/1/images/img-8270.jpg" alt="" />
+      <Image src={data.image} alt={data.imageAlt} />
       <div class="imgOverlay"></div>
     </div>
     <div class="sectionImgOver">
       <div class="sectionTopFlex">
         <span>Services</span>
-        <h1>CNC Punching</h1>
+        <h1>{data.title}</h1>
       </div>
-      <p class="sectionTopDesc">Accurate, repeatable turret punching for shapes, holes, louvres and perforations across mild steel, stainless steel and aluminium.</p>
+      <p class="sectionTopDesc">{data.description}</p>
       <div class="sectionTopButtons">
-        <button class="orangeButton" type="submit">
+        <button class="orangeButton whitePath" type="submit">
           <p>Request a Quote</p>
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.666687 5.33337H10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M5.33337 0.666687L10 5.33335L5.33337 10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-          <!-- TODO: make work and change to assets -->
+          <Arrow />
         </button>
         <a class="hollowButton whitePath" href="tel:+441782749000">
           <Phone />
@@ -50,32 +48,24 @@ const data = GetService(id)
       <p class="blueTitle">Overview</p>
       <div class="textBlock">
         <h2 class="h2Title">What we offer.</h2>
-        <h3 class="h2TitleFullWidth">We operate a Trumpf TC200 CNC turret punch capable of producing intricate sheet metal blanks at production volumes. The machine handles complex perforated panels, vent louvres, mounting holes and bespoke profiles with consistent accuracy across every part.</h3>
-        <h3 class="h2TitleFullWidth">We operate a Trumpf TC200 CNC turret punch capable of producing intricate sheet metal blanks at production volumes. The machine handles complex perforated panels, vent louvres, mounting holes and bespoke profiles with consistent accuracy across every part.</h3>
-        <h3 class="h2TitleFullWidth">We operate a Trumpf TC200 CNC turret punch capable of producing intricate sheet metal blanks at production volumes. The machine handles complex perforated panels, vent louvres, mounting holes and bespoke profiles with consistent accuracy across every part.</h3>
+        <h3 class="h2TitleFullWidth">{data.whatWeOffer.para1}</h3>
+        <h3 class="h2TitleFullWidth">{data.whatWeOffer.para2}</h3>
+        <h3 class="h2TitleFullWidth">{data.whatWeOffer.para3}</h3>
       </div>
     </div>
     <div class="capabilities">
       <p>Capabilities & Specs</p>
       <ul>
-        <li>
-          <div class="capabilityCircle">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 3L4.5 8.5L2 6" stroke="#0393CF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-            <!-- TODO: add as an asset -->
-          </div>
-          <span>Trumpf TC 200</span>
-        </li>
-        <li>
-          <div class="capabilityCircle">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 3L4.5 8.5L2 6" stroke="#0393CF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-            <!-- TODO: add as an asset -->
-          </div>
-          <span>Trumpf TC 200</span>
-        </li>
+        {
+          data.whatWeOffer.capabilities.map((item) => (
+            <li>
+              <div class="capabilityCircle">
+                <ListCircle />
+              </div>
+              <span>{item}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
@@ -87,31 +77,20 @@ const data = GetService(id)
           <h2 class="h2Title">The kit behind the work</h2>
         </div>
       </div>
-      <div class="servicesDisplay">
-        <div class="serviceItem">
-          <!-- <Image src={service.image} alt={service.title} /> -->
-          <div class="serviceTextGap">
-            <h3>CNC Punching</h3>
-            <p>Precision turret punching for mild steel, aluminium, stainless and more</p>
-          </div>
-        </div>
-        <!-- {
-          services.map((service, i) => (
-            <Reveal delay={i * 70} from="up">
-              <a href={`/services/${service.link}`} class="serviceItem">
-                <Image src={service.image} alt={service.title} />
+      <div class="servicesDisplay service2Col">
+        {
+          data.theKit.map((item, i) => (
+            <Reveal from="up" delay={i * 70}>
+              <div class="serviceItem">
+                <Image src={item.image} alt={item.title} />
                 <div class="serviceTextGap">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <div class="serviceLearnMore">
-                    <span>Learn more</span>
-                    <Arrow />
-                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
                 </div>
-              </a>
+              </div>
             </Reveal>
           ))
-        } -->
+        }
       </div>
     </div>
   </div>
@@ -123,17 +102,23 @@ const data = GetService(id)
       </div>
     </div>
     <div class="whereItsUsed">
-      <!-- TODO Do these -->
-      <div class="item"><p>Machine guarding</p></div>
-      <div class="item"><p>Machine guarding</p></div>
+      {
+        data.whereItsUsed.map((item, i) => (
+          <Reveal from="left" delay={i * 70}>
+            <div class="item">
+              <p>{item}</p>
+            </div>
+          </Reveal>
+        ))
+      }
     </div>
-    <!-- TODO -->
-    <div class="serviceLearnMore">
+    <!-- TODO: make the link work -->
+    <a href="/" class="serviceLearnMore serviceLearnMoreHover">
       <span>See bespoke projects</span>
       <Arrow />
-    </div>
+    </a>
   </div>
-  <Faqs darkerBg={true} />
+  <Faqs darkerBg={true} questionData={data.questionsAsked} />
   <div class="mainBlock mainBlockGrid">
     <div class="mainBlockText">
       <p class="blueTitle">Related services</p>
@@ -141,13 +126,11 @@ const data = GetService(id)
         <h2 class="h2Title h2TitleFullWidth">You might also need.</h2>
       </div>
     </div>
-    <!-- <WhyBowson /> -->
     <div class="servicesDisplay">
-      <!-- TODO THIS -->
-      <!-- {
-        services.map((service, i) => (
-          <Reveal delay={i * 70} from="up">
-            <a href={`/services/${service.link}`} class="serviceItem">
+      {
+        data.mightAlsoNeed.map((service, i) => (
+          <Reveal delay={i * 70} from="down">
+            <a href={`/services/${service.href}`} class="serviceItem">
               <Image src={service.image} alt={service.title} />
               <div class="serviceTextGap">
                 <h3>{service.title}</h3>
@@ -160,7 +143,7 @@ const data = GetService(id)
             </a>
           </Reveal>
         ))
-      } -->
+      }
     </div>
   </div>
   <CallToAction />

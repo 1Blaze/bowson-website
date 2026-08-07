@@ -164,6 +164,18 @@
   }
 }
 
+.bluePath {
+  path {
+    stroke: #0393cf !important;
+  }
+}
+
+.service2Col {
+  @include bp(lg) {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
 .servicesDisplay {
   display: grid;
   grid-template-columns: 1fr;
@@ -254,11 +266,20 @@
   }
 }
 
+.serviceLearnMoreHover {
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
 .serviceLearnMore {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 
   span {
     font-weight: 600;
