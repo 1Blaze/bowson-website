@@ -10,6 +10,7 @@ import Reveal from '../reveal.astro'
 import InfoGrid from '../info-grid.astro'
 
 import '../Reused.scss'
+import HomeLogos from './home-logos.astro'
 
 const points = [
   'Family-owned since 1990 with strong values at the heart of the business',
@@ -140,13 +141,7 @@ const points = [
       </div>
       <Reviews />
       <p class="designedText">Designed & manufactured with industry-standard software</p>
-      <!-- TODO: get the images -->
-      <div class="softwareGrid">
-        <div class="softwareItem"></div>
-        <div class="softwareItem"></div>
-        <div class="softwareItem"></div>
-        <div class="softwareItem"></div>
-      </div>
+      <HomeLogos />
     </div>
   </div>
   <CallToAction />
@@ -458,28 +453,6 @@ const points = [
 
     @include bp(lg) {
       margin-top: 30px;
-    }
-  }
-
-  .softwareGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-
-    @include bp(lg) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    .softwareItem {
-      width: 160px;
-      height: 80px;
-      background: #ffffff;
-      border: 0.8px solid #e5e9f0;
-      border-radius: 8px;
-
-      @include bp(lg) {
-        width: 100%;
-      }
     }
   }
 </style>

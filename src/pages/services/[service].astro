@@ -2,13 +2,17 @@
 import ServicesTemplate from '~/src/components/Services/Template/services-template.astro';
 import Layout from '../../layouts/Layout.astro';
 import { GetService } from '~/src/data/services';
+
 export function getStaticPaths() {
   return [
     { params: { service: "cnc-punching" }},
+    { params: { service: "laser-cutting" }},
+    { params: { service: "bending-metal-forming" }},
+    { params: { service: "welding-fabrication" }},
+    { params: { service: "powder-coating" }},
+    { params: { service: "3d-cad-design" }},
   ];
 }
-
-// TODO: fill these out when I do the rest of the shit
 
 const { service } = Astro.params;
 const data = GetService(service)

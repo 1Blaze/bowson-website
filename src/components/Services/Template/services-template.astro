@@ -1,7 +1,6 @@
 ---
 import { GetService } from "~/src/data/services";
 import { Image } from 'astro:assets';
-import Punch from '@assets/images/Punch_TODO_Change.webp'
 import Phone from '@assets/svgs/phone.svg'
 import Arrow from '@assets/svgs/arrow-button.svg'
 import ListCircle from '@assets/svgs/list-circle.svg'
@@ -112,8 +111,7 @@ const data = GetService(id)
         ))
       }
     </div>
-    <!-- TODO: make the link work -->
-    <a href="/" class="serviceLearnMore serviceLearnMoreHover">
+    <a href="/projects" class="serviceLearnMore serviceLearnMoreHover">
       <span>See bespoke projects</span>
       <Arrow />
     </a>

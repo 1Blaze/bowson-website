@@ -1,0 +1,48 @@
+---
+import Solidworks from '@assets/images/solidworks.webp'
+import Jetcam from '@assets/images/jetcam.webp'
+import { Image } from 'astro:assets'
+---
+
+<!-- TODO: bystronic & e drawings? -->
+<div class="softwareGrid">
+  <div class="softwareItem"><Image src={Solidworks} alt={'Solidworks Logo'} /></div>
+  <div class="softwareItem"><Image src={Jetcam} alt={'Jetcam Logo'} /></div>
+  <div class="softwareItem"></div>
+  <div class="softwareItem"></div>
+</div>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .softwareGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .softwareItem {
+      width: 160px;
+      height: 80px;
+      background: #ffffff;
+      border: 0.8px solid #e5e9f0;
+      border-radius: 8px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 46px;
+        width: 100%;
+      }
+
+      @include bp(lg) {
+        width: 100%;
+      }
+    }
+  }
+</style>
