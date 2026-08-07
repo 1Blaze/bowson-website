@@ -1,6 +1,8 @@
 ---
 import Phone from '@assets/svgs/phone.svg'
 import ArrowButton from '@assets/svgs/arrow-button.svg'
+import Chevron from '@assets/svgs/chevron.svg'
+import Reveal from './reveal.astro';
 
 type question = {
     question: string;
@@ -19,8 +21,6 @@ const questions: question[] = [
 ]
 // TODO: all of these properly
 // TODO: make all of this come through as an object so it can be used in services and then services-cncpunching
-
-// const darkerBg = true
 
 interface Props {
   darkerBg: boolean
@@ -43,16 +43,13 @@ const {darkerBg} = Astro.props
           <span>Speak to our team directly — drawings, sketches or just an idea.</span>
         </div>
         <div class="buttonRow">
-          <div class="darkBlueButton whitePath">
+          <a href="tel:+441782749000" class="darkBlueButton whitePath">
             <Phone />
-            <a href="tel:+441782749000">01782 749000</a>
-            <!-- TODO: make this clickable for on phone and the button an A not just the number -->
-          </div>
-          <a href="/">
-            <button class="hollowButton darkPath">
-              <p>Get a Quote</p>
-              <ArrowButton />
-            </button>
+            <p>01782 749000</p>
+          </a>
+          <a href="/contact-us" class="hollowButton darkPath">
+            <p>Get a Quote</p>
+            <ArrowButton />
           </a>
         </div>
       </div>
@@ -60,23 +57,22 @@ const {darkerBg} = Astro.props
     <div class="questions">
       {
         questions.map((quest, i) => (
-          <details class="questionItem" name="faq">
-            <summary>
-              <div class="questionRow">
-                <div class="numberHouse">
-                  <span>{i + 1}</span>
+          <Reveal from="right" delay={i * 70}>
+            <details class="questionItem" name="faq">
+              <summary>
+                <div class="questionRow">
+                  <div class="numberHouse">
+                    <span>{i + 1}</span>
+                  </div>
+                  <p>{quest.question}</p>
                 </div>
-                <p>{quest.question}</p>
+                <Chevron />
+              </summary>
+              <div class="questionAnswer">
+                <p>{quest.answer}</p>
               </div>
-              <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0.75 0.75L5.25 5.25L9.75 0.75" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              {/* TODO: Add to asset */}
-            </summary>
-            <div class="questionAnswer">
-              <p>{quest.answer}</p>
-            </div>
-          </details>
+            </details>
+          </Reveal>
         ))
       }
     </div>

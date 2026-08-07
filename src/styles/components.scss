@@ -40,6 +40,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 0 6px 14px rgba(234, 88, 12, 0.25);
@@ -69,6 +70,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 0 6px 14px #0594d138;
@@ -94,6 +96,7 @@
   transition: 0.2s;
   box-shadow: none;
   background-color: transparent;
+  text-decoration: none;
 
   display: flex;
   flex-direction: row;
@@ -131,6 +134,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 0 6px 14px #141e3641;
@@ -229,6 +233,24 @@
       transform: translateY(-5px);
       scale: 1.01;
     }
+  }
+}
+
+.phoneGap {
+  gap: 8px;
+  display: flex;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+
+  p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0f172a;
+    text-decoration: none;
+    cursor: pointer;
   }
 }
 

@@ -9,7 +9,7 @@ const navItems = [
     items: [
       { label: "CNC Punching", href: "/services/cnc-punching" },
       { label: "Laser Cutting", href: "/services/laser-cutting" },
-      { label: "Bending", href: "/services/bending" },
+      { label: "Bending / Metal Forming", href: "/services/bending-metal-forming" },
       { label: "MIG/TIG Welding & Fabrication", href: "/services/welding-fabrication" },
       { label: "Powder Coating", href: "/services/powder-coating" },
       { label: "3D CAD Design", href: "/services/3d-cad-design" },
@@ -27,9 +27,9 @@ const navItems = [
   },
   { label: "About Us", href: "/about-us" },
   { label: "Projects", href: "/projects" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  // { label: "Gallery", href: "/gallery" },
+  // { label: "Blog", href: "/blog" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -88,13 +88,11 @@ import Phone from '@assets/svgs/phone.svg'
         }
       </ul>
       <div class="navInfo">
-        <div class="phoneGap">
+        <a href="tel:+441782749000" class="phoneGap">
           <Phone />
-          <a href="tel:+441782749000">01782 749000</a>
-          <!-- TODO: make this clickable for on phone and the button an A not just the number -->
-        </div>
-        <!-- TODO: make it work -->
-        <button class="blueButton"><p>Get a Quote</p></button>
+          <p>01782 749000</p>
+        </a>
+        <a href="/contact-us" class="blueButton"><p>Request a Quote</p></a>
       </div>
       <button class="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" id="hamburgerBtn">
         <span></span>

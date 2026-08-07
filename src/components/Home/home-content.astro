@@ -42,13 +42,11 @@ const points = [
           </p>
         </div>
         <div class="buttonRow">
-          <!-- TODO: make this work / localise some other component so it can be re used -->
-          <a href="/"><button class="orangeButton"><p>Request a Quote</p></button></a>
-          <div class="centerFlex phoneGap">
+          <a href="/contact-us" class="orangeButton"><p>Request a Quote</p></a>
+          <a href="tel:+441782749000" class="centerFlex phoneGap">
             <Phone />
-            <a href="tel:+441782749000">01782 749000</a>
-            <!-- TODO: make this clickable for on phone and the button an A not just the number -->
-          </div>
+            <p>01782 749000</p>
+          </a>
         </div>
       </div>
       <div class="imgHouse">
@@ -116,8 +114,7 @@ const points = [
             ))
           }
         </ul>
-        <!-- TODO: make this work / localise some other component so it can be re used -->
-        <a href="/about"><button class="orangeButton"><p>About us</p></button></a>
+        <a href="/about-us" class="orangeButton"><p>About us</p></a>
       </div>
     </Reveal>
   </div>
@@ -142,6 +139,7 @@ const points = [
       </div>
       <Reviews />
       <p class="designedText">Designed & manufactured with industry-standard software</p>
+      <!-- TODO: get the images -->
       <div class="softwareGrid">
         <div class="softwareItem"></div>
         <div class="softwareItem"></div>
@@ -152,10 +150,6 @@ const points = [
   </div>
   <CallToAction />
 </section>
-
-<!-- TODO: MAKE THE SECTIONS JUST GREAT SCSS -->
-<!-- TOOD: go through all of this and compare to the next pages and then re use components and re use styles so it is easier lol -->
-<!-- TODO: make all rem and shit -->
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
@@ -258,19 +252,6 @@ const points = [
       font-weight: 600;
       font-size: 12px;
       color: #0393cf;
-    }
-  }
-
-  .phoneGap {
-    gap: 8px;
-
-    a {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 14px;
-      color: #0f172a;
-      text-decoration: none;
-      cursor: pointer;
     }
   }
 
@@ -500,6 +481,4 @@ const points = [
       }
     }
   }
-
-  // TODO: make all px rem and shit
 </style>

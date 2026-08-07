@@ -1,51 +1,53 @@
 ---
 import Reveal from '../reveal.astro';
-
+import Shield from '@assets/svgs/shield.svg';
+import Lightning from '@assets/svgs/lightning.svg';
+import Factory from '@assets/svgs/factory.svg';
 
 type ServiceType = {
   title: string;
   description: string;
-//   TODO: add the SVG stuff
+  svg: typeof Shield;
 };
 
 const services: ServiceType[] = [
   {
-    title: 'CNC Punching',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-
+    title: 'Quality & Reliability',
+    description: 'Consistent, accurate work delivered on time — one-off or batch.',
+    svg: Shield,
   },
-    {
-    title: 'CNC Punching',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-
+  {
+    title: 'Fast turnaround',
+    description: 'Lean processes and in-house capability mean we move quickly from enquiry to dispatch.',
+    svg: Lightning,
   },
-    {
-    title: 'CNC Punching',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-
+  {
+    title: 'Bespoke by design',
+    description: 'Design, profiling, forming, welding and finishing all in one building — so bespoke is the norm, not the exception.',
+    svg: Factory,
   },
 ];
+// TODO: Proper text
 ---
 
 <div class="servicesDisplay">
   {
-    services.map((service, i) => (
-      <Reveal delay={i * 70} from="right">
-        <div class="howWeWork">
-          <div class="svgHouse">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 18.3332C10 18.3332 16.6667 14.9998 16.6667 9.99984V4.1665L10 1.6665L3.33334 4.1665V9.99984C3.33334 14.9998 10 18.3332 10 18.3332Z" stroke="#0393CF" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-
-            {/* TODO: all these svgs in asset folders and do the text for each stuff */}
+    services.map((service, i) => {
+      const Icon = service.svg;
+      return (
+        <Reveal delay={i * 70} from="right">
+          <div class="howWeWork">
+            <div class="svgHouse">
+              <Icon />
+            </div>
+            <div class="textGap">
+              <p>{service.title}</p>
+              <span>{service.description}</span>
+            </div>
           </div>
-          <div class="textGap">
-            <p>Quality & Reliability</p>
-            <span>Consistent, accurate work delivered on time — one-off or batch.</span>
-          </div>
-        </div>
-      </Reveal>
-    ))
+        </Reveal>
+      );
+    })
   }
 </div>
 
@@ -53,14 +55,12 @@ const services: ServiceType[] = [
   @use '../../styles/breakpoints' as *;
 
   .servicesDisplay {
-    @include bp(lg) {
-      align-items: center;
-    }
+    align-items: stretch;
   }
 
   .howWeWork {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     background: #f8fafc;
     border: 0.8px solid #d0d0d0;
     border-radius: 16px;

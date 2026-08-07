@@ -2,6 +2,7 @@
 import InfoGrid from '../info-grid.astro';
 import '../Reused.scss';
 import Phone from '@assets/svgs/phone.svg'
+import ArrowButton from '@assets/svgs/arrow-button.svg'
 import Reveal from '../reveal.astro';
 import ServiceGrid from '../service-grid.astro';
 import HowWeWork from './how-we-work.astro';
@@ -24,19 +25,14 @@ import Faqs from '../faqs.astro';
       </div>
       <p class="sectionTopDesc">CNC punching, laser cutting, press brake bending, MIG/TIG welding, powder coating and SolidWorks design — all under one roof in Stoke-on-Trent. One PO, one supplier, finished parts.</p>
       <div class="sectionTopButtons">
-        <button class="orangeButton" type="submit">
+        <a href="/contact-us" class="orangeButton whitePath">
           <p>Request a Quote</p>
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.666687 5.33337H10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M5.33337 0.666687L10 5.33335L5.33337 10" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-          <!-- TODO: make work and change to assets -->
-        </button>
-        <div class="hollowButton whitePath">
+          <ArrowButton />
+        </a>
+        <a class="hollowButton whitePath" href="tel:+441782749000">
           <Phone />
-          <a href="tel:+441782749000">01782 749000</a>
-          <!-- TODO: make this clickable for on phone and the button an A not just the number -->
-        </div>
+          <p>01782 749000</p>
+        </a>
       </div>
     </div>
   </div>

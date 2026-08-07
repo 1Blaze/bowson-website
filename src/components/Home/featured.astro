@@ -6,19 +6,20 @@ import Reveal from '../reveal.astro';
 interface FeaturedWorkItem {
   image: ImageMetadata;
   title: string;
+  description: string;
   category?: string;
   href?: string;
 }
 
 const items: FeaturedWorkItem[] = [
-    { image: logo, title: 'Job name', category: 'Fabrication' },
-    { image: logo, title: 'Job name', category: 'Powder coating' },
-    { image: logo, title: 'Job name' },
-    { image: logo, title: 'Job name' },
+    { image: logo, title: 'Job name', description: '', category: 'Fabrication' },
+    { image: logo, title: 'Job name', description: '', category: 'Powder coating' },
+    { image: logo, title: 'Job name', description: '', },
+    { image: logo, title: 'Job name', description: '', },
 ]
 ---
 
-<!-- TODO: make ul role etc for everything -->
+<!-- TODO: make href etc for everything -->
 <div class="featured">
   <ul class="featuredUl" role="list" tabindex="0" aria-label="featured-work">
     {
