@@ -1,9 +1,21 @@
 import Punch from '@assets/images/Punch_TODO_Change.webp';
 import type { ServiceType } from '../services';
 
+// Grenvile Title - Sheet Metal Laser Cutting by Grenville
+// ASA Title - CNC Laser Cutting Services | ASA Fabs Ltd
+// Alifab - CNC Punching - Alifab Engineering
+
+// Grenville Desc - With 40 years experience, Grenville Engineering is the leading provider & specialist of sheet metal laser cutting services. Contact us today.
+// ASA Desc - Explore ASA Fabs Ltd's precision CNC Laser Cutting services. Advanced technology for quality and efficient material handling
+// Alifab Desc - Specializes in the welding and fabrication of aluminium, stainless steel, and mild steel products.
+
+// Our Title - CNC Punching Services | Bowson Engineering
+// Our Desc - Precision CNC punching in mild steel, stainless steel and aluminium, from family-run Bowson Engineering in Stoke-on-Trent since 1990. Get a fast quote.
+
+// TEXT: SORT THIS
 export const CNC_Punching: ServiceType = {
-  seoTitle: 'TODO SEO TITLE',
-  seoDesc: 'TODO: SEO DESC',
+  seoTitle: 'CNC Punching Services | Bowson Engineering',
+  seoDesc: 'Precision CNC punching in mild steel, stainless steel and aluminium, from family-run Bowson Engineering in Stoke-on-Trent since 1990. Get a fast quote.',
   title: 'CNC Punching',
   description: 'Accurate, repeatable turret punching for shapes, holes, louvres and perforations across mild steel, stainless steel and aluminium.',
   image: Punch,
