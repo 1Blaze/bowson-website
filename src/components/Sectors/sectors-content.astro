@@ -1,0 +1,80 @@
+---
+import '../Reused.scss';
+import { Image } from 'astro:assets';
+import Punch from '@assets/images/Punch_TODO_Change.webp'
+import Phone from '@assets/svgs/phone.svg'
+import ArrowButton from '@assets/svgs/arrow-button.svg'
+import InfoGrid from '../info-grid.astro';
+import type { QuestionAskedType } from '../faqs.astro';
+import Faqs from '../faqs.astro';
+import CallToAction from '../call-to-action.astro';
+
+const questionData: QuestionAskedType = {
+  title: 'Cross-sector questions.',
+  description: 'From food-safe stainless to galvanised outdoor steel, here\'s what teams across industries ask us most.',
+  questions: [
+    {
+      question: 'Can you handle one-offs and prototypes, or just production runs?',
+      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
+    },
+    {
+      question: 'Do I need finished drawings to get a quote',
+      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
+    }
+  ]
+}
+---
+
+<!-- TEXT: SORT THIS -->
+<section class="sectionHome">
+  <div class="sectionTop">
+    <div class="imgBg">
+      <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
+      <div class="imgOverlay"></div>
+    </div>
+    <div class="sectionImgOver">
+      <div class="sectionTopFlex">
+        <span>Sectors</span>
+        <h1>Trusted across UK industry.</h1>
+      </div>
+      <p class="sectionTopDesc">From manufacturers and farms to food producers, contractors and warehouses — we build bespoke sheet metal products that survive real working environments.</p>
+      <div class="sectionTopButtons">
+        <a href="/contact-us" class="orangeButton whitePath">
+          <p>Request a Quote</p>
+          <ArrowButton />
+        </a>
+        <a class="hollowButton whitePath" href="tel:+441782749000">
+          <Phone />
+          <p>01782 749000</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <InfoGrid borderAndBg={true} />
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Industries we serve</p>
+      <div class="textBlock">
+        <h2 class="h2Title">Pick a sector to see how we work in it.</h2>
+        <h3>Each sector has its own demands — materials, finishes, safety detailing, delivery. We've packaged what we do in each one so you can see straight away if we're the right fit.</h3>
+      </div>
+    </div>
+    <!-- <ServiceGrid /> -->
+    <!-- TODO: the different sectors -->
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Why Bowson</p>
+        <div class="textBlock">
+          <h2 class="h2Title">The same workshop, tuned to every sector.</h2>
+          <h3>Whatever the industry, we apply the same principles: design for manufacture, build it right first time, finish it properly, and deliver on time. That's why so much of our work is repeat business.</h3>
+        </div>
+      </div>
+      <!-- <HowWeWork /> -->
+      <!-- TODO: bespoke by default etc -->
+    </div>
+  </div>
+  <Faqs darkerBg={false} questionData={questionData} />
+  <CallToAction />
+</section>
