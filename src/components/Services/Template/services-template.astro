@@ -31,10 +31,10 @@ const data = GetService(id)
       </div>
       <p class="sectionTopDesc">{data.description}</p>
       <div class="sectionTopButtons">
-        <button class="orangeButton whitePath" type="submit">
+        <a href="/contact-us" class="orangeButton whitePath">
           <p>Request a Quote</p>
           <Arrow />
-        </button>
+        </a>
         <a class="hollowButton whitePath" href="tel:+441782749000">
           <Phone />
           <p>01782 749000</p>
@@ -61,7 +61,7 @@ const data = GetService(id)
               <div class="capabilityCircle">
                 <ListCircle />
               </div>
-              <span>{item}</span>
+              <span class="capabilitySpan">{item}</span>
             </li>
           ))
         }
@@ -152,14 +152,6 @@ const data = GetService(id)
 
   .sectionTop {
     --heroHeight: 470px !important;
-  }
-
-  .servicesGrid {
-    @include bp(lg) {
-      display: grid !important;
-      grid-template-columns: 1fr 0.6fr;
-      align-items: center;
-    }
   }
 
   .whereItsUsed {

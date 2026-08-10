@@ -1,0 +1,246 @@
+---
+import { GetSector } from '~/src/data/sectors'
+import { Image } from 'astro:assets';
+import Phone from '@assets/svgs/phone.svg'
+import ArrowButton from '@assets/svgs/arrow-button.svg'
+import Check from '@assets/svgs/check.svg'
+import ListCircle from '@assets/svgs/list-circle.svg'
+import '../../Reused.scss';
+import Reveal from '../../reveal.astro';
+import GreySvgBox from '../../grey-svg-box.astro';
+import Clipboard from '@assets/svgs/clipboard.svg';
+import Faqs from '../../faqs.astro';
+import CallToAction from '../../call-to-action.astro';
+// TODO: Change this to the circle one
+
+interface Props {
+  id: string
+}
+
+const id = Astro.props.id
+
+const data = GetSector(id)
+---
+
+<section class="sectionHome">
+  <div class="sectionTop">
+    <div class="imgBg">
+      <Image src={data.image} alt={data.imageAlt} />
+      <div class="imgOverlay"></div>
+    </div>
+    <div class="sectionImgOver">
+      <div class="sectionTopFlex">
+        <span>Sector</span>
+        <h1>{data.title}</h1>
+      </div>
+      <p class="sectionTopDesc">{data.description}</p>
+      <div class="sectionTopButtons">
+        <a href="/contact-us" class="orangeButton whitePath">
+          <p>Request a Quote</p>
+          <ArrowButton />
+        </a>
+        <a class="hollowButton whitePath" href="tel:+441782749000">
+          <Phone />
+          <p>01782 749000</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="mainBlock servicesGrid">
+    <div class="mainBlockText">
+      <p class="blueTitle">Overview</p>
+      <div class="textBlock">
+        <h2 class="h2Title">How we serve this sector</h2>
+        <h3 class="h2TitleFullWidth">{data.whatWeOffer.para1}</h3>
+        <h3 class="h2TitleFullWidth">{data.whatWeOffer.para2}</h3>
+      </div>
+    </div>
+    <div class="capabilities">
+      <p>Services we bring</p>
+      <ul>
+        {
+          data.whatWeOffer.capabilities.map((item) => (
+            <li>
+              <div class="capabilityCircle">
+                <ListCircle />
+              </div>
+              <span class="capabilitySpan">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/services" class="serviceLearnMore serviceLearnMoreHover">
+        <span>Learn more</span>
+        <ArrowButton />
+      </a>
+    </div>
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Sector challenges</p>
+        <div class="textBlock">
+          <h2 class="h2Title">What we design for</h2>
+        </div>
+      </div>
+      <div class="servicesDisplay">
+        {
+          data.designFor.map((service, i) => (
+            <Reveal delay={i * 70} from="left">
+              <GreySvgBox {...service} svg={Clipboard} />
+            </Reveal>
+          ))
+        }
+      </div>
+      <!-- <div class="servicesDisplay service2Col">
+        {
+          data.theKit.map((item, i) => (
+            <Reveal from="up" delay={i * 70}>
+              <div class="serviceItem">
+                <Image src={item.image} alt={item.title} />
+                <div class="serviceTextGap">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))
+        }
+      </div> -->
+    </div>
+  </div>
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Example work</p>
+      <div class="textBlock">
+        <h2 class="h2Title h2TitleFullWidth">Thing we've built for this sector</h2>
+      </div>
+    </div>
+    <div class="servicesDisplay">
+      {
+        data.builtFor.map((service, i) => (
+          <Reveal delay={i * 70} from="down">
+            <a href={`/${service.href}`} class="serviceItem">
+              <Image src={service.image} alt={service.title} />
+              <div class="serviceTextGap">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <div class="serviceLearnMore">
+                  <span>Learn more</span>
+                  <ArrowButton />
+                </div>
+              </div>
+            </a>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Typical applications</p>
+        <div class="textBlock">
+          <h2 class="h2Title">Where it's used</h2>
+        </div>
+      </div>
+      <div class="whereItsUsed">
+        {
+          data.customersGet.map((item, i) => (
+            <Reveal from="left" delay={i * 70}>
+              <div class="item">
+                <Check />
+                <p>{item}</p>
+              </div>
+            </Reveal>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <Faqs darkerBg={false} questionData={data.questionsAsked} />
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Other sectors</p>
+        <div class="textBlock">
+          <h2 class="h2Title h2TitleFullWidth">We also work with</h2>
+        </div>
+      </div>
+      <div class="servicesDisplay">
+        {
+          data.builtFor.map((service, i) => (
+            <Reveal delay={i * 70} from="down">
+              <a href={`/${service.href}`} class="serviceItem">
+                <Image src={service.image} alt={service.title} />
+                <div class="serviceTextGap">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <div class="serviceLearnMore">
+                    <span>Learn more</span>
+                    <ArrowButton />
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <CallToAction />
+</section>
+
+<style lang="scss">
+  @use '../../../styles/breakpoints' as *;
+
+  .sectionTop {
+    --heroHeight: 470px !important;
+  }
+
+  .capabilities {
+    a {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: #0393cf !important;
+      }
+    }
+  }
+
+  .whereItsUsed {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include bp(lg) {
+      flex-direction: row;
+    }
+
+    .item {
+      width: 100%;
+      height: 68px;
+      background: #ffffff;
+      border: 0.8px solid #e5e9f0;
+      box-shadow:
+        0px 1px 3px rgba(15, 23, 42, 0.06),
+        0px 1px 2px rgba(15, 23, 42, 0.04);
+      border-radius: 12px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      p {
+        font-weight: 600;
+        font-size: 14px;
+        color: #0f172a;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectorsTemplate from '~/src/components/Sectors/Template/sectors-template.astro';
+import { GetSector } from '~/src/data/sectors';
+
+export function getStaticPaths() {
+  return [
+    { params: { service: "ceramics-pottery" }},
+    // TODO: the rest of these and map out 
+  ];
+}
+
+const { service } = Astro.params;
+const data = GetSector(service)
+---
+
+<Layout title={data.seoTitle} description={data.seoDesc}>
+  <SectorsTemplate id={service} />
+</Layout>

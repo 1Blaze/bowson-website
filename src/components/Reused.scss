@@ -233,9 +233,17 @@
     align-items: center;
   }
 
-  span {
+  .capabilitySpan {
     font-weight: 400;
     font-size: 14px;
     color: #0f172a;
+  }
+}
+
+.servicesGrid {
+  @include bp(lg) {
+    display: grid !important;
+    grid-template-columns: 1fr 0.6fr;
+    align-items: center;
   }
 }

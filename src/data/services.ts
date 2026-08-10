@@ -8,7 +8,7 @@ type ServiceKitType = {
   description: string;
 };
 
-type MightNeedType = {
+export type MightNeedType = {
   title: string;
   image: ImageMetadata;
   description: string;
