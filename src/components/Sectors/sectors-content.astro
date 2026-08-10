@@ -8,7 +8,8 @@ import InfoGrid from '../info-grid.astro';
 import type { QuestionAskedType } from '../faqs.astro';
 import Faqs from '../faqs.astro';
 import CallToAction from '../call-to-action.astro';
-import SectorItem from '../sector-item.astro';
+import SectorItem, { type SectorItemType } from '../sector-item.astro';
+import Reveal from '../reveal.astro';
 
 const questionData: QuestionAskedType = {
   title: 'Cross-sector questions.',
@@ -24,6 +25,11 @@ const questionData: QuestionAskedType = {
     }
   ]
 }
+
+// TODO: make the sectors etc
+const sectorItems: SectorItemType[] = [
+  
+]
 ---
 
 <!-- TEXT: SORT THIS -->
@@ -63,7 +69,13 @@ const questionData: QuestionAskedType = {
     <!-- <ServiceGrid /> -->
     <!-- TODO: the different sectors -->
     <div class="sectorGrid">
-      <SectorItem />
+      {
+        sectorItems.map((item, i) => (
+          <Reveal delay={i * 70}>
+            <SectorItem {...item} />
+          </Reveal>
+        ))
+      }
     </div>
   </div>
   <div class="darkerBg">

@@ -170,6 +170,12 @@
   }
 }
 
+.orangePath {
+  path {
+    stroke: #ea580c !important;
+  }
+}
+
 .service2Col {
   @include bp(lg) {
     grid-template-columns: 1fr 1fr !important;
