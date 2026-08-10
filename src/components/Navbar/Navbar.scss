@@ -9,8 +9,13 @@
   background: #fff;
 
   .navbarActive {
-    color: #0393cf !important;
-    stroke: #0393cf !important;
+    p {
+      color: #0393cf !important;
+    }
+
+    path {
+      stroke: #0393cf !important;
+    }
   }
 
   .navbar {
