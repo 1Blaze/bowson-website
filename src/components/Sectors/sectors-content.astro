@@ -8,6 +8,7 @@ import InfoGrid from '../info-grid.astro';
 import type { QuestionAskedType } from '../faqs.astro';
 import Faqs from '../faqs.astro';
 import CallToAction from '../call-to-action.astro';
+import SectorItem from '../sector-item.astro';
 
 const questionData: QuestionAskedType = {
   title: 'Cross-sector questions.',
@@ -61,6 +62,9 @@ const questionData: QuestionAskedType = {
     </div>
     <!-- <ServiceGrid /> -->
     <!-- TODO: the different sectors -->
+    <div class="sectorGrid">
+      <SectorItem />
+    </div>
   </div>
   <div class="darkerBg">
     <div class="mainBlock">
@@ -78,3 +82,59 @@ const questionData: QuestionAskedType = {
   <Faqs darkerBg={false} questionData={questionData} />
   <CallToAction />
 </section>
+
+<style lang="scss">
+  .sectorGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+</style>
+
+<!-- TODO: make the stuff from this baso
+ Ceramics & Pottery
+
+Kilns
+Kiln Hoods (Ventilation Canopies)
+Damp and Heated Cabinets
+
+Agriculture & Estate Management
+
+Deer Tower (Lookout Tower)
+Dog Kennel Structures
+
+Leisure Vehicle Conversion
+
+Seatbeds (VW Campervan)
+
+Composites & Advanced Manufacturing
+
+Degassing Chambers
+
+Manufacturing & Industrial
+
+Work Benches
+Machine Guarding
+Bottle Cages
+Safety Barriers
+Platforms (raised working heights)
+
+Warehousing & Logistics
+
+Stillages
+Roller Tables
+Pallet Gates
+Mobile Steps
+
+Facilities & Commercial
+
+Smoking Shelters
+Fire Escapes
+
+Technology & Secure Storage
+
+Charger/Charging Cabinets
+Computer Cabinets
+Laptop Trolleys
+-->
