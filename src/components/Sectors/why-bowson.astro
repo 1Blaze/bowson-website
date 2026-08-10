@@ -1,26 +1,19 @@
 ---
 import Reveal from '../reveal.astro';
-import Clipboard from '@assets/svgs/clipboard.svg';
 import Stars from '@assets/svgs/stars.svg';
-import Cog from '@assets/svgs/cog.svg';
-import Delivery from '@assets/svgs/delivery.svg';
+import Clock from '@assets/svgs/clock.svg';
+import Sheild from '@assets/svgs/shield.svg';
 import GreySvgBox from '../grey-svg-box.astro';
 
 type ServiceType = {
   title: string;
   description: string;
-  svg: typeof Clipboard;
+  svg: typeof Stars;
 };
 
 const services: ServiceType[] = [
   {
-    title: 'CNC Punching',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Clipboard
-
-  },
-  {
-    title: 'CNC Punching',
+    title: 'Bespoke by default',
     description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
     svg: Stars
 
@@ -28,13 +21,14 @@ const services: ServiceType[] = [
   {
     title: 'CNC Punching',
     description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Cog
+    svg: Clock
 
   },
   {
     title: 'CNC Punching',
     description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Delivery
+    svg: Sheild
+
   },
 ];
 ---
@@ -56,7 +50,7 @@ const services: ServiceType[] = [
   .servicesDisplay {
     @include bp(lg) {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       margin-top: 25px;
       gap: 50px;
     }

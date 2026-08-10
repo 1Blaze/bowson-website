@@ -1,5 +1,17 @@
 ---
+import Shield from '@assets/svgs/shield.svg';
 
+export type ServiceType = {
+  title: string;
+  description: string;
+  svg: typeof Shield;
+};
+
+interface Props extends ServiceType {}
+
+const {title, description, svg} = Astro.props
+
+const Icon = svg
 ---
 
 <div class="howWeWork">
@@ -7,8 +19,8 @@
     <Icon />
   </div>
   <div class="textGap">
-    <p>{i + 1}. Enquiry</p>
-    <span>Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.</span>
+    <p>{title}</p>
+    <span>{description}</span>
   </div>
 </div>
 

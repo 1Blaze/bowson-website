@@ -3,6 +3,7 @@ import Reveal from '../reveal.astro';
 import Shield from '@assets/svgs/shield.svg';
 import Lightning from '@assets/svgs/lightning.svg';
 import Factory from '@assets/svgs/factory.svg';
+import GreySvgBox from '../grey-svg-box.astro';
 
 type ServiceType = {
   title: string;
@@ -32,22 +33,11 @@ const services: ServiceType[] = [
 <!-- TEXT: SORT THIS -->
 <div class="servicesDisplay">
   {
-    services.map((service, i) => {
-      const Icon = service.svg;
-      return (
-        <Reveal delay={i * 70} from="right">
-          <div class="howWeWork">
-            <div class="svgHouse">
-              <Icon />
-            </div>
-            <div class="textGap">
-              <p>{service.title}</p>
-              <span>{service.description}</span>
-            </div>
-          </div>
-        </Reveal>
-      );
-    })
+    services.map((service, i) => (
+      <Reveal delay={i * 70} from="right">
+        <GreySvgBox {...service} />
+      </Reveal>
+    ))
   }
 </div>
 
@@ -56,46 +46,5 @@ const services: ServiceType[] = [
 
   .servicesDisplay {
     align-items: stretch;
-  }
-
-  .howWeWork {
-    width: 100%;
-    height: 100%;
-    background: #f8fafc;
-    border: 0.8px solid #d0d0d0;
-    border-radius: 16px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-
-    .svgHouse {
-      width: 44px;
-      height: 44px;
-      background: rgba(2, 132, 199, 0.1);
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .textGap {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    p {
-      font-family: var(--font-barlow);
-      font-weight: 700;
-      font-size: 18px;
-      color: #0f172a;
-    }
-
-    span {
-      font-weight: 400;
-      font-size: 14px;
-      color: #4b5563;
-    }
   }
 </style>

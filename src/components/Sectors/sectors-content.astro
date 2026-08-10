@@ -10,6 +10,7 @@ import Faqs from '../faqs.astro';
 import CallToAction from '../call-to-action.astro';
 import SectorItem, { type SectorItemType } from '../sector-item.astro';
 import Reveal from '../reveal.astro';
+import WhyBowson from './why-bowson.astro';
 
 const questionData: QuestionAskedType = {
   title: 'Cross-sector questions.',
@@ -66,8 +67,6 @@ const sectorItems: SectorItemType[] = [
         <h3>Each sector has its own demands — materials, finishes, safety detailing, delivery. We've packaged what we do in each one so you can see straight away if we're the right fit.</h3>
       </div>
     </div>
-    <!-- <ServiceGrid /> -->
-    <!-- TODO: the different sectors -->
     <div class="sectorGrid">
       {
         sectorItems.map((item, i) => (
@@ -87,8 +86,7 @@ const sectorItems: SectorItemType[] = [
           <h3>Whatever the industry, we apply the same principles: design for manufacture, build it right first time, finish it properly, and deliver on time. That's why so much of our work is repeat business.</h3>
         </div>
       </div>
-      <!-- <HowWeWork /> -->
-      <!-- TODO: bespoke by default etc -->
+      <WhyBowson />
     </div>
   </div>
   <Faqs darkerBg={false} questionData={questionData} />
