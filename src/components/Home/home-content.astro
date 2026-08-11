@@ -1,4 +1,5 @@
 ---
+import '../Reused.scss';
 import Phone from '@assets/svgs/phone.svg'
 import Check from '@assets/svgs/check.svg'
 import ServiceGrid from '../service-grid.astro'
@@ -134,9 +135,9 @@ const points = [
   </div>
   <div class="darkerBg">
     <div class="mainBlock">
-      <p class="blueTitle blueTitleCentre">What clients say</p>
-      <div class="textBlock blueTitleCentre">
-        <h2 class="h2Title h2TitleFullWidth blueTitleCentre">Engineered relationships, built to last.</h2>
+      <p class="blueTitle titleCentre">What clients say</p>
+      <div class="textBlock titleCentre">
+        <h2 class="h2Title h2TitleFullWidth titleCentre">Engineered relationships, built to last.</h2>
         <h3 class="h2TitleFullWidth">Real client testimonials will be added during launch — placeholders shown below</h3>
       </div>
       <Reviews />
@@ -149,107 +150,6 @@ const points = [
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
-
-  .home {
-    position: relative;
-    width: 100%;
-
-    h1 {
-      font-family: var(--font-barlow);
-      font-style: normal;
-      font-weight: 700;
-      font-size: fluid(2.25rem, 3.75rem);
-      color: #0f172a;
-
-      // @include bp(xl) {
-      //   width: 85%;
-      // }
-
-      span {
-        width: 100%;
-      }
-
-      .blueColour {
-        color: #0393cf;
-      }
-    }
-
-    .homeDesc {
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      font-size: fluid(1rem, 1.2rem);
-      color: #4b5563;
-
-      // @include bp(xl) {
-      //   width: 85%;
-      // }
-    }
-  }
-
-  .topTextGap {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    position: relative;
-    width: 100%;
-  }
-
-  .topGap {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-    position: relative;
-    width: 100%;
-    padding: 0 26px;
-    margin-bottom: 35px;
-
-    @include bp(lg) {
-      display: grid;
-      grid-template-columns: 1fr 1.33fr; // check Figma's actual column ratio, may not be 50/50
-      align-items: center;
-      padding: 0 100px;
-      // margin-bottom: 0;
-      // margin-inline: auto;
-      // max-width: 1440px;
-    }
-
-    @include bp(xl) {
-      // padding: 0;
-      margin-inline: auto;
-      max-width: 1440px;
-    }
-  }
-
-  .intro {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-  }
-
-  .established {
-    width: fit-content;
-    height: 45.6px;
-    background: #f8f9fa;
-    border: 0.8px solid #e5e9f0;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    padding: 0 13px;
-    gap: 13px;
-    position: relative;
-
-    @include bp(lg) {
-      height: 27px;
-    }
-
-    p {
-      font-style: bold;
-      font-weight: 600;
-      font-size: 12px;
-      color: #0393cf;
-    }
-  }
 
   .blueBlob {
     position: absolute;

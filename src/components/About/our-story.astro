@@ -1,0 +1,95 @@
+---
+import Reveal from "../reveal.astro";
+
+type StoryType = {
+    year: string;
+    title: string;
+    description: string
+}
+
+// TEXT: Fill this in
+const story: StoryType[] = [
+    {
+        year: '1990',
+        title: 'Founded in Stoke-On-Trent',
+        description: 'Bowson Engineering established as a family-owned sheet metal manufacturer.'
+    }
+]
+---
+
+<div class="storyCol">
+  {
+    story.map((item, i) => (
+      <Reveal from="left" delay={i * 70}>
+        <div class="storyItem">
+          <div class="storyCircle" />
+          <div class="storyGap">
+            <span>{item.year}</span>
+            <div class="storyDesc">
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .storyCol {
+    display: flex;
+    flex-direction: column;
+
+    .storyItem {
+      height: 132px;
+      border-left: 1.6px solid #e5e9f0;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      .storyCircle {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        background: #0393cf;
+        border: 6.4px solid #ffffff;
+        box-shadow: 0px 0px 0px 1px #bdc2c4;
+        border-radius: 50%;
+      }
+
+      .storyGap {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .storyDesc {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 12.6px;
+        color: #0393cf;
+      }
+
+      h4 {
+        font-family: var(--font-barlow);
+        font-weight: 700;
+        font-size: 20px;
+        color: #0f172a;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        color: #4b5563;
+      }
+    }
+  }
+</style>

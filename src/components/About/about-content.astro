@@ -1,0 +1,159 @@
+---
+import '../Reused.scss';
+import { Image } from 'astro:assets';
+import Punch from '@assets/images/Punch_TODO_Change.webp'
+import InfoGrid from "../info-grid.astro";
+import OurValues from "./our-values.astro";
+import OurStory from "./our-story.astro";
+import Reveal from "../reveal.astro";
+import Phone from '@assets/svgs/phone.svg'
+import CallToAction from '../call-to-action.astro';
+---
+
+<!-- TEXT: SORT THIS -->
+<section class="section home">
+  <Reveal>
+    <div class="topGap">
+      <div class="intro">
+        <div class="established">
+          <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
+          </svg>
+          <!-- TODO: asset this for both home content and this -->
+          <p>About Bowson Engineering</p>
+        </div>
+        <div class="topTextGap">
+          <h1>A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h1>
+          <p class="homeDesc">Bowson Engineering Ltd was established in 1990 and is based in Fenton, Stoke-on-Trent. We are a family-owned company with strong values at the heart of our business. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating.</p>
+        </div>
+        <div class="buttonRow">
+          <a href="/contact-us" class="orangeButton"><p>Request a Quote</p></a>
+          <a href="tel:+441782749000" class="centerFlex phoneGap">
+            <Phone />
+            <p>01782 749000</p>
+          </a>
+        </div>
+      </div>
+      <div class="imgHouse">
+        <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
+        <div class="yearsIn">
+          <h4>35+</h4>
+          <p>Years in business</p>
+        </div>
+      </div>
+    </div>
+  </Reveal>
+  <InfoGrid borderAndBg={true} />
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Our Story</p>
+      <div class="textBlock">
+        <h2 class="h2Title">Three decades of bespoke sheet metal.</h2>
+        <h3>From a small Stoke-on-Trent workshop to a full in-house manufacturing facility — built on the same family values we started with.</h3>
+      </div>
+    </div>
+    <OurStory />
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle titleCentre">Our Values</p>
+        <div class="textBlock">
+          <h2 class="h2Title titleCentre">What you can expect from working with us.</h2>
+        </div>
+      </div>
+      <OurValues />
+    </div>
+  </div>
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">In-house Capabilitiy</p>
+      <div class="textBlock">
+        <h2 class="h2Title">Design, cut, bend, weld and coat — all under one roof.</h2>
+        <h3>By keeping every stage of manufacture in-house, we control quality, shorten lead times and pass cost savings back to our customers.</h3>
+      </div>
+    </div>
+    <!-- TODO: CNC Punching & Laser Cutting etc -->
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle titleCentre">Latest Technology</p>
+        <div class="textBlock">
+          <h2 class="h2Title titleCentre">Investing in machinery that delivers precision and pace.</h2>
+          <h3>Our shop floor combines a Trumpf Trumatic CNC punch, laser cutting and an Xpert Pro CNC press brake bender with skilled welders and an in-house powder coating line. The result is consistent, repeatable accuracy across one-offs and production runs alike.</h3>
+        </div>
+      </div>
+      <!-- Solidworks shizzle TODO -->
+    </div>
+  </div>
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Bespoke Experience</p>
+      <div class="textBlock">
+        <h2 class="h2Title">A range of custom products we've engineered.</h2>
+        <h3>From safety-critical structures to specialist storage and cabinets — we work across sectors and applications.</h3>
+      </div>
+    </div>
+    <!-- TODO: Product examples here -->
+  </div>
+  <CallToAction />
+</section>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .imgHouse {
+    border-radius: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 251.4px;
+    box-shadow:
+      0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+      0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+    border-radius: 16px;
+    // overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .yearsIn {
+      position: absolute;
+      width: fit-content;
+      height: 80.5px;
+
+      background: #0393cf;
+      box-shadow:
+        0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+        0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+      border-radius: 12px;
+      bottom: -15px;
+      right: -15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+      padding: 0 20px;
+
+      h4 {
+        font-family: var(--font-barlow);
+        font-weight: 700;
+        font-size: 30px;
+        color: #ffffff;
+      }
+
+      p {
+        font-weight: 600;
+        font-size: 11.2px;
+        color: #ffffff;
+      }
+    }
+  }
+</style>
