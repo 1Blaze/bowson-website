@@ -1,0 +1,56 @@
+---
+import Reveal from "../reveal.astro";
+import Check from '@assets/svgs/check.svg'
+---
+
+<div class="servicesDisplay">
+  <Reveal>
+    <!-- TODO: all of these producst -->
+    <div class="customItem">
+      <Check />
+      <p>Deer Towers (Lookout Towers) — galvanised steel replacements for traditional wooden structures</p>
+    </div>
+  </Reveal>
+  <Reveal>
+    <!-- TODO: all of these producst -->
+    <div class="customItem">
+      <Check />
+      <p>Deer Towers (Lookout Towers) — galvanised steel replacements for traditional wooden structures</p>
+    </div>
+  </Reveal>
+</div>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .servicesDisplay {
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+  }
+
+  .customItem {
+    width: 100%;
+    height: fit-content;
+    background: #f8fafc;
+    border: 0.8px solid #e5e9f0;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    svg {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 14.4px;
+      color: #0f172a;
+    }
+  }
+</style>

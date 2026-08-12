@@ -123,6 +123,13 @@
   }
 }
 
+.mainBlockGridEqual {
+  @include bp(lg) {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .mainBlock {
   display: flex;
   flex-direction: column;
@@ -307,6 +314,31 @@
       // padding: 0;
       margin-inline: auto;
       max-width: 1440px;
+    }
+  }
+
+  .mainBlockNoPadding {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 35px 0px;
+
+    @include bp(lg) {
+      padding: 50px 0px;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 18px;
+      color: #4b5563;
+
+      @include bp(lg) {
+        width: 60%;
+      }
+    }
+
+    a {
+      text-decoration: none;
     }
   }
 

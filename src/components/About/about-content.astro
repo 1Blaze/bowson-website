@@ -8,6 +8,33 @@ import OurStory from "./our-story.astro";
 import Reveal from "../reveal.astro";
 import Phone from '@assets/svgs/phone.svg'
 import CallToAction from '../call-to-action.astro';
+import LatestTech from './latest-tech.astro';
+import BespokeProducts from './bespoke-products.astro';
+import type { ServiceKitType } from '~/src/data/services';
+
+const capabilities: ServiceKitType[] = [
+  {
+    image: Punch,
+    title: 'Trumpf TC200 turret punch',
+    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+  },
+  {
+    image: Punch,
+    title: 'In-house programming',
+    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+  },
+  {
+    image: Punch,
+    title: 'In-house programming',
+    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+  },
+  {
+    image: Punch,
+    title: 'In-house programming',
+    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+  },
+]
+
 ---
 
 <!-- TEXT: SORT THIS -->
@@ -44,12 +71,12 @@ import CallToAction from '../call-to-action.astro';
     </div>
   </Reveal>
   <InfoGrid borderAndBg={true} />
-  <div class="mainBlock">
+  <div class="mainBlock mainBlockGridEqual">
     <div class="mainBlockText">
       <p class="blueTitle">Our Story</p>
       <div class="textBlock">
-        <h2 class="h2Title">Three decades of bespoke sheet metal.</h2>
-        <h3>From a small Stoke-on-Trent workshop to a full in-house manufacturing facility — built on the same family values we started with.</h3>
+        <h2 class="h2Title h2TitleFullWidth">Three decades of bespoke sheet metal.</h2>
+        <h3 class="h2TitleFullWidth">From a small Stoke-on-Trent workshop to a full in-house manufacturing facility — built on the same family values we started with.</h3>
       </div>
     </div>
     <OurStory />
@@ -59,7 +86,7 @@ import CallToAction from '../call-to-action.astro';
       <div class="mainBlockText">
         <p class="blueTitle titleCentre">Our Values</p>
         <div class="textBlock">
-          <h2 class="h2Title titleCentre">What you can expect from working with us.</h2>
+          <h2 class="h2Title titleCentre h2TitleFullWidth">What you can expect from working with us.</h2>
         </div>
       </div>
       <OurValues />
@@ -73,29 +100,52 @@ import CallToAction from '../call-to-action.astro';
         <h3>By keeping every stage of manufacture in-house, we control quality, shorten lead times and pass cost savings back to our customers.</h3>
       </div>
     </div>
-    <!-- TODO: CNC Punching & Laser Cutting etc -->
-  </div>
-  <div class="darkerBg">
-    <div class="mainBlock">
-      <div class="mainBlockText">
-        <p class="blueTitle titleCentre">Latest Technology</p>
-        <div class="textBlock">
-          <h2 class="h2Title titleCentre">Investing in machinery that delivers precision and pace.</h2>
-          <h3>Our shop floor combines a Trumpf Trumatic CNC punch, laser cutting and an Xpert Pro CNC press brake bender with skilled welders and an in-house powder coating line. The result is consistent, repeatable accuracy across one-offs and production runs alike.</h3>
-        </div>
-      </div>
-      <!-- Solidworks shizzle TODO -->
+    <div class="servicesDisplay">
+      {
+        capabilities.map((item, i) => (
+          <Reveal from="right" delay={i * 70}>
+            <a class="serviceItem" href="/services">
+              <Image src={item.image} alt={item.title} />
+              <div class="serviceTextGap">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </a>
+          </Reveal>
+        ))
+      }
     </div>
   </div>
-  <div class="mainBlock">
+  <div class="darkerBg">
+    <div class="topGap">
+      <Reveal from="left">
+        <div class="aboutImage">
+          <div class="img">Placeholder</div>
+        </div>
+      </Reveal>
+      <Reveal from="right">
+        <div class="mainBlockNoPadding">
+          <div class="mainBlockText">
+            <p class="blueTitle">Latest Technology</p>
+            <div class="textBlock">
+              <h2 class="h2Title h2TitleFullWidth">Investing in machinery that delivers precision and pace.</h2>
+              <h3 class="h2TitleFullWidth">Our shop floor combines a Trumpf Trumatic CNC punch, laser cutting and an Xpert Pro CNC press brake bender with skilled welders and an in-house powder coating line. The result is consistent, repeatable accuracy across one-offs and production runs alike.</h3>
+            </div>
+          </div>
+          <LatestTech />
+        </div>
+      </Reveal>
+    </div>
+  </div>
+  <div class="mainBlock mainBlockGrid">
     <div class="mainBlockText">
       <p class="blueTitle">Bespoke Experience</p>
       <div class="textBlock">
-        <h2 class="h2Title">A range of custom products we've engineered.</h2>
-        <h3>From safety-critical structures to specialist storage and cabinets — we work across sectors and applications.</h3>
+        <h2 class="h2Title h2TitleFullWidth">A range of custom products we've engineered.</h2>
+        <h3 class="h2TitleFullWidth">From safety-critical structures to specialist storage and cabinets — we work across sectors and applications.</h3>
       </div>
     </div>
-    <!-- TODO: Product examples here -->
+    <BespokeProducts />
   </div>
   <CallToAction />
 </section>
@@ -154,6 +204,73 @@ import CallToAction from '../call-to-action.astro';
         font-size: 11.2px;
         color: #ffffff;
       }
+    }
+  }
+
+  .serviceItem {
+    img {
+      height: 208px;
+
+      @include bp(lg) {
+        height: 160px;
+      }
+    }
+
+    .serviceTextGap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 16px;
+    }
+
+    h3 {
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+
+  .servicesDisplay {
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 25px;
+    }
+  }
+
+  .topGap {
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .imgHouse {
+      @include bp(lg) {
+        height: 438px !important;
+      }
+    }
+  }
+
+  .aboutImage {
+    display: none;
+    border-radius: 16px;
+    width: 90%;
+    aspect-ratio: 478 / 360;
+    background: linear-gradient(to bottom right, #fde9de 0%, #fef3ee 25%, #ffffff 50%, #eef7fb 75%, #dceef7 100%);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include bp(lg) {
+      display: flex;
+    }
+
+    .img {
+      width: 93%;
+      height: 93%;
+      border: 1px solid #e5e9f0;
+      box-shadow:
+        0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+        0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+      border-radius: 12px;
+      object-fit: cover;
     }
   }
 </style>

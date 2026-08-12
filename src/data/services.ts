@@ -2,7 +2,7 @@ import type { ImageMetadata } from 'astro';
 import type { QuestionAskedType } from '../components/faqs.astro';
 import { CNC_Punching } from './services/cnc-punching';
 
-type ServiceKitType = {
+export type ServiceKitType = {
   title: string;
   image: ImageMetadata;
   description: string;
