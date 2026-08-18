@@ -1,0 +1,79 @@
+---
+import '../Reused.scss';
+import { Image } from 'astro:assets';
+import Punch from '@assets/images/Punch_TODO_Change.webp'
+import Phone from '@assets/svgs/phone.svg'
+import ArrowButton from '@assets/svgs/arrow-button.svg'
+import Grid from './grid.astro';
+import type { QuestionAskedType } from '../faqs.astro';
+import Faqs from '../faqs.astro';
+import CallToAction from '../call-to-action.astro';
+
+const questionData: QuestionAskedType = {
+  title: 'Commissioning bespoke work.',
+  description: 'Most people who reach out have either seen something in our gallery, or have a problem an off-the-shelf product won\'t solve. Here\'s what they usually ask first.',
+  questions: [
+    {
+      question: 'Can you handle one-offs and prototypes, or just production runs?',
+      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
+    },
+    {
+      question: 'Do I need finished drawings to get a quote',
+      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
+    }
+  ]
+}
+---
+
+<!-- TEXT: SORT THIS -->
+<section class="sectionHome">
+  <div class="sectionTop">
+    <div class="imgBg">
+      <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
+      <div class="imgOverlay"></div>
+    </div>
+    <div class="sectionImgOver">
+      <div class="sectionTopFlex">
+        <span>Projects & Gallery</span>
+        <h1>Bespoke sheet metal, built to last.</h1>
+      </div>
+      <p class="sectionTopDesc">A small selection of work shipped from our Stoke-on-Trent workshop — cabinets, machine guards, outdoor structures, OEM fixtures and one-off commissions. Filter by category or search to find something close to what you need.</p>
+      <div class="sectionTopButtons">
+        <a href="/contact-us" class="orangeButton whitePath">
+          <p>Discuss your project</p>
+          <ArrowButton />
+        </a>
+        <a class="hollowButton whitePath" href="tel:+441782749000">
+          <Phone />
+          <p>01782 749000</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <Grid borderAndBg={true} />
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Gallery</p>
+      <div class="textBlock">
+        <h2 class="h2Title">Browse our completed work.</h2>
+        <h3>Filter by sector or finish, search for a keyword, then click any project to see it full-size.</h3>
+      </div>
+    </div>
+    <!-- TODO: the scroll and search -->
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Behind every project</p>
+        <div class="textBlock">
+          <h2 class="h2Title">Design, fabricate, finish - one workshop.</h2>
+          <h3>Every piece in this gallery was drawn, profiled, bent, welded and finished in our Stoke-on-Trent workshop. Keeping it all under one roof is how we hit tight deadlines and stay honest about quality.</h3>
+        </div>
+        <!-- TODO: button row -->
+      </div>
+      <!-- TODO: the boxes -->
+    </div>
+  </div>
+  <Faqs darkerBg={false} questionData={questionData} />
+  <CallToAction />
+</section>

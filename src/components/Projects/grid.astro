@@ -1,0 +1,44 @@
+---
+import Calendar from '@assets/svgs/calendar.svg'
+import Factory from '@assets/svgs/factory.svg'
+import Shield from '@assets/svgs/shield.svg'
+import Merit from '@assets/svgs/merit.svg'
+import Reveal from '../reveal.astro'
+// TODO: make these as per the logo
+
+interface Props {
+  borderAndBg: boolean
+}
+
+const borderAndBg = Astro.props.borderAndBg
+---
+
+<Reveal>
+  <div class={borderAndBg ? 'infoGridWrapperBorderBg' : 'infoGridWrapper'}>
+    <div class="infoGrid">
+      <div class="gridItem">
+        <div class="icon"><Calendar /></div>
+        <div><p>24+</p><span>Projects in gallery</span></div>
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Factory /></div>
+        <div><p>35+ years</p><span>Of bespoke work</span></div>
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Shield /></div>
+        <div><p>One roof</p><span>Design {'->'} finish</span></div>
+        <!-- TEXT: SORT THIS -->
+      </div>
+      <div class="gridItem">
+        <div class="icon"><Merit /></div>
+        <div><p>One-offs → Batch</p><span>Volumes</span></div>
+      </div>
+    </div>
+  </div>
+</Reveal>
+
+<style style="scss">
+  .infoGrid {
+    padding: 0;
+  }
+</style>
