@@ -29,7 +29,20 @@ const questionData: QuestionAskedType = {
 
 // TODO: make the sectors etc
 const sectorItems: SectorItemType[] = [
-  
+  {
+    orangeText: 'Sector',
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines',
+    cta: 'Explore sector',
+    href: 'manufacturing'
+  },
+    {
+    orangeText: 'Sector',
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines',
+    cta: 'Explore sector',
+    href: 'manufacturing'
+  },
 ]
 ---
 
@@ -67,7 +80,7 @@ const sectorItems: SectorItemType[] = [
         <h3>Each sector has its own demands — materials, finishes, safety detailing, delivery. We've packaged what we do in each one so you can see straight away if we're the right fit.</h3>
       </div>
     </div>
-    <div class="sectorGrid">
+    <div class="servicesDisplay">
       {
         sectorItems.map((item, i) => (
           <Reveal delay={i * 70}>
@@ -94,12 +107,12 @@ const sectorItems: SectorItemType[] = [
 </section>
 
 <style lang="scss">
-  .sectorGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 20px;
-  }
+  // .sectorGrid {
+  //   display: grid;
+  //   grid-template-columns: 1fr;
+  //   gap: 24px;
+  //   margin-top: 20px;
+  // }
 </style>
 
 <!-- TODO: make the stuff from this baso

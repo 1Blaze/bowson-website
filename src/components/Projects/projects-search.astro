@@ -1,0 +1,65 @@
+---
+import { GetAllProjects, Tags } from '../../data/projects';
+import { Image } from 'astro:assets';
+import SectorItem from '../sector-item.astro';
+
+const projects = GetAllProjects();
+---
+
+<input type="text" id="projectSearch" placeholder="Search projects…" />
+<div class="tag-list">
+  <button class="tag-pill active" data-tag="all">All</button>
+  {
+    Tags.map((tag) => (
+      <button class="tag-pill" data-tag={tag}>
+        {tag}
+      </button>
+    ))
+  }
+</div>
+<div>Showing 24 of 24 projects</div>
+<div>
+  {projects.map(({ slug, data }) => <SectorItem orangeText={data.tag} title={data.title} description={data.description} cta="View Project" href={slug} />)}
+</div>
+<!-- TODO: the scroll and search -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .sectorItem {
+    --heroHeight: 419px !important;
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById('projectSearch') as HTMLInputElement;
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.tag-pill');
+  const cards = document.querySelectorAll<HTMLAnchorElement>('.project-card');
+
+  let activeTag = 'all';
+
+  function applyFilters(): void {
+    const query = searchInput.value.trim().toLowerCase();
+
+    cards.forEach((card) => {
+      const title = card.dataset.title ?? '';
+      const summary = card.dataset.summary ?? '';
+      const tag = card.dataset.tag ?? '';
+
+      const matchesSearch = query === '' || title.includes(query) || summary.includes(query);
+      const matchesTag = activeTag === 'all' || tag === activeTag;
+
+      card.hidden = !(matchesSearch && matchesTag);
+    });
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeTag = btn.dataset.tag ?? 'all';
+      tagButtons.forEach((b) => b.classList.toggle('active', b === btn));
+      applyFilters();
+    });
+  });
+</script>

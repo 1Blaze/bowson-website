@@ -37,8 +37,14 @@ const borderAndBg = Astro.props.borderAndBg
   </div>
 </Reveal>
 
-<style style="scss">
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
   .infoGrid {
     padding: 0;
+
+    @include bp(lg) {
+      padding: 0 100px;
+    }
   }
 </style>

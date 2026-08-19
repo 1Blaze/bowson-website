@@ -8,6 +8,7 @@ import Grid from './grid.astro';
 import type { QuestionAskedType } from '../faqs.astro';
 import Faqs from '../faqs.astro';
 import CallToAction from '../call-to-action.astro';
+import ProjectsSearch from './projects-search.astro';
 
 const questionData: QuestionAskedType = {
   title: 'Commissioning bespoke work.',
@@ -59,7 +60,7 @@ const questionData: QuestionAskedType = {
         <h3>Filter by sector or finish, search for a keyword, then click any project to see it full-size.</h3>
       </div>
     </div>
-    <!-- TODO: the scroll and search -->
+    <ProjectsSearch />
   </div>
   <div class="darkerBg">
     <div class="mainBlock">
