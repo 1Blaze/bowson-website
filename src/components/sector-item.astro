@@ -8,17 +8,18 @@ export type SectorItemType = {
   title: string;
   description: string;
   cta: string;
-  href: string
+  href: string;
+  selected: boolean
 }
 
 interface Props extends SectorItemType {
 
 }
 
-const {orangeText, title, description, cta, href} = Astro.props
+const {orangeText, title, description, cta, href, selected} = Astro.props
 ---
 
-<a class="sectorItem" href={href}>
+<a class={selected ? 'sectorItem sectorItemFeatured' : 'sectorItem'} href={href}>
   <div class="imgBg">
     <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
     <div class="imgOverlay"></div>
@@ -35,97 +36,3 @@ const {orangeText, title, description, cta, href} = Astro.props
     </div>
   </div>
 </a>
-
-<style lang="scss">
-  @use '../styles/breakpoints' as *;
-
-  .sectorItem {
-    --heroHeight: 420px;
-    height: --heroHeight;
-    width: 100%;
-    border: 0.8px solid #e5e9f0;
-    box-shadow:
-      0px 1px 3px rgba(15, 23, 42, 0.06),
-      0px 1px 2px rgba(15, 23, 42, 0.04);
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.3s;
-
-    .imgBg {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      height: var(--heroHeight);
-
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-
-      .imgOverlay {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, rgba(14, 22, 40, 0) 0%, rgba(14, 22, 40, 1) 100%);
-        background-blend-mode: overlay;
-        opacity: 1;
-      }
-    }
-
-    .sectorOverImg {
-      position: absolute;
-      z-index: 2;
-      // min-height: var(--heroHeight);
-      // height: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      inset-inline: 0;
-      justify-content: flex-end;
-      padding: 28px 25px;
-      width: 100%;
-      // height: var(--heroHeight);
-      top: 0;
-      width: 100%;
-    }
-
-    span {
-      font-weight: 700;
-      font-size: 11px;
-      color: #ea580c;
-    }
-
-    .title {
-      font-family: var(--font-barlow);
-      font-weight: 700;
-      font-size: 26px;
-      color: #ffffff;
-    }
-
-    .description {
-      font-weight: 400;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .cta {
-      font-weight: 600;
-      font-size: 14px;
-      color: #ea580c;
-    }
-
-    &:hover {
-      box-shadow:
-        0px 4px 6px -4px rgba(0, 0, 0, 0.2),
-        0px 10px 15px -3px rgba(0, 0, 0, 0.2);
-      transform: translateY(-5px);
-      scale: 1.01;
-    }
-  }
-</style>

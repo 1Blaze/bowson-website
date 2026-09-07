@@ -2,8 +2,10 @@
 import { GetAllProjects, Tags } from '../../data/projects';
 import { Image } from 'astro:assets';
 import SectorItem from '../sector-item.astro';
+import Reveal from '../reveal.astro';
 
 const projects = GetAllProjects();
+const lengthOfProjects = projects.length
 ---
 
 <input type="text" id="projectSearch" placeholder="Search projects…" />
@@ -17,29 +19,59 @@ const projects = GetAllProjects();
     ))
   }
 </div>
-<div>Showing 24 of 24 projects</div>
-<div>
-  {projects.map(({ slug, data }) => <SectorItem orangeText={data.tag} title={data.title} description={data.description} cta="View Project" href={slug} />)}
+<div>Showing <span id="projectCount">{lengthOfProjects}</span> of {lengthOfProjects} projects</div>
+<div class="sectorsDisplay projectsDisplay">
+  {
+    projects.map(({ slug, data }, index) => (
+      <Reveal class={data.selected ? 'projectItemFeatured project-card' : 'project-card'} delay={index * 70} data-title={data.title.toLowerCase()} data-summary={data.description.toLowerCase()} data-tag={data.tag}>
+        <SectorItem orangeText={data.tag} title={data.title} description={data.description} cta="View Project" href={slug} selected={data.selected} />
+      </Reveal>
+    ))
+  }
 </div>
 <!-- TODO: the scroll and search -->
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
 
-  .sectorItem {
-    --heroHeight: 419px !important;
+  :global(.docs-reveal.project-card) {
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
+    transition-delay: 0s;
+  }
+
+  :global(.docs-reveal.project-card.is-filtered-out) {
+    opacity: 0;
+    transform: scale(0.96);
+    pointer-events: none;
   }
 </style>
 
 <script>
   const searchInput = document.getElementById('projectSearch') as HTMLInputElement;
   const tagButtons = document.querySelectorAll<HTMLButtonElement>('.tag-pill');
-  const cards = document.querySelectorAll<HTMLAnchorElement>('.project-card');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+  const countEl = document.getElementById('projectCount');
 
   let activeTag = 'all';
 
+  function setCardVisibility(card: HTMLElement, visible: boolean): void {
+    if (visible) {
+      // Un-hide before animating back in, then force a reflow so the
+      // browser registers "display: block" before we remove the class —
+      // otherwise the opacity transition gets skipped entirely.
+      card.style.display = '';
+      void card.offsetWidth;
+      card.classList.remove('is-filtered-out');
+    } else {
+      card.classList.add('is-filtered-out');
+    }
+  }
+
   function applyFilters(): void {
     const query = searchInput.value.trim().toLowerCase();
+    let visibleCount = 0;
 
     cards.forEach((card) => {
       const title = card.dataset.title ?? '';
@@ -48,12 +80,39 @@ const projects = GetAllProjects();
 
       const matchesSearch = query === '' || title.includes(query) || summary.includes(query);
       const matchesTag = activeTag === 'all' || tag === activeTag;
+      const isVisible = matchesSearch && matchesTag;
 
-      card.hidden = !(matchesSearch && matchesTag);
+      setCardVisibility(card, isVisible);
+      if (isVisible) visibleCount++;
     });
+
+    if (countEl) countEl.textContent = String(visibleCount);
   }
 
-  searchInput.addEventListener('input', applyFilters);
+  function debounce<T extends (...args: never[]) => void>(fn: T, wait: number) {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn(...args), wait);
+    };
+  }
+
+  // Only fully remove a card from layout once its fade-out has actually
+  // finished — if we set display:none immediately, opacity/transform
+  // never get a chance to animate.
+  cards.forEach((card) => {
+    card.addEventListener('transitionend', (e) => {
+      if (e.propertyName !== 'opacity') return;
+      if (card.classList.contains('is-filtered-out')) {
+        card.style.display = 'none';
+      }
+    });
+  });
+
+  // Debounced so a fast typist doesn't re-trigger the fade on every
+  // keystroke — clicks on tag pills stay instant since they're a single
+  // discrete action, not a stream of events.
+  searchInput.addEventListener('input', debounce(applyFilters, 150));
 
   tagButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -62,4 +121,6 @@ const projects = GetAllProjects();
       applyFilters();
     });
   });
+
+  applyFilters();
 </script>

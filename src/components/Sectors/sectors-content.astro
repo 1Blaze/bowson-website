@@ -34,6 +34,15 @@ const sectorItems: SectorItemType[] = [
     title: 'Manufacturing',
     description: 'Cabinets, enclosures and machine parts for production lines',
     cta: 'Explore sector',
+    selected: true,
+    href: 'manufacturing',
+  },
+  {
+    orangeText: 'Sector',
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines',
+    cta: 'Explore sector',
+    selected: false,
     href: 'manufacturing'
   },
     {
@@ -41,6 +50,31 @@ const sectorItems: SectorItemType[] = [
     title: 'Manufacturing',
     description: 'Cabinets, enclosures and machine parts for production lines',
     cta: 'Explore sector',
+    selected: false,
+    href: 'manufacturing'
+  },
+    {
+    orangeText: 'Sector',
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines',
+    cta: 'Explore sector',
+    selected: false,
+    href: 'manufacturing'
+  },
+    {
+    orangeText: 'Sector',
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines',
+    cta: 'Explore sector',
+    selected: false,
+    href: 'manufacturing'
+  },
+    {
+    orangeText: 'Sector',
+    title: 'Manufacturing',
+    description: 'Cabinets, enclosures and machine parts for production lines',
+    cta: 'Explore sector',
+    selected: false,
     href: 'manufacturing'
   },
 ]
@@ -80,10 +114,10 @@ const sectorItems: SectorItemType[] = [
         <h3>Each sector has its own demands — materials, finishes, safety detailing, delivery. We've packaged what we do in each one so you can see straight away if we're the right fit.</h3>
       </div>
     </div>
-    <div class="servicesDisplay">
+    <div class="sectorsDisplay">
       {
         sectorItems.map((item, i) => (
-          <Reveal delay={i * 70}>
+          <Reveal delay={i * 70} class={item.selected ? 'sectorItemFeatured' : ''}>
             <SectorItem {...item} />
           </Reveal>
         ))

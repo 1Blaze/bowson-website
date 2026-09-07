@@ -10,4 +10,5 @@ export const ExampleProject: ProjectType = {
   image: Punch,
   imageAlt: 'Image Alt',
   tag: 'Agriculture & Animal',
+  selected: false,
 };

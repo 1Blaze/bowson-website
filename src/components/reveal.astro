@@ -19,11 +19,17 @@ interface Props {
   as?: keyof HTMLElementTagNameMap;
 }
 
-const { delay = 0, class: className = "", from = "up", as = "div" } = Astro.props as Props;
+const {
+  delay = 0,
+  class: className = "",
+  from = "up",
+  as = "div",
+  ...rest
+} = Astro.props as Props & Record<string, unknown>;
 const Tag = as;
 ---
 
-<Tag class:list={['docs-reveal', className]} data-reveal-from={from} style={delay ? `--reveal-delay: ${delay}ms` : undefined}>
+<Tag class:list={['docs-reveal', className]} data-reveal-from={from} style={delay ? `--reveal-delay: ${delay}ms` : undefined} {...rest}>
   <slot />
 </Tag>
 
