@@ -1,0 +1,145 @@
+---
+import '../Reused.scss';
+import Phone from '@assets/svgs/phone.svg'
+import Mail from '@assets/svgs/mail.svg'
+import Arrow from '@assets/svgs/arrow-button.svg'
+import ContactInfo from './contact-info.astro'
+import WhiteForms from './white-forms.astro'
+---
+
+<section class="section home">
+  <div class="sectionTop">
+    <div class="gradientBg"></div>
+    <div class="sectionImgOver">
+      <div class="sectionTopFlex">
+        <div class="contactBubble">
+          <!-- TODO: make this an asset -->
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.5 6.5C9.5 6.76522 9.39464 7.01957 9.20711 7.20711C9.01957 7.39464 8.76522 7.5 8.5 7.5H2.5L0.5 9.5V1.5C0.5 1.23478 0.605357 0.98043 0.792893 0.792893C0.98043 0.605357 1.23478 0.5 1.5 0.5H8.5C8.76522 0.5 9.01957 0.605357 9.20711 0.792893C9.39464 0.98043 9.5 1.23478 9.5 1.5V6.5Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <p>Contact</p>
+        </div>
+        <h1>Let's talk about your <span class="underline">next project</span></h1>
+      </div>
+      <p class="sectionTopDesc">Whether you need a one-off prototype or a repeat production run, our team in Stoke-on-Trent is ready to help. Call, email, drop in, or send us a brief below — we'll come back the same working day.</p>
+      <div class="sectionTopButtons">
+        <a href="/contact-us" class="blueButton whitePath">
+          <Phone />
+          <p>01782 749000</p>
+        </a>
+        <a class="hollowButton whitePath" href="mailto:info@bowson.co.uk">
+          <Mail />
+          <p>info@bowson.co.uk</p>
+        </a>
+      </div>
+      <div class="contactGrid">
+        <div class="contactGridItem"></div>
+        <div class="contactGridItem"></div>
+        <div class="contactGridItem"></div>
+        <div class="contactGridItem"></div>
+      </div>
+    </div>
+  </div>
+  <div class="mainBlock">
+    <ContactInfo />
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="mainBlockText">
+        <p class="blueTitle">Send an enquiry</p>
+        <div class="textBlock">
+          <h2 class="h2Title h2TitleFullWidth">Tell us about your project</h2>
+          <h3 class="h2TitleFullWidth">Share what you need and we'll come back with timings, pricing and any technical questions. Drawings? Email them through afterwards — we'll link them to your enquiry.</h3>
+        </div>
+      </div>
+      <WhiteForms />
+    </div>
+  </div>
+  <div class="mainBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Find us</p>
+      <div class="textBlock">
+        <h2 class="h2Title h2TitleFullWidth">Right in the heart of Stoke-On-Trent</h2>
+        <h3 class="h2TitleFullWidth">Our Fenton workshop is a few minutes from the A500 and easily reached from the M6. Visitor parking is available on-site — call ahead so we can have the kettle on.</h3>
+      </div>
+      <a class="blueButton whitePath" href="https://maps.app.goo.gl/MSDCLWn35raHv1AEA" target="_blank" rel="noopener noreferrer">
+        <p>Open in Google Maps</p>
+        <Arrow />
+      </a>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.577491747471!2d-2.1628440232890056!3d53.00971617219355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a69c66d4d60fd%3A0xaf88897079a0e688!2sBowson%20Engineering%20Limited!5e1!3m2!1sen!2suk!4v1790261104353!5m2!1sen!2suk"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- TEXT THIS -->
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+  .gradientBg {
+    position: relative;
+    z-index: 1;
+    --heroHeight: 826px;
+    height: var(--heroHeight);
+    background: linear-gradient(135deg, #0b3a5e 0%, #0f7ab0 100%);
+
+    @include bp(lg) {
+      --heroHeight: 565px;
+    }
+  }
+
+  .contactBubble {
+    width: fit-content;
+    height: 30.9px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 0.8px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+
+    p {
+      color: #fff !important;
+    }
+  }
+
+  h1 {
+    color: #fff !important;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  .hollowButton {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    .contactGridItem {
+      width: 100%;
+      height: 110.4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 0.8px solid rgba(255, 255, 255, 0.18);
+      border-radius: 12px;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    border-radius: 16px;
+  }
+</style>

@@ -6,6 +6,10 @@ export const ExampleProject: ProjectType = {
   title: 'Custom Machine Guarding',
   description: 'Bespoke perimeter guarding designed around an existing machine cell, with interlocked access doors.',
   seoTitle: 'SEO TITLE',
+
+  // SEO Example
+  // title: "Kiln Hood Fabrication for Ceramics Manufacturer | Bowson Engineering"
+  // description: "A custom-fabricated kiln hood and ventilation canopy. Designed and built in-house by Bowson Engineering, Stoke-on-Trent."
   seoDesc: '',
   image: Punch,
   imageAlt: 'Image Alt',

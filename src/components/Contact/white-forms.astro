@@ -1,0 +1,306 @@
+---
+import ArrowButton from '@assets/svgs/arrow-button.svg'
+---
+
+<!-- TODO: the howWeWork icons -->
+<div class="howWeWork">
+  <form class="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+    <input type="hidden" name="access_key" value="76671095-15eb-4056-aee2-01748f9ecf42" />
+    <input type="hidden" name="subject" value="New RFQ — Bowson Engineering website" />
+    <input type="hidden" name="from_name" value="Bowson Engineering website" />
+    {
+      /* Honeypot: real users never see or fill this. Bots often do. Web3Forms
+      auto-rejects submissions where this field is non-empty. */
+    }
+    <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+    <div class="formGrid">
+      <div class="formCol">
+        <label for="name" class="required">Your Name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required placeholder="Jane Smith" />
+      </div>
+      <div class="formCol">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" autocomplete="company" required placeholder="Business Ltd" />
+      </div>
+      <div class="formCol">
+        <label for="email" class="required">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.co.uk" />
+      </div>
+      <div class="formCol">
+        <label for="phone" class="required">Phone Number</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="07900 000000" />
+      </div>
+    </div>
+    <div class="formCol">
+      <label for="desc" class="required">Tell us about your project</label>
+      <textarea id="desc" name="desc" required placeholder="Description, quantities, materials, any other information available..."></textarea>
+    </div>
+    <div class="formRow">
+      <span>Attach drawings? Email them directly to <a href="mailto:info@bowson.co.uk">info@bowson.co.uk</a></span>
+      <span>By submitting you agree to be contacted about your enquiry. We never share your details.</span>
+      <button class="blueButton whitePath" type="submit">
+        <p>Request a Quote</p>
+        <ArrowButton />
+      </button>
+    </div>
+    <!-- TODO: change form to live and to my email -->
+  </form>
+</div>
+<div class="howWeWork">
+  <div class="howWeWorkTitle">
+    <div class="svgHouse">
+      <ArrowButton />
+    </div>
+    <p>Our workshop</p>
+  </div>
+  <div class="addressCol">
+    <span>Oak House, Dewsbury Road</span>
+    <span>Fenton, Stoke-On-Trent</span>
+    <span>Staffordshire, ST4 2TE</span>
+    <span>United Kingdom</span>
+  </div>
+  <a class="blueButton whitePath" href="https://maps.app.goo.gl/MSDCLWn35raHv1AEA" target="_blank" rel="noopener noreferrer">
+    <p>Get Directions</p>
+    <ArrowButton />
+  </a>
+</div>
+<div class="howWeWork">
+  <div class="howWeWorkTitle">
+    <div class="svgHouse">
+      <ArrowButton />
+    </div>
+    <p>Opening Hours</p>
+  </div>
+  <div class="addressRows">
+    <div class="addressRow">
+      <span>Monday</span>
+      <p>7:30 - 16:00</p>
+    </div>
+    <div class="addressRow">
+      <span>Tuesday</span>
+      <p>7:30 - 16:00</p>
+    </div>
+    <div class="addressRow">
+      <span>Wednesday</span>
+      <p>7:30 - 16:00</p>
+    </div>
+    <div class="addressRow">
+      <span>Thursday</span>
+      <p>7:30 - 16:00</p>
+    </div>
+    <div class="addressRow">
+      <span>Friday</span>
+      <p>7:30 - 13:00</p>
+    </div>
+    <div class="addressRow">
+      <span>Satuday</span>
+      <p>Closed</p>
+    </div>
+    <div class="addressRow">
+      <span>Sunday</span>
+      <p>Closed</p>
+    </div>
+  </div>
+  <div class="addressCol">
+    <span>Out of hours? Leave a message or email - we'll reply first thing next working day</span>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .howWeWork {
+    width: 100%;
+    height: fit-content;
+    background: #ffffff;
+    border: 0.8px solid #e5e9f0;
+    box-shadow:
+      0px 1px 3px rgba(15, 23, 42, 0.06),
+      0px 1px 2px rgba(15, 23, 42, 0.04);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    .howWeWorkTitle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+
+      p {
+        font-family: var(--font-barlow);
+        font-weight: 700;
+        font-size: 18px;
+        color: #0f172a;
+      }
+    }
+
+    .svgHouse {
+      width: 44px;
+      height: 44px;
+      background: rgba(2, 132, 199, 0.1);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .addressCol {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #4b5563;
+      }
+    }
+  }
+
+  .addressRows {
+    display: flex;
+    flex-direction: column;
+
+    .addressRow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 35px;
+      border-bottom: 1px solid #e5e9f0;
+
+      span {
+        font-weight: 400;
+        font-size: 14px;
+        color: #0f172a;
+      }
+
+      p {
+        font-weight: 600;
+        font-size: 14px;
+        color: #0f172a;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include bp(lg) {
+      padding: 50px;
+      // width: 100%;
+      flex: 1 auto;
+    }
+
+    .formGrid {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      @include bp(lg) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .formRow {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      @include bp(lg) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #4b5563;
+      }
+
+      a {
+        font-weight: 400;
+        font-size: 12px;
+        color: #0393cf;
+        text-decoration: none;
+      }
+    }
+
+    .formCol {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-weight: 600;
+        font-size: 12px;
+        color: #0f172a;
+      }
+
+      input {
+        width: 100%;
+        height: 37.6px;
+        background: #ffffff;
+        border: 0.8px solid #e5e9f0;
+        border-radius: 6px;
+        font-weight: 400;
+        font-size: 16px;
+        color: black;
+        padding: 0 12px;
+
+        &::placeholder {
+          color: rgba(33, 37, 41, 0.75);
+        }
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      label.required::after {
+        content: ' *';
+        color: #ea580c;
+        font-weight: bold;
+      }
+
+      textarea {
+        width: 100%;
+        height: 110px;
+        background: #ffffff;
+        border: 0.8px solid #e5e9f0;
+        border-radius: 6px;
+        font-weight: 400;
+        font-size: 16px;
+        color: black;
+        padding: 10px 12px;
+        resize: none;
+
+        &::placeholder {
+          color: rgba(33, 37, 41, 0.75);
+        }
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #4b5563;
+      }
+    }
+
+    .botcheck {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import Reveal from '../reveal.astro';
+import Stars from '@assets/svgs/stars.svg';
+import Sheild from '@assets/svgs/shield.svg';
+import Factory from '@assets/svgs/factory.svg';
+import Lightning from '@assets/svgs/lightning.svg';
+import GreySvgBox from '../grey-svg-box.astro';
+
+type ServiceType = {
+  title: string;
+  description: string;
+  svg: typeof Stars;
+};
+
+const services: ServiceType[] = [
+  {
+    title: 'Quality & reliability',
+    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
+    svg: Sheild
+  },
+  {
+    title: 'Quality & reliability',
+    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
+    svg: Lightning
+  },
+  {
+    title: 'Quality & reliability',
+    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
+    svg: Stars
+  },
+  {
+    title: 'Quality & reliability',
+    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
+    svg: Factory
+  },
+];
+---
+
+<!-- TEXT: SORT THIS -->
+<div class="servicesDisplay">
+  {
+    services.map((service, i) => (
+      <Reveal delay={i * 70} from="left">
+        <GreySvgBox {...service} />
+      </Reveal>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .servicesDisplay {
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 25px;
+    }
+  }
+</style>
