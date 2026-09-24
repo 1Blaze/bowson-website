@@ -23,28 +23,28 @@ const data = GetProject(id)
     <div class="intro">
       <p class="orangeText">About Bowson Engineering</p>
       <div class="topTextGap">
-        <h1>Custom Machine Guarding</h1>
-        <p class="homeDesc">Bespoke perimeter guarding designed around an existing machine cell, with interlocked access doors.</p>
+        <h1>{data.title}</h1>
+        <p class="homeDesc">{data.description}</p>
       </div>
     </div>
     <div class="location">
       <div class="locationInner">
         <span>Location</span>
-        <p>West Midlands, UK</p>
+        <p>{data.locationData.location}</p>
       </div>
       <div class="locationInner">
-        <span>Location</span>
-        <p>West Midlands, UK</p>
+        <span>CLient</span>
+        <p>{data.locationData.client}</p>
       </div>
     </div>
   </div>
   <div class="mainBlock">
     <Reveal>
       <div class="infoHeader">
-        <div><span>Sector</span><p>Manufacturing</p></div>
-        <div><span>Sector</span><p>Manufacturing</p></div>
-        <div><span>Sector</span><p>Manufacturing</p></div>
-        <div><span>Sector</span><p>Manufacturing</p></div>
+        <div><span>Sector</span><p>{data.barInfo.sector}</p></div>
+        <div><span>Material</span><p>{data.barInfo.material}</p></div>
+        <div><span>Finish</span><p>{data.barInfo.finish}</p></div>
+        <div><span>Category</span><p>{data.barInfo.category}</p></div>
       </div>
     </Reveal>
   </div>
@@ -53,7 +53,7 @@ const data = GetProject(id)
       <div class="imageHousing">
         <Image src={data.image} alt={data.imageAlt} />
         <div class="figImage">
-          <p>Fig. 01 // Safety & Access</p>
+          <p>{data.imageFig}</p>
         </div>
       </div>
       <div class="chalSol">
@@ -61,39 +61,47 @@ const data = GetProject(id)
           <div class="orangeBox"></div>
           <h3>The Challenge</h3>
         </div>
-        <p>A new robotic weld cell had been dropped into an existing production line with no perimeter protection, blocking sign-off from the customer's health & safety auditor.</p>
+        <p>{data.challenge}</p>
       </div>
       <div class="chalSol">
         <div class="chalSolRow">
           <div class="orangeBox"></div>
           <h3>The Soltuion</h3>
         </div>
-        <p>A new robotic weld cell had been dropped into an existing production line with no perimeter protection, blocking sign-off from the customer's health & safety auditor.</p>
+        <p>{data.soultion}</p>
       </div>
       <div class="projectSpec">
         <h3 class="projectSpecHeader">Project Specification</h3>
-        <Reveal from="left">
-          <div class="projectItem">
-            <p>Perimeter Length</p>
-            <span>18.4m</span>
-          </div>
-        </Reveal>
+        {
+          data.specification.map((spec, i) => (
+            <Reveal from="left" delay={i * 70}>
+              <div class="projectItem">
+                <p>{spec.title}</p>
+                <span>{spec.value}</span>
+              </div>
+            </Reveal>
+          ))
+        }
       </div>
     </div>
 
     <div class="keyEngineering">
       <h3>Key Engineering Features</h3>
       <div class="keyEngineeringList">
-        <Reveal from="right">
-          <div class="keyEngRow">
-            <span>01</span>
-            <p>Bespoke perimeter footprint drawn from on-site survey</p>
-          </div>
-        </Reveal>
+        {
+          data.features.map((spec, i) => (
+            <Reveal from="right" delay={i * 70}>
+              <div class="keyEngRow">
+                <span>{'0' + (i + 1)}</span>
+                <p>{spec}</p>
+              </div>
+            </Reveal>
+          ))
+        }
       </div>
       <div class="projOutcome">
         <span>Project Outcome</span>
-        <p>Installed over a single production weekend — cell signed off first Monday back.</p>
+        <p>{data.outcome}</p>
       </div>
       <div class="stillQuestion">
         <div class="stillTop">
@@ -248,6 +256,10 @@ const data = GetProject(id)
       font-weight: 600;
       font-size: 17.6px;
       color: #0f172a;
+
+      @include bp(lg) {
+        white-space: nowrap;
+      }
     }
 
     span {
