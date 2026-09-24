@@ -1,0 +1,446 @@
+---
+import { GetProject } from '~/src/data/projects'
+import '../../Reused.scss';
+import { Image } from 'astro:assets';
+import Reveal from '../../reveal.astro';
+import Phone from '@assets/svgs/phone.svg'
+import ArrowButton from '@assets/svgs/arrow-button.svg'
+import CaseStudies from './case-studies.astro';
+import CallToAction from '../../call-to-action.astro';
+
+interface Props {
+  id: string
+}
+
+const id = Astro.props.id
+
+const data = GetProject(id)
+---
+
+<!-- TODO: make all of this from the data -->
+<section class="section home">
+  <div class="topGap">
+    <div class="intro">
+      <p class="orangeText">About Bowson Engineering</p>
+      <div class="topTextGap">
+        <h1>Custom Machine Guarding</h1>
+        <p class="homeDesc">Bespoke perimeter guarding designed around an existing machine cell, with interlocked access doors.</p>
+      </div>
+    </div>
+    <div class="location">
+      <div class="locationInner">
+        <span>Location</span>
+        <p>West Midlands, UK</p>
+      </div>
+      <div class="locationInner">
+        <span>Location</span>
+        <p>West Midlands, UK</p>
+      </div>
+    </div>
+  </div>
+  <div class="mainBlock">
+    <Reveal>
+      <div class="infoHeader">
+        <div><span>Sector</span><p>Manufacturing</p></div>
+        <div><span>Sector</span><p>Manufacturing</p></div>
+        <div><span>Sector</span><p>Manufacturing</p></div>
+        <div><span>Sector</span><p>Manufacturing</p></div>
+      </div>
+    </Reveal>
+  </div>
+  <div class="mainBlock mainBlockGridFlipped">
+    <div class="projectCol">
+      <div class="imageHousing">
+        <Image src={data.image} alt={data.imageAlt} />
+        <div class="figImage">
+          <p>Fig. 01 // Safety & Access</p>
+        </div>
+      </div>
+      <div class="chalSol">
+        <div class="chalSolRow">
+          <div class="orangeBox"></div>
+          <h3>The Challenge</h3>
+        </div>
+        <p>A new robotic weld cell had been dropped into an existing production line with no perimeter protection, blocking sign-off from the customer's health & safety auditor.</p>
+      </div>
+      <div class="chalSol">
+        <div class="chalSolRow">
+          <div class="orangeBox"></div>
+          <h3>The Soltuion</h3>
+        </div>
+        <p>A new robotic weld cell had been dropped into an existing production line with no perimeter protection, blocking sign-off from the customer's health & safety auditor.</p>
+      </div>
+      <div class="projectSpec">
+        <h3 class="projectSpecHeader">Project Specification</h3>
+        <Reveal from="left">
+          <div class="projectItem">
+            <p>Perimeter Length</p>
+            <span>18.4m</span>
+          </div>
+        </Reveal>
+      </div>
+    </div>
+
+    <div class="keyEngineering">
+      <h3>Key Engineering Features</h3>
+      <div class="keyEngineeringList">
+        <Reveal from="right">
+          <div class="keyEngRow">
+            <span>01</span>
+            <p>Bespoke perimeter footprint drawn from on-site survey</p>
+          </div>
+        </Reveal>
+      </div>
+      <div class="projOutcome">
+        <span>Project Outcome</span>
+        <p>Installed over a single production weekend — cell signed off first Monday back.</p>
+      </div>
+      <div class="stillQuestion">
+        <div class="stillTop">
+          <p>Need something similar?</p>
+          <span>Speak to our team directly — drawings, sketches or just an idea.</span>
+        </div>
+        <div class="buttonRow">
+          <a href="/contact-us" class="blueButton whitePath">
+            <p>Enquire</p>
+            <ArrowButton />
+          </a>
+          <a href="tel:+441782749000" class="hollowButton">
+            <Phone />
+            <p>01782 749000</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="darkerBg">
+    <div class="mainBlock">
+      <div class="topHeaderRow">
+        <div class="mainBlockText">
+          <p class="blueTitle orangeColour">CONTINUE READING</p>
+          <div class="textBlock">
+            <h2 class="h2Title h2TitleFullWidth">More case studies</h2>
+          </div>
+        </div>
+        <a href="/projects" class="allProjects darkPath">
+          <p>All Projects</p>
+          <ArrowButton />
+        </a>
+      </div>
+
+      <CaseStudies />
+    </div>
+  </div>
+  <CallToAction />
+</section>
+
+<!-- TEXT THIS -->
+
+<style lang="scss">
+  @use '../../../styles/breakpoints' as *;
+
+  .topGap {
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr !important;
+      align-items: flex-end;
+      //   justify-content: space-between;
+    }
+  }
+
+  .topHeaderRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .orangeColour {
+    color: #ea580c !important;
+  }
+
+  .orangeText {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #ea580c;
+  }
+
+  .allProjects {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 4px;
+
+    p {
+      font-weight: 700;
+      font-size: 12px;
+      color: #0f172a;
+      text-transform: uppercase;
+      transition: 0.3s;
+
+      &:hover {
+        color: #000000;
+        // font-weight: 900;
+      }
+    }
+  }
+
+  .location {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-left: 2px solid #ea580c;
+    padding: 0 20px;
+    width: fit-content;
+
+    @include bp(lg) {
+      justify-self: flex-end;
+    }
+
+    .locationInner {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 12px;
+      color: #4b5563;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-weight: 600;
+      font-size: 16px;
+      color: #0f172a;
+      font-family: var(--font-barlow);
+    }
+  }
+
+  .infoHeader {
+    width: 100%;
+    height: fit-content;
+    background: #f8fafc;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 0;
+    padding: 20px 26px;
+    justify-content: center;
+    align-items: center;
+
+    @include bp(lg) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      align-items: center;
+      gap: 177px;
+      //   padding: 26px 100px;
+      max-width: 1440px;
+      margin-inline: auto;
+      width: 100%;
+    }
+
+    p {
+      font-family: var(--font-barlow);
+      font-weight: 600;
+      font-size: 17.6px;
+      color: #0f172a;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 10px;
+      color: #4b5563;
+      text-transform: uppercase;
+    }
+  }
+
+  .imageHousing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 276px;
+    box-shadow:
+      0px 6px 12px -6px rgba(15, 23, 42, 0.08),
+      0px 12px 30px -10px rgba(2, 132, 199, 0.25);
+    border-radius: 16px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .figImage {
+      position: absolute;
+      width: fit-content;
+      height: 26.2px;
+      left: 16px;
+      bottom: 16px;
+      background: rgba(15, 23, 42, 0.75);
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 18px;
+
+      p {
+        font-weight: 600;
+        font-size: 10px;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .projectCol {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .chalSol {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .chalSolRow {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+
+        .orangeBox {
+          width: 22px;
+          height: 2px;
+          background: #ea580c;
+        }
+      }
+
+      h3 {
+        font-family: var(--font-barlow);
+        font-weight: 700;
+        font-size: 19.2px;
+        color: #0f172a;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        color: #4b5563;
+      }
+    }
+  }
+
+  .projectSpec {
+    border-top: 1.6px solid #0f172a4f;
+    display: flex;
+    // gap: 25px;
+    flex-direction: column;
+
+    h3 {
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+
+    .projectItem {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e9f0;
+      padding: 25px 0;
+    }
+
+    h3,
+    p {
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #4b5563;
+      text-transform: uppercase;
+    }
+
+    span {
+      font-family: var(--font-barlow);
+      font-weight: 700;
+      font-size: 16px;
+      color: #0f172a;
+    }
+  }
+
+  .keyEngineering {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include bp(lg) {
+      margin-top: 0;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 16px;
+      letter-spacing: 4px;
+      color: #0f172a;
+      text-transform: uppercase;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 15px;
+    }
+
+    .keyEngineeringList {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .keyEngRow {
+        display: flex;
+        flex-direction: row;
+        gap: 14px;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 13px;
+        color: #ea580c;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 15.6px;
+        color: #0f172a;
+      }
+    }
+
+    .projOutcome {
+      width: 100%;
+      height: fit-content;
+      background: #0f172a;
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      span {
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 1.4px;
+        color: rgba(255, 255, 255, 0.55);
+        text-transform: uppercase;
+      }
+
+      p {
+        font-family: var(--font-barlow);
+        font-weight: 600;
+        font-size: 19.2px;
+        color: #ffffff;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import ProjectsTemplate from '~/src/components/Projects/Template/projects-template.astro';
+import Layout from '../../layouts/Layout.astro';
+import { GetProject } from '~/src/data/projects';
+
+export function getStaticPaths() {
+  return [
+    { params: { service: "galvanised-deer-tower" }},
+    // TODO: the rest of these and map out
+  ];
+}
+
+const { service } = Astro.params;
+const data = GetProject(service)
+---
+
+<Layout title={data.seoTitle} description={data.seoDesc}>
+  <ProjectsTemplate id={service} />
+</Layout>

@@ -127,7 +127,7 @@ const data = GetService(id)
     <div class="servicesDisplay">
       {
         data.mightAlsoNeed.map((service, i) => (
-          <Reveal delay={i * 70} from="down">
+          <Reveal delay={i * 70}>
             <a href={`/services/${service.href}`} class="serviceItem">
               <Image src={service.image} alt={service.title} />
               <div class="serviceTextGap">

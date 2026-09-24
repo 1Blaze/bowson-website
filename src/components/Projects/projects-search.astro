@@ -8,28 +8,60 @@ const projects = GetAllProjects();
 const lengthOfProjects = projects.length
 ---
 
-<input type="text" id="projectSearch" placeholder="Search projects…" />
-<div class="tag-list">
-  <button class="tag-pill active" data-tag="all">All</button>
-  {
-    Tags.map((tag) => (
-      <button class="tag-pill" data-tag={tag}>
-        {tag}
-      </button>
-    ))
-  }
+<div class="mainBlock">
+  <div class="projectRow">
+    <div class="mainBlockText">
+      <p class="blueTitle">Gallery</p>
+      <div class="textBlock">
+        <h2 class="h2Title h2TitleFullWidth">Browse our completed work.</h2>
+        <h3 class="h2TitleFullWidth">Filter by sector or finish, search for a keyword, then click any project to see it full-size.</h3>
+      </div>
+    </div>
+    <!-- TODO: make this icon an SVG-->
+    <div class="projectInput">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M8.3125 4.75C8.3125 6.71753 6.71753 8.3125 4.75 8.3125C2.78249 8.3125 1.1875 6.71753 1.1875 4.75C1.1875 2.78249 2.78249 1.1875 4.75 1.1875C6.71753 1.1875 8.3125 2.78249 8.3125 4.75ZM7.66278 8.50242C6.85837 9.12768 5.84765 9.5 4.75 9.5C2.12665 9.5 0 7.37334 0 4.75C0 2.12665 2.12665 0 4.75 0C7.37334 0 9.5 2.12665 9.5 4.75C9.5 5.84765 9.12768 6.85837 8.50242 7.6627L12.2949 11.4552L11.4552 12.2948L7.66278 8.50242Z"
+          fill="#080341"></path>
+      </svg>
+      <input type="text" id="projectSearch" placeholder="Search projects, sectors..." />
+    </div>
+  </div>
+
+  <div class="tagList">
+    <button class="tagButton tagButtonAll active" data-tag="all">
+      <p>All</p>
+      <div class="tagCircle">
+        <span>{lengthOfProjects}</span>
+      </div>
+    </button>
+    {
+      Tags.map((tag) => (
+        <button class="tagButton" data-tag={tag}>
+          <p>{tag}</p>
+          <div class="tagCircle">
+            <span>2</span>
+            {/* TODO: Make this number work */}
+          </div>
+        </button>
+      ))
+    }
+  </div>
+  <div>Showing <span id="projectCount">{lengthOfProjects}</span> of {lengthOfProjects} projects</div>
+  <!-- TODO: make the below some of them fill 2 boxes like the figma -->
+  <div class="sectorsDisplay projectsDisplay">
+    {
+      projects.map(({ slug, data }, index) => (
+        <Reveal class={data.selected ? 'projectItemFeatured project-card' : 'project-card'} delay={index * 70} data-title={data.title.toLowerCase()} data-summary={data.description.toLowerCase()} data-tag={data.tag}>
+          <SectorItem orangeText={data.tag} title={data.title} description={data.description} cta="View Project" href={'projects/' + slug} selected={data.selected} />
+        </Reveal>
+      ))
+    }
+  </div>
+  <!-- TODO: the scroll and search -->
 </div>
-<div>Showing <span id="projectCount">{lengthOfProjects}</span> of {lengthOfProjects} projects</div>
-<div class="sectorsDisplay projectsDisplay">
-  {
-    projects.map(({ slug, data }, index) => (
-      <Reveal class={data.selected ? 'projectItemFeatured project-card' : 'project-card'} delay={index * 70} data-title={data.title.toLowerCase()} data-summary={data.description.toLowerCase()} data-tag={data.tag}>
-        <SectorItem orangeText={data.tag} title={data.title} description={data.description} cta="View Project" href={slug} selected={data.selected} />
-      </Reveal>
-    ))
-  }
-</div>
-<!-- TODO: the scroll and search -->
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
@@ -46,11 +78,120 @@ const lengthOfProjects = projects.length
     transform: scale(0.96);
     pointer-events: none;
   }
+
+  .projectRow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include bp(lg) {
+      display: grid !important;
+      grid-template-columns: 3fr 1fr;
+      align-items: flex-end;
+    }
+  }
+
+  .projectInput {
+    width: 100%;
+    height: 40.2px;
+    background: #ffffff;
+    border: 0.8px solid #cecece;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 0 15px;
+
+    input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: none;
+      font-weight: 400;
+      font-size: 14px;
+      color: #080341;
+
+      &::placeholder {
+        color: #757575;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .tagList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    width: 100%;
+
+    .tagButtonAll {
+      background-color: #0f172a !important;
+      border-color: #0f172a !important;
+      color: #fff !important;
+
+      .tagCircle {
+        background-color: #555151 !important;
+
+        span {
+          color: #fff !important;
+        }
+      }
+    }
+
+    .tagButton {
+      width: fit-content;
+      height: 39.5px;
+      background: #ffffff;
+      border: 0.8px solid #e5e9f0;
+      border-radius: 999px;
+      flex-shrink: 0;
+      font-weight: 600;
+      font-size: 14.6px;
+      text-align: center;
+      color: #0f172a;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 15px;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .active {
+      background: #ffffff;
+      border: 0.8px solid #0393cf;
+      color: #0292cf;
+    }
+
+    .tagCircle {
+      width: 20px;
+      height: 20px;
+      background: #eeeeee;
+      opacity: 0.6;
+      border-radius: 50%;
+      transition: 0.3s;
+
+      span {
+        font-weight: 700;
+        font-size: 11px;
+        text-align: center;
+        transition: 0.3s;
+        color: #0f172a;
+      }
+    }
+  }
 </style>
 
 <script>
   const searchInput = document.getElementById('projectSearch') as HTMLInputElement;
-  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.tag-pill');
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.tagButton');
   const cards = document.querySelectorAll<HTMLElement>('.project-card');
   const countEl = document.getElementById('projectCount');
 

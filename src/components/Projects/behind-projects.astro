@@ -1,0 +1,59 @@
+---
+import Reveal from '../reveal.astro';
+import Stars from '@assets/svgs/stars.svg';
+import Clock from '@assets/svgs/clock.svg';
+import Sheild from '@assets/svgs/shield.svg';
+// TODO: make these
+import GreySvgBox from '../grey-svg-box.astro';
+
+type ServiceType = {
+  title: string;
+  description: string;
+  svg: typeof Stars;
+};
+
+const services: ServiceType[] = [
+  {
+    title: 'Bespoke by default',
+    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
+    svg: Stars
+
+  },
+  {
+    title: 'CNC Punching',
+    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
+    svg: Clock
+
+  },
+  {
+    title: 'CNC Punching',
+    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
+    svg: Sheild
+
+  },
+];
+---
+
+<!-- TEXT: SORT THIS -->
+<div class="servicesDisplay">
+  {
+    services.map((service, i) => (
+      <Reveal delay={i * 70} from="left">
+        <GreySvgBox {...service} />
+      </Reveal>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .servicesDisplay {
+    @include bp(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 25px;
+      gap: 50px;
+    }
+  }
+</style>

@@ -123,6 +123,13 @@
   }
 }
 
+.mainBlockGridFlipped {
+  @include bp(lg) {
+    display: grid !important;
+    grid-template-columns: 1fr 0.7fr;
+  }
+}
+
 .mainBlockGridEqual {
   @include bp(lg) {
     display: grid !important;

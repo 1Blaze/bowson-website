@@ -9,6 +9,7 @@ import type { QuestionAskedType } from '../faqs.astro';
 import Faqs from '../faqs.astro';
 import CallToAction from '../call-to-action.astro';
 import ProjectsSearch from './projects-search.astro';
+import BehindProjects from './behind-projects.astro';
 
 const questionData: QuestionAskedType = {
   title: 'Commissioning bespoke work.',
@@ -52,16 +53,7 @@ const questionData: QuestionAskedType = {
     </div>
   </div>
   <Grid borderAndBg={true} />
-  <div class="mainBlock">
-    <div class="mainBlockText">
-      <p class="blueTitle">Gallery</p>
-      <div class="textBlock">
-        <h2 class="h2Title">Browse our completed work.</h2>
-        <h3>Filter by sector or finish, search for a keyword, then click any project to see it full-size.</h3>
-      </div>
-    </div>
-    <ProjectsSearch />
-  </div>
+  <ProjectsSearch />
   <div class="darkerBg">
     <div class="mainBlock">
       <div class="mainBlockText">
@@ -70,11 +62,38 @@ const questionData: QuestionAskedType = {
           <h2 class="h2Title">Design, fabricate, finish - one workshop.</h2>
           <h3>Every piece in this gallery was drawn, profiled, bent, welded and finished in our Stoke-on-Trent workshop. Keeping it all under one roof is how we hit tight deadlines and stay honest about quality.</h3>
         </div>
-        <!-- TODO: button row -->
+        <div class="sectionTopButtons">
+          <a href="/services" class="blueButton whitePath">
+            <p>Explore Services</p>
+            <ArrowButton />
+          </a>
+          <a class="hollowButton whitePath darkerTextButton" href="/sectors">
+            <p>View Sectors</p>
+          </a>
+        </div>
       </div>
-      <!-- TODO: the boxes -->
+      <BehindProjects />
     </div>
   </div>
   <Faqs darkerBg={false} questionData={questionData} />
   <CallToAction />
 </section>
+
+<style lang="scss">
+  .sectionTopButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .darkerTextButton {
+    p {
+      color: #0f172a !important;
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    border: 0.8px solid #e5e9f0 !important;
+  }
+</style>
