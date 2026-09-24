@@ -31,6 +31,7 @@ export type ProjectType = {
   features: string[];
   outcome: string;
   specification: SpecType[];
+  number: string;
 };
 
 // TODO: the rest of this!

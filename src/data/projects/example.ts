@@ -3,9 +3,9 @@ import Punch from '@assets/images/Punch_TODO_Change.webp';
 import type { ProjectType } from '../projects';
 
 export const ExampleProject: ProjectType = {
-  title: 'Example Title',
-  description: 'Example Description',
-  seoTitle: '',
+  title: 'Custom Machine Guarding',
+  description: 'Bespoke perimeter guarding designed around an existing machine cell, with interlocked access doors.',
+  seoTitle: 'SEO TITLE',
   seoDesc: '',
   image: Punch,
   imageAlt: 'Image Alt',
@@ -36,4 +36,5 @@ export const ExampleProject: ProjectType = {
       value: '2.1m',
     },
   ],
+  number: '001',
 };

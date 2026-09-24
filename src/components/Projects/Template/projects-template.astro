@@ -21,7 +21,7 @@ const data = GetProject(id)
 <section class="section home">
   <div class="topGap">
     <div class="intro">
-      <p class="orangeText">About Bowson Engineering</p>
+      <p class="orangeText">Case Study {data.number} / {data.tag}</p>
       <div class="topTextGap">
         <h1>{data.title}</h1>
         <p class="homeDesc">{data.description}</p>
@@ -171,6 +171,7 @@ const data = GetProject(id)
     font-weight: 500;
     font-size: 12px;
     color: #ea580c;
+    text-transform: uppercase;
   }
 
   .allProjects {
