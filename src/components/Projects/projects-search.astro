@@ -1,8 +1,9 @@
 ---
-import { GetAllProjects, Tags } from '../../data/projects';
-import { Image } from 'astro:assets';
+import { GetAllProjects, GetTagsWithCounts } from '../../data/projects';
 import SectorItem from '../sector-item.astro';
 import Reveal from '../reveal.astro';
+import Search from '@assets/svgs/search.svg'
+const Tags = GetTagsWithCounts()
 
 const projects = GetAllProjects();
 const lengthOfProjects = projects.length
@@ -17,15 +18,8 @@ const lengthOfProjects = projects.length
         <h3 class="h2TitleFullWidth">Filter by sector or finish, search for a keyword, then click any project to see it full-size.</h3>
       </div>
     </div>
-    <!-- TODO: make this icon an SVG-->
     <div class="projectInput">
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M8.3125 4.75C8.3125 6.71753 6.71753 8.3125 4.75 8.3125C2.78249 8.3125 1.1875 6.71753 1.1875 4.75C1.1875 2.78249 2.78249 1.1875 4.75 1.1875C6.71753 1.1875 8.3125 2.78249 8.3125 4.75ZM7.66278 8.50242C6.85837 9.12768 5.84765 9.5 4.75 9.5C2.12665 9.5 0 7.37334 0 4.75C0 2.12665 2.12665 0 4.75 0C7.37334 0 9.5 2.12665 9.5 4.75C9.5 5.84765 9.12768 6.85837 8.50242 7.6627L12.2949 11.4552L11.4552 12.2948L7.66278 8.50242Z"
-          fill="#080341"></path>
-      </svg>
+      <Search />
       <input type="text" id="projectSearch" placeholder="Search projects, sectors..." />
     </div>
   </div>
@@ -39,18 +33,16 @@ const lengthOfProjects = projects.length
     </button>
     {
       Tags.map((tag) => (
-        <button class="tagButton" data-tag={tag}>
-          <p>{tag}</p>
+        <button class="tagButton" data-tag={tag.tag}>
+          <p>{tag.tag}</p>
           <div class="tagCircle">
-            <span>2</span>
-            {/* TODO: Make this number work */}
+            <span>{tag.count}</span>
           </div>
         </button>
       ))
     }
   </div>
   <div>Showing <span id="projectCount">{lengthOfProjects}</span> of {lengthOfProjects} projects</div>
-  <!-- TODO: make the below some of them fill 2 boxes like the figma -->
   <div class="sectorsDisplay projectsDisplay">
     {
       projects.map(({ slug, data }, index) => (
@@ -60,7 +52,6 @@ const lengthOfProjects = projects.length
       ))
     }
   </div>
-  <!-- TODO: the scroll and search -->
 </div>
 
 <style lang="scss">

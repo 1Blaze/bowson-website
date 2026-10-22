@@ -41,9 +41,14 @@ const Projects: Record<string, ProjectType> = {
   'custom-test-guarding': ExampleProject,
   'custom-www-guarding': ExampleProject,
   'custom-aaa-guarding': ExampleProject,
+  'custom-dd-guarding': ExampleProject,
+  'custom-w-guarding': ExampleProject,
+  'custom-i-guarding': ExampleProject,
+  'custom-o-guarding': ExampleProject,
+  'custom-p-guarding': ExampleProject,
 };
 
-export const Tags = ['Agriculture & Animal', 'Safety & Access', 'Bespoke Fabrication'];
+const tags = ['Agriculture & Animal', 'Safety & Access', 'Bespoke Fabrication'];
 
 export const GetProject = (id: string): ProjectType => {
   return Projects[id];
@@ -51,4 +56,12 @@ export const GetProject = (id: string): ProjectType => {
 
 export const GetAllProjects = (): { slug: string; data: ProjectType }[] => {
   return Object.entries(Projects).map(([slug, data]) => ({ slug, data }));
+};
+
+const GetTagCount = (tag: string): number => {
+  return Object.values(Projects).filter((project) => project.tag === tag).length;
+};
+
+export const GetTagsWithCounts = (): { tag: string; count: number }[] => {
+  return tags.map((tag) => ({ tag, count: GetTagCount(tag) }));
 };

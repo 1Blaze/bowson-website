@@ -1,34 +1,34 @@
 ---
 import Reveal from '../reveal.astro';
-import Stars from '@assets/svgs/stars.svg';
-import Clock from '@assets/svgs/clock.svg';
+import Merit from '@assets/svgs/merit.svg';
+import Factory from '@assets/svgs/factory.svg';
 import Sheild from '@assets/svgs/shield.svg';
-// TODO: make these
 import GreySvgBox from '../grey-svg-box.astro';
 
 type ServiceType = {
   title: string;
   description: string;
-  svg: typeof Stars;
+  svg: typeof Merit;
 };
 
+// TEXT THIS
 const services: ServiceType[] = [
   {
-    title: 'Bespoke by default',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Stars
-
-  },
-  {
-    title: 'CNC Punching',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Clock
-
-  },
-  {
-    title: 'CNC Punching',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
+    title: 'ISO 9001',
+    description: 'Documented quality, traceability and material certs available.',
     svg: Sheild
+
+  },
+  {
+    title: 'Full Workflow',
+    description: 'CNC punch, laser, press brake, welding, powder coating in-house.',
+    svg: Factory
+
+  },
+  {
+    title: 'Repeat Customers',
+    description: 'From OEMs to one-off commissions — built on relationships.',
+    svg: Merit
 
   },
 ];
@@ -38,7 +38,7 @@ const services: ServiceType[] = [
 <div class="servicesDisplay">
   {
     services.map((service, i) => (
-      <Reveal delay={i * 70} from="left">
+      <Reveal delay={i * 70} from="left" class="selfCenter">
         <GreySvgBox {...service} />
       </Reveal>
     ))
@@ -55,5 +55,9 @@ const services: ServiceType[] = [
       margin-top: 25px;
       gap: 50px;
     }
+  }
+
+  .selfCenter {
+    align-self: center;
   }
 </style>
