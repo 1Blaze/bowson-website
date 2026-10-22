@@ -3,107 +3,120 @@ import ArrowButton from '@assets/svgs/arrow-button.svg'
 ---
 
 <!-- TODO: the howWeWork icons -->
-<div class="howWeWork">
-  <form class="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-    <input type="hidden" name="access_key" value="76671095-15eb-4056-aee2-01748f9ecf42" />
-    <input type="hidden" name="subject" value="New RFQ — Bowson Engineering website" />
-    <input type="hidden" name="from_name" value="Bowson Engineering website" />
-    {
-      /* Honeypot: real users never see or fill this. Bots often do. Web3Forms
+<div class="mainBlock mainBlockGridFlipped">
+  <div class="innerBlock">
+    <div class="mainBlockText">
+      <p class="blueTitle">Send an enquiry</p>
+      <div class="textBlock">
+        <h2 class="h2Title h2TitleFullWidth">Tell us about your project</h2>
+        <h3 class="h2TitleFullWidth">Share what you need and we'll come back with timings, pricing and any technical questions. Drawings? Email them through afterwards — we'll link them to your enquiry.</h3>
+      </div>
+    </div>
+    <div class="howWeWork">
+      <form class="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="76671095-15eb-4056-aee2-01748f9ecf42" />
+        <input type="hidden" name="subject" value="New RFQ — Bowson Engineering website" />
+        <input type="hidden" name="from_name" value="Bowson Engineering website" />
+        {
+          /* Honeypot: real users never see or fill this. Bots often do. Web3Forms
       auto-rejects submissions where this field is non-empty. */
-    }
-    <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        }
+        <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-    <div class="formGrid">
-      <div class="formCol">
-        <label for="name" class="required">Your Name</label>
-        <input type="text" id="name" name="name" autocomplete="name" required placeholder="Jane Smith" />
-      </div>
-      <div class="formCol">
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" autocomplete="company" required placeholder="Business Ltd" />
-      </div>
-      <div class="formCol">
-        <label for="email" class="required">Email</label>
-        <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.co.uk" />
-      </div>
-      <div class="formCol">
-        <label for="phone" class="required">Phone Number</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="07900 000000" />
-      </div>
+        <div class="formGrid">
+          <div class="formCol">
+            <label for="name" class="required">Your Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Jane Smith" />
+          </div>
+          <div class="formCol">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" autocomplete="company" required placeholder="Business Ltd" />
+          </div>
+          <div class="formCol">
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@email.co.uk" />
+          </div>
+          <div class="formCol">
+            <label for="phone" class="required">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="07900 000000" />
+          </div>
+        </div>
+        <div class="formCol">
+          <label for="desc" class="required">Tell us about your project</label>
+          <textarea id="desc" name="desc" required placeholder="Description, quantities, materials, any other information available..."></textarea>
+        </div>
+        <div class="formRow">
+          <span>Attach drawings? Email them directly to <a href="mailto:info@bowson.co.uk">info@bowson.co.uk</a></span>
+          <span>By submitting you agree to be contacted about your enquiry. We never share your details.</span>
+          <button class="blueButton whitePath" type="submit">
+            <p>Request a Quote</p>
+            <ArrowButton />
+          </button>
+        </div>
+        <!-- TODO: change form to live and to my email -->
+      </form>
     </div>
-    <div class="formCol">
-      <label for="desc" class="required">Tell us about your project</label>
-      <textarea id="desc" name="desc" required placeholder="Description, quantities, materials, any other information available..."></textarea>
-    </div>
-    <div class="formRow">
-      <span>Attach drawings? Email them directly to <a href="mailto:info@bowson.co.uk">info@bowson.co.uk</a></span>
-      <span>By submitting you agree to be contacted about your enquiry. We never share your details.</span>
-      <button class="blueButton whitePath" type="submit">
-        <p>Request a Quote</p>
+  </div>
+  <div class="innerBlock">
+    <div class="howWeWork">
+      <div class="howWeWorkTitle">
+        <div class="svgHouse">
+          <ArrowButton />
+        </div>
+        <p>Our workshop</p>
+      </div>
+      <div class="addressCol">
+        <span>Oak House, Dewsbury Road</span>
+        <span>Fenton, Stoke-On-Trent</span>
+        <span>Staffordshire, ST4 2TE</span>
+        <span>United Kingdom</span>
+      </div>
+      <a class="blueButton whitePath" href="https://maps.app.goo.gl/MSDCLWn35raHv1AEA" target="_blank" rel="noopener noreferrer">
+        <p>Get Directions</p>
         <ArrowButton />
-      </button>
+      </a>
     </div>
-    <!-- TODO: change form to live and to my email -->
-  </form>
-</div>
-<div class="howWeWork">
-  <div class="howWeWorkTitle">
-    <div class="svgHouse">
-      <ArrowButton />
+    <div class="howWeWork">
+      <div class="howWeWorkTitle">
+        <div class="svgHouse">
+          <ArrowButton />
+        </div>
+        <p>Opening Hours</p>
+      </div>
+      <div class="addressRows">
+        <div class="addressRow">
+          <span>Monday</span>
+          <p>7:30 - 16:00</p>
+        </div>
+        <div class="addressRow">
+          <span>Tuesday</span>
+          <p>7:30 - 16:00</p>
+        </div>
+        <div class="addressRow">
+          <span>Wednesday</span>
+          <p>7:30 - 16:00</p>
+        </div>
+        <div class="addressRow">
+          <span>Thursday</span>
+          <p>7:30 - 16:00</p>
+        </div>
+        <div class="addressRow">
+          <span>Friday</span>
+          <p>7:30 - 13:00</p>
+        </div>
+        <div class="addressRow">
+          <span>Satuday</span>
+          <p>Closed</p>
+        </div>
+        <div class="addressRow">
+          <span>Sunday</span>
+          <p>Closed</p>
+        </div>
+      </div>
+      <div class="addressCol">
+        <span>Out of hours? Leave a message or email - we'll reply first thing next working day</span>
+      </div>
     </div>
-    <p>Our workshop</p>
-  </div>
-  <div class="addressCol">
-    <span>Oak House, Dewsbury Road</span>
-    <span>Fenton, Stoke-On-Trent</span>
-    <span>Staffordshire, ST4 2TE</span>
-    <span>United Kingdom</span>
-  </div>
-  <a class="blueButton whitePath" href="https://maps.app.goo.gl/MSDCLWn35raHv1AEA" target="_blank" rel="noopener noreferrer">
-    <p>Get Directions</p>
-    <ArrowButton />
-  </a>
-</div>
-<div class="howWeWork">
-  <div class="howWeWorkTitle">
-    <div class="svgHouse">
-      <ArrowButton />
-    </div>
-    <p>Opening Hours</p>
-  </div>
-  <div class="addressRows">
-    <div class="addressRow">
-      <span>Monday</span>
-      <p>7:30 - 16:00</p>
-    </div>
-    <div class="addressRow">
-      <span>Tuesday</span>
-      <p>7:30 - 16:00</p>
-    </div>
-    <div class="addressRow">
-      <span>Wednesday</span>
-      <p>7:30 - 16:00</p>
-    </div>
-    <div class="addressRow">
-      <span>Thursday</span>
-      <p>7:30 - 16:00</p>
-    </div>
-    <div class="addressRow">
-      <span>Friday</span>
-      <p>7:30 - 13:00</p>
-    </div>
-    <div class="addressRow">
-      <span>Satuday</span>
-      <p>Closed</p>
-    </div>
-    <div class="addressRow">
-      <span>Sunday</span>
-      <p>Closed</p>
-    </div>
-  </div>
-  <div class="addressCol">
-    <span>Out of hours? Leave a message or email - we'll reply first thing next working day</span>
   </div>
 </div>
 
@@ -184,6 +197,12 @@ import ArrowButton from '@assets/svgs/arrow-button.svg'
         color: #0f172a;
       }
     }
+  }
+
+  .innerBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .form {

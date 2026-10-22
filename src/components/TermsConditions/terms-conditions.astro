@@ -1,0 +1,77 @@
+---
+import '../Reused.scss';
+import {TermsAndConditions} from './terms-and-conditions'
+
+const letter = (i: number) => String.fromCharCode(65 + i)
+const slug = (n: number, i: number) => `clause-${n}${letter(i).toLowerCase()}`
+const sections = Object.entries(TermsAndConditions)
+---
+
+<section class="section home">
+  <div class="tos">
+    <div class="intro">
+      <div class="topTextGap">
+        <h1>Terms and Conditions of Purchasing</h1>
+        <h2>23 September 2022</h2>
+      </div>
+    </div>
+    <div class="capabilities">
+      {
+        sections.map(([title, clauses], s) => (
+          <section id={`section-${s + 1}`}>
+            <h2>
+              {s + 1}. {title}
+            </h2>
+            <ol class="clauses">
+              {clauses.map((text, i) => (
+                <li id={slug(s + 1, i)}>
+                  {/* <span class="label">{letter(i)}</span> */}
+                  <p>{text}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../../styles/breakpoints' as *;
+
+  .tos {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    position: relative;
+    width: 100%;
+    padding: 0 26px;
+    margin-bottom: 35px;
+
+    @include bp(lg) {
+      padding: 0 100px;
+      // margin-bottom: 0;
+      // margin-inline: auto;
+      // max-width: 1440px;
+    }
+
+    @include bp(xl) {
+      margin-inline: auto;
+      max-width: 1440px;
+    }
+  }
+
+  .capabilities {
+    gap: 20px;
+    .clauses {
+      margin-top: 20px;
+      padding: 0 40px;
+
+      p {
+        font-weight: 500;
+        font-family: var(--font-inter);
+      }
+    }
+  }
+</style>

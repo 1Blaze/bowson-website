@@ -58,18 +58,9 @@ const questionData: QuestionAskedType = {
     <ContactInfo />
   </div>
   <div class="darkerBg">
-    <div class="mainBlock">
-      <div class="mainBlockText">
-        <p class="blueTitle">Send an enquiry</p>
-        <div class="textBlock">
-          <h2 class="h2Title h2TitleFullWidth">Tell us about your project</h2>
-          <h3 class="h2TitleFullWidth">Share what you need and we'll come back with timings, pricing and any technical questions. Drawings? Email them through afterwards — we'll link them to your enquiry.</h3>
-        </div>
-      </div>
-      <WhiteForms />
-    </div>
+    <WhiteForms />
   </div>
-  <div class="mainBlock">
+  <div class="mainBlock mainBlockGrid">
     <div class="mainBlockText">
       <p class="blueTitle">Find us</p>
       <div class="textBlock">
@@ -80,15 +71,15 @@ const questionData: QuestionAskedType = {
         <p>Open in Google Maps</p>
         <Arrow />
       </a>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.577491747471!2d-2.1628440232890056!3d53.00971617219355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a69c66d4d60fd%3A0xaf88897079a0e688!2sBowson%20Engineering%20Limited!5e1!3m2!1sen!2suk!4v1790261104353!5m2!1sen!2suk"
-        width="600"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.577491747471!2d-2.1628440232890056!3d53.00971617219355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a69c66d4d60fd%3A0xaf88897079a0e688!2sBowson%20Engineering%20Limited!5e1!3m2!1sen!2suk!4v1790261104353!5m2!1sen!2suk"
+      width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
   <Faqs darkerBg={true} questionData={questionData} />
 </section>
@@ -107,6 +98,10 @@ const questionData: QuestionAskedType = {
     @include bp(lg) {
       --heroHeight: 565px;
     }
+  }
+
+  .mainBlockGrid {
+    grid-template-columns: 0.4fr 1fr;
   }
 
   .sectionLeftContact {
