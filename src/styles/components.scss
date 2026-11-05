@@ -397,6 +397,12 @@
   }
 }
 
+.imgCoverFIt {
+  @include bp(lg) {
+    object-fit: cover;
+  }
+}
+
 .phoneGap {
   gap: 8px;
   display: flex;

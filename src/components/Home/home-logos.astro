@@ -1,14 +1,16 @@
 ---
 import Solidworks from '@assets/images/solidworks.webp'
 import Jetcam from '@assets/images/jetcam.webp'
+import Bystronic from '@assets/svgs/bystronic.svg'
+import EDrawings from '@assets/svgs/edrawings-logo.svg'
 import { Image } from 'astro:assets'
 ---
 
 <div class="softwareGrid">
   <div class="softwareItem"><Image src={Solidworks} alt={'Solidworks Logo'} /></div>
   <div class="softwareItem"><Image src={Jetcam} alt={'Jetcam Logo'} /></div>
-  <div class="softwareItem">Bystronic Logo TODO</div>
-  <div class="softwareItem">E Drawings TODO</div>
+  <div class="softwareItem"><Bystronic /></div>
+  <div class="softwareItem"><EDrawings /></div>
 </div>
 
 <style lang="scss">
@@ -34,7 +36,8 @@ import { Image } from 'astro:assets'
       justify-content: center;
       align-items: center;
 
-      img {
+      img,
+      svg {
         height: 46px;
         width: 100%;
       }

@@ -1,6 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '@assets/images/Logo.webp';
+import Punch from '@assets/images/services/punch.webp';
+import Powdercoating from '@assets/images/services/oven.webp';
+import Forming from '@assets/images/services/forming.webp';
+import Welding from '@assets/images/services/weld.webp';
+import Laser from '@assets/images/services/laser.webp';
+import Modelling from '@assets/images/services/3dmodelling.webp';
 import Arrow from '@assets/svgs/arrow-button.svg'
 import Reveal from './reveal.astro';
 
@@ -9,6 +14,7 @@ type ServiceType = {
   title: string;
   description: string;
   image: ImageMetadata;
+  coverFIt: boolean;
   link: string
 };
 
@@ -16,37 +22,43 @@ const services: ServiceType[] = [
   {
     title: 'CNC Punching',
     description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-    image: logo,
+    image: Punch,
+    coverFIt: false,
     link: 'cnc-punching'
   },
     {
-    title: 'CNC Punching',
+    title: 'Laser Cutting',
     description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-    image: logo,
+    image: Laser,
+    coverFIt: false,
     link: 'cnc-punching'
   },
     {
-    title: 'CNC Punching',
+    title: 'Metal Forming',
     description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-    image: logo,
+    image: Forming,
+    coverFIt: false,
     link: 'cnc-punching'
   },
     {
-    title: 'CNC Punching',
+    title: 'Metal Welding',
     description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-    image: logo,
+    image: Welding,
+    coverFIt: false,
     link: 'cnc-punching'
   },
       {
-    title: 'CNC Punching',
+    title: 'Powder Coating',
     description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-    image: logo,
+    image: Powdercoating,
+    coverFIt: false,
     link: 'cnc-punching'
   },
     {
-    title: 'CNC Punching',
+    title: '3D Cad Design',
     description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
-    image: logo,
+    image: Modelling,
+    coverFIt: true,
     link: 'cnc-punching'
   },
 ];
@@ -58,7 +70,7 @@ const services: ServiceType[] = [
     services.map((service, i) => (
       <Reveal delay={i * 70} from="up">
         <a href={`/services/${service.link}`} class="serviceItem">
-          <Image src={service.image} alt={service.title} />
+          <Image class={service.coverFIt ? 'imgContimgCoverFItainFit' : ''} src={service.image} alt={service.title} />
           <div class="serviceTextGap">
             <h3>{service.title}</h3>
             <p>{service.description}</p>

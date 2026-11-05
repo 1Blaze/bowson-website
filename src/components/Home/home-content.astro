@@ -2,6 +2,8 @@
 import '../Reused.scss';
 import Phone from '@assets/svgs/phone.svg'
 import Check from '@assets/svgs/check.svg'
+import Kiln from '@assets/images/hero_image.webp'
+import RollerTable from '@assets/images/about_image_home.webp'
 import ServiceGrid from '../service-grid.astro'
 import SectorGrid from '../sector-grid.astro'
 import Featured from './featured.astro'
@@ -12,12 +14,13 @@ import InfoGrid from '../info-grid.astro'
 
 import '../Reused.scss'
 import HomeLogos from './home-logos.astro'
+import { Image } from 'astro:assets';
 
 const points = [
   'Family-owned since 1990 with strong values at the heart of the business',
   'Full in-house capability — CNC punching, laser, bending, fabrication & powder coating',
-  'Full in-house capability — CNC punching, laser, bending, fabrication & powder coating',
-  'Full in-house capability — CNC punching, laser, bending, fabrication & powder coating',
+  'SolidWorks 3D CAD design partnership from concept to finished product',
+  'Quality and reliability with fast turnaround — one-offs through to batch runs',
 ];
 ---
 
@@ -53,7 +56,7 @@ const points = [
         </div>
       </div>
       <div class="imgHouse">
-        <div class="img">Placeholder</div>
+        <Image class={'img'} src={Kiln} alt={'Picture of a kiln infront of the bowson van'} />
         <div class="capabilities">
           <span>In-house capability</span>
           <p>Design → Punch → Bend → Weld → Coat</p>
@@ -91,7 +94,7 @@ const points = [
   <div class="topGap">
     <Reveal from="left">
       <div class="aboutImage">
-        <div class="img">Placeholder</div>
+        <Image class={'img'} src={RollerTable} alt={'Picture of a bespoke roller table used to cut polymers'} />
         <div class="yearsIn">
           <h4>35+</h4>
           <p>Years in business</p>
