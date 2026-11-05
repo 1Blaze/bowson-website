@@ -397,10 +397,8 @@
   }
 }
 
-.imgCoverFIt {
-  @include bp(lg) {
-    object-fit: cover;
-  }
+.imgCoverFit {
+  object-fit: cover;
 }
 
 .phoneGap {

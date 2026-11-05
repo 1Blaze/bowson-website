@@ -1,6 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '@assets/images/Logo.webp';
+import Ceramics from '@assets/images/Sectors/ceramics.webp';
+import RollerTable from '@assets/images/Sectors/rollers.webp';
+import Stillage from '@assets/images/Sectors/stillage.webp';
+import Guard from '@assets/images/Sectors/machineguard.webp';
+import Seatbed from '@assets/images/Sectors/seatbed.webp';
+import Tower from '@assets/images/Sectors/tower.webp';
 import Arrow from '@assets/svgs/arrow-button.svg'
 import Reveal from './reveal.astro';
 
@@ -8,47 +13,52 @@ type ServiceType = {
   title: string;
   description: string;
   image: ImageMetadata;
+  coverFit?: boolean;
   link: string
 };
 
+// TEXT: SORT THIS
 const services: ServiceType[] = [
   {
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines.',
-    image: logo,
-    link: 'manufacturing'
+    title: 'Agriculture & Estate',
+    description: 'Galvanised steel deer towers and dog kennel structures.',
+    image: Tower,
+    link: 'agriculture-estate'
   },
-    {
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines.',
-    image: logo,
-    link: 'manufacturing'
+  {
+    title: 'Ceramics & Pottery',
+    description: 'Kilns, kiln frames, hoods and ventilation canopies, powder coated in-house.',
+    image: Ceramics,
+    link: 'ceramics-pottery'
   },
-    {
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines.',
-    image: logo,
-    link: 'manufacturing'
+  {
+    title: 'Manufacturing & Production',
+    description: 'Workbenches, roller tables, machine covers, cabinets, degassing chambers and catch pots.',
+    image: RollerTable,
+    coverFit: true,
+    link: 'manufacturing-production'
   },
-    {
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines.',
-    image: logo,
-    link: 'manufacturing'
+  {
+    title: 'Material Handling & Storage',
+    description: 'Stillages, pallet gates and bottle cages for moving and storing product.',
+    image: Stillage,
+    coverFit: true,
+    link: 'material-handling-storage'
   },
-    {
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines.',
-    image: logo,
-    link: 'manufacturing'
+  {
+    title: 'Safety & Access',
+    description: 'Machine guarding, safety barriers, access platforms, mobile steps, and smoking shelters.',
+    image: Guard,
+    link: 'safety-access'
   },
-    {
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines.',
-    image: logo,
-    link: 'manufacturing'
+  {
+    title: 'Vehicle & Campervan Conversions',
+    description: 'Seatbeds, roof bars and mounting plates for campervan conversions.',
+    image: Seatbed,
+    link: 'vehicle-campervan-conversions'
   },
 ];
+
 ---
 
 <!-- TEXT: SORT THIS -->
@@ -57,9 +67,9 @@ const services: ServiceType[] = [
     services.map((service, i) => (
       <Reveal delay={i * 70}>
         <a href={`/sectors/${service.link}`} class="serviceItem">
-          <Image src={service.image} alt={service.title} />
+          <Image class={service.coverFit ? 'imgCoverFit' : ''} src={service.image} alt={service.title} />
           <div class="serviceTextGap">
-            <h3>{service.title}</h3>
+            <h3 class="h2TitleFullWidth">{service.title}</h3>
             <p>{service.description}</p>
             <div class="serviceLearnMore">
               <span>Learn more</span>

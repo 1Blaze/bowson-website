@@ -11,6 +11,12 @@ import CallToAction from '../call-to-action.astro';
 import SectorItem, { type SectorItemType } from '../sector-item.astro';
 import Reveal from '../reveal.astro';
 import WhyBowson from './why-bowson.astro';
+import Ceramics from '@assets/images/Sectors/ceramics.webp';
+import RollerTable from '@assets/images/Sectors/rollers.webp';
+import Stillage from '@assets/images/Sectors/stillage.webp';
+import Guard from '@assets/images/Sectors/machineguard.webp';
+import Seatbed from '@assets/images/Sectors/seatbed.webp';
+import Tower from '@assets/images/Sectors/tower.webp';
 
 const questionData: QuestionAskedType = {
   title: 'Cross-sector questions.',
@@ -27,7 +33,7 @@ const questionData: QuestionAskedType = {
   ]
 }
 
-// TODO: make the sectors etc
+// TEXT: SORT THIS
 const sectorItems: SectorItemType[] = [
   {
     orangeText: 'Sector',
@@ -35,47 +41,53 @@ const sectorItems: SectorItemType[] = [
     description: 'Cabinets, enclosures and machine parts for production lines',
     cta: 'Explore sector',
     selected: true,
-    href: 'manufacturing',
+    href: 'manufacturing-production',
+    image: RollerTable,
   },
   {
     orangeText: 'Sector',
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines',
+    title: 'Agriculture & Estate',
+    description: 'Galvanised steel deer towers and dog kennel structures.',
     cta: 'Explore sector',
     selected: false,
-    href: 'manufacturing'
+    href: 'agriculture-estate',
+    image: Tower
   },
     {
     orangeText: 'Sector',
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines',
+    title: 'Ceramics & Pottery',
+    description: 'Kilns, kiln frames, hoods and ventilation canopies, powder coated in-house.',
     cta: 'Explore sector',
     selected: false,
-    href: 'manufacturing'
+    href: 'ceramics-pottery',
+    image: Ceramics
   },
     {
     orangeText: 'Sector',
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines',
+    title: 'Material Handling & Storage',
+    description: 'Stillages, pallet gates and bottle cages for moving and storing product.',
     cta: 'Explore sector',
     selected: false,
-    href: 'manufacturing'
+    href: 'material-handling-storage',
+    image: Stillage
   },
     {
     orangeText: 'Sector',
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines',
+    title: 'Safety & Access',
+    description: 'Machine guarding, safety barriers, access platforms, mobile steps, and smoking shelters.',
     cta: 'Explore sector',
     selected: false,
-    href: 'manufacturing'
+    href: 'safety-access',
+    image: Guard
   },
     {
     orangeText: 'Sector',
-    title: 'Manufacturing',
-    description: 'Cabinets, enclosures and machine parts for production lines',
+    title: 'Vehicle & Campervan Conversions',
+    description: 'Seatbeds, roof bars and mounting plates for campervan conversions.',
     cta: 'Explore sector',
     selected: false,
-    href: 'manufacturing'
+    href: 'vehicle-campervan-conversions',
+    image: Seatbed
   },
 ]
 ---
