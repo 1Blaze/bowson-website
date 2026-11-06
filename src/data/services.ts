@@ -34,9 +34,14 @@ export type ServiceType = {
   mightAlsoNeed: MightNeedType[];
 };
 
-// TODO: add all of this shit and sort it out with everything
+// TODO: sort all the data out with this
 const Services: Record<string, ServiceType> = {
   'cnc-punching': CNC_Punching,
+  'laser-cutting': CNC_Punching,
+  'bending-metal-forming': CNC_Punching,
+  'welding-fabrication': CNC_Punching,
+  'powder-coating': CNC_Punching,
+  '3d-cad-design': CNC_Punching,
 };
 
 export const GetService = (id: string): ServiceType => {

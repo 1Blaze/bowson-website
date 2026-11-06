@@ -26,7 +26,7 @@ export type SectorType = {
   otherSectors: MightNeedType[];
 };
 
-// TODO: add all of this shit and sort it out with everything
+// TODO: Do all the data for these
 const Services: Record<string, SectorType> = {
   'agriculture-estate': CeramicsPottery,
   'ceramics-pottery': CeramicsPottery,

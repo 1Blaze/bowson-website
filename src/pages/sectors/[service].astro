@@ -5,8 +5,12 @@ import { GetSector } from '~/src/data/sectors';
 
 export function getStaticPaths() {
   return [
+    { params: { service: "agriculture-estate" }},
     { params: { service: "ceramics-pottery" }},
-    // TODO: the rest of these and map out 
+    { params: { service: "manufacturing-production" }},
+    { params: { service: "material-handling-storage" }},
+    { params: { service: "safety-access" }},
+    { params: { service: "vehicle-campervan-conversions" }},
   ];
 }
 
