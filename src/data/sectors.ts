@@ -28,7 +28,12 @@ export type SectorType = {
 
 // TODO: add all of this shit and sort it out with everything
 const Services: Record<string, SectorType> = {
+  'agriculture-estate': CeramicsPottery,
   'ceramics-pottery': CeramicsPottery,
+  'manufacturing-production': CeramicsPottery,
+  'material-handling-storage': CeramicsPottery,
+  'safety-access': CeramicsPottery,
+  'vehicle-campervan-conversions': CeramicsPottery,
 };
 
 export const GetSector = (id: string): SectorType => {

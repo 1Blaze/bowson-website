@@ -1,5 +1,9 @@
 ---
 import logo from '@assets/images/Logo.webp';
+import EpikKiln from '@assets/images/Projects/epik_kiln.webp';
+import DeerTower from '@assets/images/Projects/deer_tower.webp';
+import Workbenches from '@assets/images/Projects/workbenches.webp';
+import PalletGate from '@assets/images/Projects/pallet_gate.webp';
 import { Image } from 'astro:assets';
 import Reveal from '../reveal.astro';
 
@@ -7,32 +11,34 @@ interface FeaturedWorkItem {
   image: ImageMetadata;
   title: string;
   description: string;
-  category?: string;
-  href?: string;
+  category: string;
+  href: string;
+  alt: string;
 }
 
+// TEXT: SORT THIS
 const items: FeaturedWorkItem[] = [
-    { image: logo, title: 'Job name', description: '', category: 'Fabrication' },
-    { image: logo, title: 'Job name', description: '', category: 'Powder coating' },
-    { image: logo, title: 'Job name', description: '', },
-    { image: logo, title: 'Job name', description: '', },
+    { image: Workbenches, title: 'Work Benches', description: 'A batch of [12] steel work benches with back panels, lower shelves and side shelves with hooks, powder coated in-house.', category: 'Manufacturing & Production', alt: 'Rows of blue powder coated steel work benches with back panels and shelves', href: 'work-benches' },
+    { image: EpikKiln, title: 'Truck Kiln', description: 'Fabricated steel kiln housing with a fitted door, powder coated in-house.', category: 'Ceramics & Pottery', alt: 'Blue powder coated steel kiln housing with door', href: 'truck-kilns' },
+    { image: DeerTower, title: 'Deer Tower', description: 'Galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', category: 'Agriculture & Estate', alt: 'Galvanised steel deer tower with enclosed cabin and ladder in woodland', href: 'deer-towers' },
+    { image: PalletGate, title: 'Pallet Gate', description: 'Steel pallet gate with guard rails and a hazard-striped landing plate [for a raised loading area].', category: 'Material Handling & Storage', alt: 'Dark grey steel pallet gate with blue rails and yellow hazard-striped plate', href: 'pallet-gates' },
 ]
 ---
 
-<!-- TODO: make href etc for everything --><!-- TEXT: SORT THIS -->
+<!-- TODO: make href work on projects etc for everything -->
 <div class="featured">
   <ul class="featuredUl" role="list" tabindex="0" aria-label="featured-work">
     {
       items.map((item, index) => (
         <Reveal as="li" delay={index * 70} from="left">
-          <a href="">
+          <a href={`/projects/${item.href}`}>
             <div class="featuredWork">
-              <Image src={item.image} alt={item.title} />
+              <Image src={item.image} alt={item.alt} />
               <div class="featuredOverlay" />
               <div class="featuredText">
-                <p>Agriculture & forestry</p>
-                <h4>Deer Towers</h4>
-                <span>Galvanised steel lookout towers replacing traditional wooden...</span>
+                <p>{item.category}</p>
+                <h4>{item.title}</h4>
+                <span>{item.description}</span>
               </div>
             </div>
           </a>

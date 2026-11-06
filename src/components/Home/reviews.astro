@@ -2,10 +2,18 @@
 import Reveal from "../reveal.astro"
 import SpeechMark from '@assets/svgs/speech-mark.svg'
 
-const reviews = [
-  {},
-  {},
-  {}
+type ReviewType = {
+  description: string;
+  title: string;
+  name: string
+}
+
+const reviews: ReviewType[] = [
+  {
+    description: 'A brilliant company to deal with. We have used their services for many years and the quality of their work is second to none. Very responsive and always happy to help.',
+    title: 'Director',
+    name: 'Kilns Client'
+  }
 ]
 ---
 
@@ -17,11 +25,11 @@ const reviews = [
         <div class={`review ${i === 1 && 'reviewHighlighted'}`}>
           <div class="reviewGap">
             <SpeechMark />
-            <p>“Bowson have been a trusted partner for our fabrication work for years. Fast, accurate and always willing to engage on design.”</p>
+            <p>“{review.description}”</p>
           </div>
           <div class="reviewBottom">
-            <p>Operations Manager</p>
-            <span>UK Manufacture (todo)</span>
+            <p>{review.title}</p>
+            <span>{review.name}</span>
           </div>
         </div>
       </Reveal>
