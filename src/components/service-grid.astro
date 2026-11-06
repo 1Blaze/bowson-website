@@ -14,52 +14,60 @@ type ServiceType = {
   title: string;
   description: string;
   image: ImageMetadata;
-  coverFIt: boolean;
+  coverFit: boolean;
+  imageAlt: string;
   link: string
 };
 
+// TEXT: SORT THIS
 const services: ServiceType[] = [
   {
     title: 'CNC Punching',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
+    description: 'CNC turret punching of sheet steel, aluminium and stainless components.',
     image: Punch,
-    coverFIt: false,
-    link: 'cnc-punching'
+    imageAlt: 'Turret punch tooling punching a pattern of rectangular holes in a steel sheet',
+    coverFit: false,
+    link: 'cnc-punching',
   },
-    {
+  {
     title: 'Laser Cutting',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
+    description: 'Laser-cut blanks supplied through our cutting partner and managed alongside your job.',
     image: Laser,
-    coverFIt: false,
-    link: 'cnc-punching'
+    imageAlt: 'Flat laser-cut steel sheet with a pattern of cut-outs',
+    coverFit: false,
+    link: 'laser-cutting',
   },
-    {
+  {
     title: 'Metal Forming',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
+    description: 'Press brake bending of sheet metal parts, from single pieces to repeat batches.',
     image: Forming,
-    coverFIt: false,
-    link: 'cnc-punching'
+    imageAlt: 'Stack of formed steel enclosures with louvred sides in front of a press brake',
+    coverFit: false,
+    link: 'metal-forming',
   },
-    {
+  {
     title: 'Metal Welding',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
+    description: 'MIG and TIG welding for fabricated steel and stainless assemblies.',
     image: Welding,
-    coverFIt: false,
-    link: 'cnc-punching'
+    imageAlt: 'MIG welding a steel plate with a bright blue arc and sparks',
+    coverFit: false,
+    link: 'metal-welding',
   },
-      {
+  {
     title: 'Powder Coating',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
+    description: 'In-house powder coating for steel fabrications and sheet metal parts, in a choice of colours.',
     image: Powdercoating,
-    coverFIt: false,
-    link: 'cnc-punching'
+    imageAlt: 'Purple powder coated steel discs and brackets hanging in a coating booth',
+    coverFit: false,
+    link: 'powder-coating',
   },
-    {
-    title: '3D Cad Design',
-    description: 'Precision turret punching for sheet steel, aluminium and stainless components.',
+  {
+    title: '3D CAD Design',
+    description: 'SolidWorks 3D modelling and drawings for fabricated products.',
     image: Modelling,
-    coverFIt: true,
-    link: 'cnc-punching'
+    imageAlt: '3D CAD model of a large steel oven frame with a pull-out tray',
+    coverFit: true,
+    link: '3d-cad-design',
   },
 ];
 ---
@@ -70,7 +78,7 @@ const services: ServiceType[] = [
     services.map((service, i) => (
       <Reveal delay={i * 70} from="up">
         <a href={`/services/${service.link}`} class="serviceItem">
-          <Image class={service.coverFIt ? 'imgCoverFit' : ''} src={service.image} alt={service.title} />
+          <Image class={service.coverFit ? 'imgCoverFit' : ''} src={service.image} alt={service.imageAlt} />
           <div class="serviceTextGap">
             <h3>{service.title}</h3>
             <p>{service.description}</p>
