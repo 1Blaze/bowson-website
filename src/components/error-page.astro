@@ -1,0 +1,38 @@
+<div class="centrePage">
+  <h1>Page not found</h1>
+  <p>Sorry, we can't find that page. Try one of these instead:</p>
+  <div class="links">
+    <a href="/" class="orangeButton"><p>Home</p></a>
+    <a href="/services" class="orangeButton"><p>Services</p></a>
+    <a href="/contact" class="orangeButton"><p>Contact us</p></a>
+  </div>
+  <p>Or call us on <a href="tel:01782749000">01782 749000</a>.</p>
+</div>
+
+<style lang="scss">
+  @use '../styles/breakpoints' as *;
+
+  .centrePage {
+    min-height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    .links {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    h1 {
+      font-family: var(--font-barlow);
+      font-weight: 700;
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+</style>
