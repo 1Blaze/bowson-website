@@ -1,30 +1,29 @@
 ---
 import { Image } from 'astro:assets';
-import Punch from '@assets/images/Punch_TODO_Change.webp'
 import Arrow from '@assets/svgs/arrow-button.svg'
 
 export type SectorItemType = {
   orangeText: string;
   image: ImageMetadata;
+  imageAlt: string;
   title: string;
   description: string;
   cta: string;
   href: string;
   selected: boolean;
+  coverFit?: boolean;
 }
 
 interface Props extends SectorItemType {
 
 }
 
-const {orangeText, title, description, cta, href, selected, image} = Astro.props
+const {orangeText, title, description, cta, href, selected, image, imageAlt} = Astro.props
 ---
 
-<!-- TODO: Image ALT -->
 <a class={selected ? 'sectorItem sectorItemFeatured' : 'sectorItem'} href={href}>
   <div class="imgBg">
-    <!-- TODO: when I set the image it goes massiveeeee! -->
-    <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
+    <Image src={image} alt={imageAlt} />
     <div class="imgOverlay"></div>
   </div>
   <div class="sectorOverImg">
