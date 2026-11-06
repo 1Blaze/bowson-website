@@ -16,6 +16,6 @@ export default defineConfig({
       weights: [400, 600, 700, 900],
     },
   ],
-  site: 'https://bowson.co.uk',
+  site: 'https://www.bowson.co.uk',
   integrations: [sitemap()],
 });
