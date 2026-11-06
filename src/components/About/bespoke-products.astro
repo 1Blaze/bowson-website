@@ -1,23 +1,54 @@
 ---
 import Reveal from "../reveal.astro";
 import Check from '@assets/svgs/check.svg'
+
+const products = [
+  // Manufacturing & Production
+  'Work Benches and Roller Tables',
+  'Roller Stands',
+  'Machine Covers and Machine Guarding',
+  'Charger Cabinets, Computer Cabinets and Laptop Trolleys',
+  'Damp and Heated Cabinets',
+  'Degassing Chambers and Catch Pots',
+
+  // Warehousing & Material Handling
+  'Stillages for moving and storing product in a range of environments',
+  'Pallet Gates and Pallet Tables',
+  'Bottle Cages',
+
+  // Safety & Access
+  'Safety Barriers',
+  'Access Platforms and Mobile Steps',
+  'Fire Escapes',
+  'Smoking Shelters and Bike Shelters',
+
+  // Agriculture & Estate
+  'Deer Towers (Lookout Towers): galvanised steel replacements for traditional wooden structures',
+  'Dog Kennel Structures, Frames and Pens',
+
+  // Ceramics & Pottery
+  'Kilns, Kiln Frames, Kiln Hoods and Ventilation Canopies',
+
+  // Vehicle & Campervan Conversions
+  'Seatbeds, Roof Bars and Mounting Plates for VW Campervans',
+
+  // Other
+  'Trailers',
+  'Bespoke Fabrication to your drawing or idea',
+];
 ---
 
 <div class="servicesDisplay">
-  <Reveal>
-    <!-- TODO: all of these producst -->
-    <div class="customItem">
-      <Check />
-      <p>Deer Towers (Lookout Towers) — galvanised steel replacements for traditional wooden structures</p>
-    </div>
-  </Reveal>
-  <Reveal>
-    <!-- TODO: all of these producst -->
-    <div class="customItem">
-      <Check />
-      <p>Deer Towers (Lookout Towers) — galvanised steel replacements for traditional wooden structures</p>
-    </div>
-  </Reveal>
+  {
+    products.map((product, index) => (
+      <Reveal delay={index * 35}>
+        <div class="customItem">
+          <Check />
+          <p>{product}</p>
+        </div>
+      </Reveal>
+    ))
+  }
 </div>
 
 <style lang="scss">
@@ -32,7 +63,7 @@ import Check from '@assets/svgs/check.svg'
 
   .customItem {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     background: #f8fafc;
     border: 0.8px solid #e5e9f0;
     border-radius: 12px;

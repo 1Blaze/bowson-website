@@ -18,7 +18,7 @@ export const SectorItems: SectorItemType[] = [
     description: 'Cabinets, enclosures and machine parts for production lines',
     cta: 'Explore sector',
     selected: true,
-    href: 'manufacturing-production',
+    href: 'sectors/manufacturing-production',
     image: RollerTable,
     coverFit: true,
     imageAlt: 'White steel roll stand holding rolls of material beside a cutting table',
@@ -29,7 +29,7 @@ export const SectorItems: SectorItemType[] = [
     description: 'Galvanised steel deer towers and dog kennel structures.',
     cta: 'Explore sector',
     selected: false,
-    href: 'agriculture-estate',
+    href: 'sectors/agriculture-estate',
     image: Tower,
     imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland',
   },
@@ -39,7 +39,7 @@ export const SectorItems: SectorItemType[] = [
     description: 'Kilns, kiln frames, hoods and ventilation canopies, powder coated in-house.',
     cta: 'Explore sector',
     selected: false,
-    href: 'ceramics-pottery',
+    href: 'sectors/ceramics-pottery',
     image: Ceramics,
     imageAlt: 'Blue powder coated steel kiln frame with a hood section on top',
   },
@@ -49,7 +49,7 @@ export const SectorItems: SectorItemType[] = [
     description: 'Stillages, pallet gates and bottle cages for moving and storing product.',
     cta: 'Explore sector',
     selected: false,
-    href: 'material-handling-storage',
+    href: 'sectors/material-handling-storage',
     image: Stillage,
     coverFit: true,
     imageAlt: 'White steel stillage with grey fabric dividers',
@@ -60,7 +60,7 @@ export const SectorItems: SectorItemType[] = [
     description: 'Machine guarding, safety barriers, access platforms, mobile steps, and smoking shelters.',
     cta: 'Explore sector',
     selected: false,
-    href: 'safety-access',
+    href: 'sectors/safety-access',
     image: Guard,
     imageAlt: 'Steel mesh machine guarding with a gate and yellow safety barrier around production equipment',
   },
@@ -70,7 +70,7 @@ export const SectorItems: SectorItemType[] = [
     description: 'Seatbeds, roof bars and mounting plates for campervan conversions.',
     cta: 'Explore sector',
     selected: false,
-    href: 'vehicle-campervan-conversions',
+    href: 'sectors/vehicle-campervan-conversions',
     image: Seatbed,
     imageAlt: 'Black steel campervan seatbed frame with seatbelts and red release buttons',
   },
@@ -82,7 +82,7 @@ export const SectorItems: SectorItemType[] = [
   {
     SectorItems.map((service, i) => (
       <Reveal delay={i * 70}>
-        <a href={`/sectors/${service.href}`} class="serviceItem">
+        <a href={`/${service.href}`} class="serviceItem">
           <Image class={service.coverFit ? 'imgCoverFit' : ''} src={service.image} alt={service.imageAlt} />
           <div class="serviceTextGap">
             <h3 class="h2TitleFullWidth">{service.title}</h3>

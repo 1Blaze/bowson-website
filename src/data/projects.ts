@@ -33,21 +33,31 @@ export type ProjectType = {
   number: string;
 };
 
-// TODO: the rest of this!
 const Projects: Record<string, ProjectType> = {
-  'galvanised-deer-tower': ExampleProject,
-  'custom-machine-guarding': ExampleProject,
-  'custom-test-guarding': ExampleProject,
-  'custom-www-guarding': ExampleProject,
-  'custom-aaa-guarding': ExampleProject,
-  'custom-dd-guarding': ExampleProject,
-  'custom-w-guarding': ExampleProject,
-  'custom-i-guarding': ExampleProject,
-  'custom-o-guarding': ExampleProject,
-  'custom-p-guarding': ExampleProject,
+  // 'agriculture-estate': CeramicsPottery,
+  'deer-towers': ExampleProject,
+  'dog-kennels': ExampleProject,
+
+  // 'ceramics-pottery': CeramicsPottery,
+  'truck-kilns': ExampleProject,
+  'fk-heavy-duty-kilns': ExampleProject,
+
+  // 'manufacturing-production': CeramicsPottery,
+  'work-benches': ExampleProject,
+  'roll-stand': ExampleProject,
+
+  // 'material-handling-storage': CeramicsPottery,
+  'pallet-gates': ExampleProject,
+  stillages: ExampleProject,
+  // 'safety-access': CeramicsPottery,
+  'machine-guarding': ExampleProject,
+  'smoking-shelters': ExampleProject,
+
+  // 'vehicle-campervan-conversions': CeramicsPottery,
+  seatbeds: ExampleProject,
 };
 
-const tags = ['Agriculture & Animal', 'Safety & Access', 'Bespoke Fabrication'];
+const tags = ['Manufacturing', 'Agriculture & Estates', 'Ceramics & Pottery', 'Material Handling & Storage', 'Safety & Access', 'Vehicle & Campervan Conversions'];
 
 export const GetProject = (id: string): ProjectType => {
   return Projects[id];

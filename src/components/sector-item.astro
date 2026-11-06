@@ -21,7 +21,7 @@ interface Props extends SectorItemType {
 const {orangeText, title, description, cta, href, selected, image, imageAlt} = Astro.props
 ---
 
-<a class={selected ? 'sectorItem sectorItemFeatured' : 'sectorItem'} href={`sectors/${href}`}>
+<a class={selected ? 'sectorItem sectorItemFeatured' : 'sectorItem'} href={`${href}`}>
   <div class="imgBg">
     <Image src={image} alt={imageAlt} />
     <div class="imgOverlay"></div>
