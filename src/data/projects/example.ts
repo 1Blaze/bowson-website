@@ -1,5 +1,5 @@
 // TEXT: THIS AND TODO THIS
-import Punch from '@assets/images/Punch_TODO_Change.webp';
+import Punch from '@assets/images/Projects/epik_kiln.webp';
 import type { ProjectType } from '../projects';
 
 export const ExampleProject: ProjectType = {

@@ -2,9 +2,9 @@
 import '../Reused.scss';
 import Phone from '@assets/svgs/phone.svg'
 import Check from '@assets/svgs/check.svg'
+import SmallDot from '@assets/svgs/small-dot.svg'
 import Kiln from '@assets/images/hero_image.webp'
 import RollerTable from '@assets/images/about_image_home.webp'
-// TODO: change this to something else
 import ServiceGrid from '../service-grid.astro'
 import SectorGrid from '../sector-grid.astro'
 import Featured from './featured.astro'
@@ -33,9 +33,7 @@ const points = [
     <div class="topGap">
       <div class="intro">
         <div class="established">
-          <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
-          </svg>
+          <SmallDot />
           <p>Established 1990 · Stoke-on-Trent</p>
         </div>
         <div class="topTextGap">
@@ -95,7 +93,7 @@ const points = [
   <div class="topGap">
     <Reveal from="left">
       <div class="aboutImage">
-        <Image class={'img'} src={RollerTable} alt={'Picture of a bespoke roller table used to cut polymers'} />
+        <Image class={'img'} src={RollerTable} alt={'Picture of a kiln in a dark green colour on the bowson engineering transport van'} />
         <div class="yearsIn">
           <h4>35+</h4>
           <p>Years in business</p>

@@ -1,4 +1,4 @@
-import Punch from '@assets/images/Punch_TODO_Change.webp';
+import Punch from '@assets/images/Services/punch.webp';
 import type { ServiceType } from '../services';
 
 // Grenvile Title - Sheet Metal Laser Cutting by Grenville

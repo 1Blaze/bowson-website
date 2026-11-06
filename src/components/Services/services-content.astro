@@ -2,7 +2,7 @@
 import InfoGrid from '../info-grid.astro';
 import '../Reused.scss';
 import { Image } from 'astro:assets';
-import Punch from '@assets/images/Punch_TODO_Change.webp'
+import Punch from '@assets/images/services/punch.webp'
 import Phone from '@assets/svgs/phone.svg'
 import ArrowButton from '@assets/svgs/arrow-button.svg'
 import Reveal from '../reveal.astro';
@@ -32,12 +32,12 @@ const questionData: QuestionAskedType = {
 <section class="sectionHome">
   <div class="sectionTop">
     <div class="imgBg">
-      <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
+      <Image src={Punch} alt="Turret punch tooling punching a pattern of rectangular holes in a steel sheet" />
       <div class="imgOverlay"></div>
     </div>
     <div class="sectionImgOver">
       <div class="sectionTopFlex">
-        <p>Services</p>
+        <p class="orangeColour">Services</p>
         <h1>In-house engineering from design to finished product.</h1>
       </div>
       <p class="sectionTopDesc">CNC punching, laser cutting, press brake bending, MIG/TIG welding, powder coating and SolidWorks design — all under one roof in Stoke-on-Trent. One PO, one supplier, finished parts.</p>

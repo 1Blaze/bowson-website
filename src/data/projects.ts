@@ -1,5 +1,4 @@
 import { ExampleProject } from './projects/example';
-import Punch from '@assets/images/Punch_TODO_Change.webp';
 
 type SpecType = {
   title: string;

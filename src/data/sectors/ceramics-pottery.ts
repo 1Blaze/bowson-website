@@ -1,5 +1,5 @@
 import type { SectorType } from '../sectors';
-import Punch from '@assets/images/Punch_TODO_Change.webp';
+import Punch from '@assets/images/Sectors/ceramics.webp';
 
 export const CeramicsPottery: SectorType = {
   seoTitle: 'Ceramics & Pottery Fabrication | Bowson Engineering',

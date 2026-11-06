@@ -8,10 +8,9 @@ import ListCircle from '@assets/svgs/list-circle.svg'
 import '../../Reused.scss';
 import Reveal from '../../reveal.astro';
 import GreySvgBox from '../../grey-svg-box.astro';
-import Clipboard from '@assets/svgs/clipboard.svg';
+import ThreeCircle from '@assets/svgs/three-circle.svg';
 import Faqs from '../../faqs.astro';
 import CallToAction from '../../call-to-action.astro';
-// TODO: Change this to the circle one
 
 interface Props {
   id: string
@@ -30,7 +29,7 @@ const data = GetSector(id)
     </div>
     <div class="sectionImgOver">
       <div class="sectionTopFlex">
-        <p>Sector</p>
+        <p class="orangeColour">Sector</p>
         <h1>{data.title}</h1>
       </div>
       <p class="sectionTopDesc">{data.description}</p>
@@ -87,7 +86,7 @@ const data = GetSector(id)
         {
           data.designFor.map((service, i) => (
             <Reveal delay={i * 70} from="left">
-              <GreySvgBox {...service} svg={Clipboard} />
+              <GreySvgBox {...service} svg={ThreeCircle} />
             </Reveal>
           ))
         }
@@ -104,7 +103,7 @@ const data = GetSector(id)
     <div class="servicesDisplay">
       {
         data.builtFor.map((service, i) => (
-          <Reveal delay={i * 70} from="down">
+          <Reveal delay={i * 70}>
             <a href={`/${service.href}`} class="serviceItem">
               <Image src={service.image} alt={service.title} />
               <div class="serviceTextGap">
@@ -155,7 +154,7 @@ const data = GetSector(id)
       <div class="servicesDisplay">
         {
           data.builtFor.map((service, i) => (
-            <Reveal delay={i * 70} from="down">
+            <Reveal delay={i * 70}>
               <a href={`/${service.href}`} class="serviceItem">
                 <Image src={service.image} alt={service.title} />
                 <div class="serviceTextGap">

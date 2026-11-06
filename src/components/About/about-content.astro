@@ -1,12 +1,19 @@
 ---
 import '../Reused.scss';
 import { Image } from 'astro:assets';
-import Punch from '@assets/images/Punch_TODO_Change.webp'
+import RollerTable from '@assets/images/about_image_home.webp'
+// TODO: when possible get a picture of potterycrafts on the van
+import Punch from '@assets/images/services/punch.webp'
+import Welding from '@assets/images/services/weld.webp';
+import Powdercoating from '@assets/images/services/oven.webp';
+import Modelling from '@assets/images/services/3dmodelling.webp';
+import Press from '@assets/images/xpert-pro-130.webp'
 import InfoGrid from "../info-grid.astro";
 import OurValues from "./our-values.astro";
 import OurStory from "./our-story.astro";
 import Reveal from "../reveal.astro";
 import Phone from '@assets/svgs/phone.svg'
+import SmallDot from '@assets/svgs/small-dot.svg'
 import CallToAction from '../call-to-action.astro';
 import LatestTech from './latest-tech.astro';
 import BespokeProducts from './bespoke-products.astro';
@@ -16,22 +23,26 @@ const capabilities: ServiceKitType[] = [
   {
     image: Punch,
     title: 'Trumpf TC200 turret punch',
-    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+    description: 'Trumpf CNC punching and laser cutting for clean, accurate profiles in steel, stainless and aluminium.',
+    imageAlt: 'Turret punch tooling punching a pattern of rectangular holes in a steel sheet',
   },
   {
-    image: Punch,
-    title: 'In-house programming',
-    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+    image: Welding,
+    imageAlt: 'MIG welding a steel plate with a bright blue arc and sparks',
+    title: 'Bending & Fabrication',
+    description: 'Press brake forming and skilled MIG/TIG welding for fully fabricated assemblies built to drawing.',
   },
   {
-    image: Punch,
-    title: 'In-house programming',
-    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+    image: Powdercoating,
+    imageAlt: 'Purple powder coated steel discs and brackets hanging in a coating booth',
+    title: 'Powder Coating',
+    description: 'In-house powder coating line with a wide range of standard and custom colour finishes.',
   },
   {
-    image: Punch,
-    title: 'In-house programming',
-    description: 'Reliable, high-speed CNC punching with a deep tool library. Great for perforated panels, vented enclosures and intricate sheet metal blanks.',
+    image: Modelling,
+    imageAlt: '3D CAD model of a large steel oven frame with a pull-out tray',
+    title: 'Solidworks 3D Design',
+    description: 'Concept to production drawings in SolidWorks — collaborate with us to refine new or existing products.',
   },
 ]
 
@@ -43,10 +54,7 @@ const capabilities: ServiceKitType[] = [
     <div class="topGap">
       <div class="intro">
         <div class="established">
-          <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="5.8625" height="6" rx="2.93125" fill="#0393CF"></rect>
-          </svg>
-          <!-- TODO: asset this for both home content and this -->
+          <SmallDot />
           <p>About Bowson Engineering</p>
         </div>
         <div class="topTextGap">
@@ -62,7 +70,7 @@ const capabilities: ServiceKitType[] = [
         </div>
       </div>
       <div class="imgHouse">
-        <Image src={Punch} alt="Trumpf CNC Punch TODO Change" />
+        <Image src={RollerTable} alt={'Picture of a kiln in a dark green colour on the bowson engineering transport van'} />
         <div class="yearsIn">
           <h4>35+</h4>
           <p>Years in business</p>
@@ -105,7 +113,7 @@ const capabilities: ServiceKitType[] = [
         capabilities.map((item, i) => (
           <Reveal from="right" delay={i * 70}>
             <a class="serviceItem" href="/services">
-              <Image src={item.image} alt={item.title} />
+              <Image src={item.image} alt={item.imageAlt} />
               <div class="serviceTextGap">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
@@ -120,7 +128,7 @@ const capabilities: ServiceKitType[] = [
     <div class="topGap">
       <Reveal from="left">
         <div class="aboutImage">
-          <div class="img">Placeholder</div>
+          <Image class="img" src={Press} alt={'A Bystronic Xpert Pro 130'} />
         </div>
       </Reveal>
       <Reveal from="right">
@@ -170,6 +178,7 @@ const capabilities: ServiceKitType[] = [
       height: 100%;
       width: 100%;
       border-radius: 16px;
+      object-fit: cover;
     }
 
     .yearsIn {
@@ -208,6 +217,7 @@ const capabilities: ServiceKitType[] = [
   .serviceItem {
     img {
       height: 208px;
+      object-fit: cover;
 
       @include bp(lg) {
         height: 160px;

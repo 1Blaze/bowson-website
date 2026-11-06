@@ -5,6 +5,7 @@ import { CNC_Punching } from './services/cnc-punching';
 export type ServiceKitType = {
   title: string;
   image: ImageMetadata;
+  imageAlt: string;
   description: string;
 };
 
