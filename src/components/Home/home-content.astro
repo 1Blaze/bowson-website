@@ -29,40 +29,38 @@ const points = [
 <section class="section home">
   <div class="blueBlob"></div>
   <div class="orangeBlob"></div>
-  <Reveal>
-    <div class="topGap">
-      <div class="intro">
-        <div class="established">
-          <SmallDot />
-          <p>Established 1990 · Stoke-on-Trent</p>
-        </div>
-        <div class="topTextGap">
-          <h1>
-            Sheet metal fabrication &amp; engineering in {' '}
-            <span class="blueColour">Stoke-on-Trent</span>.
-          </h1>
-          <p class="homeDesc">
-            Bowson Engineering is a family-owned business with strong values at the heart of everything we do. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating. We engage with customer design from the outset, using SolidWorks 3D modelling to optimise work processes,
-            reduce cost and deliver reliable quality with fast turnaround — from custom one-offs to larger batch runs.
-          </p>
-        </div>
-        <div class="buttonRow">
-          <a href="/contact-us" class="orangeButton"><p>Request a Quote</p></a>
-          <a href="tel:+441782749000" class="centerFlex phoneGap">
-            <Phone />
-            <p>01782 749000</p>
-          </a>
-        </div>
+  <div class="topGap">
+    <div class="intro">
+      <div class="established">
+        <SmallDot />
+        <p>Established 1990 · Stoke-on-Trent</p>
       </div>
-      <div class="imgHouse">
-        <Image class={'img'} src={Kiln} alt={'Picture of a kiln infront of the bowson van'} />
-        <div class="capabilities">
-          <span>In-house capability</span>
-          <p>Design → Punch → Bend → Weld → Coat</p>
-        </div>
+      <div class="topTextGap">
+        <h1>
+          Sheet metal fabrication &amp; engineering in {' '}
+          <span class="blueColour">Stoke-on-Trent</span>.
+        </h1>
+        <p class="homeDesc">
+          Bowson Engineering is a family-owned business with strong values at the heart of everything we do. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating. We engage with customer design from the outset, using SolidWorks 3D modelling to optimise work processes,
+          reduce cost and deliver reliable quality with fast turnaround — from custom one-offs to larger batch runs.
+        </p>
+      </div>
+      <div class="buttonRow">
+        <a href="/contact-us" class="orangeButton"><p>Request a Quote</p></a>
+        <a href="tel:+441782749000" class="centerFlex phoneGap">
+          <Phone />
+          <p>01782 749000</p>
+        </a>
       </div>
     </div>
-  </Reveal>
+    <div class="imgHouse">
+      <Image class={'img'} src={Kiln} alt={'Picture of a kiln infront of the bowson van'} priority />
+      <div class="capabilities">
+        <span>In-house capability</span>
+        <p>Design → Punch → Bend → Weld → Coat</p>
+      </div>
+    </div>
+  </div>
   <InfoGrid borderAndBg={false} />
   <div class="mainBlock">
     <Reveal>

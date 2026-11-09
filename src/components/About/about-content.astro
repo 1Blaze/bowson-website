@@ -1,13 +1,13 @@
 ---
 import '../Reused.scss';
 import { Image } from 'astro:assets';
-import RollerTable from '@assets/images/about_image_home.webp'
+import RollerTable from '@assets/images/about_image.webp'
 // TODO: when possible get a picture of potterycrafts on the van
 import Punch from '@assets/images/services/punch.webp'
 import Welding from '@assets/images/services/weld.webp';
 import Powdercoating from '@assets/images/services/oven.webp';
 import Modelling from '@assets/images/services/3dmodelling.webp';
-import Press from '@assets/images/xpert-pro-130.webp'
+import Press from '@assets/images/xpert_pro_130.webp'
 import InfoGrid from "../info-grid.astro";
 import OurValues from "./our-values.astro";
 import OurStory from "./our-story.astro";
@@ -50,34 +50,32 @@ const capabilities: ServiceKitType[] = [
 
 <!-- TEXT: SORT THIS -->
 <section class="section home">
-  <Reveal>
-    <div class="topGap">
-      <div class="intro">
-        <div class="established">
-          <SmallDot />
-          <p>About Bowson Engineering</p>
-        </div>
-        <div class="topTextGap">
-          <h1>A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h1>
-          <p class="homeDesc">Bowson Engineering Ltd was established in 1990 and is based in Fenton, Stoke-on-Trent. We are a family-owned company with strong values at the heart of our business. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating.</p>
-        </div>
-        <div class="buttonRow">
-          <a href="/contact-us" class="orangeButton"><p>Request a Quote</p></a>
-          <a href="tel:+441782749000" class="centerFlex phoneGap">
-            <Phone />
-            <p>01782 749000</p>
-          </a>
-        </div>
+  <div class="topGap">
+    <div class="intro">
+      <div class="established">
+        <SmallDot />
+        <p>About Bowson Engineering</p>
       </div>
-      <div class="imgHouse">
-        <Image src={RollerTable} alt={'Picture of a kiln in a dark green colour on the bowson engineering transport van'} />
-        <div class="yearsIn">
-          <h4>35+</h4>
-          <p>Years in business</p>
-        </div>
+      <div class="topTextGap">
+        <h1>A Stoke-on-Trent family business built on quality, reliability and engineering know-how.</h1>
+        <p class="homeDesc">Bowson Engineering Ltd was established in 1990 and is based in Fenton, Stoke-on-Trent. We are a family-owned company with strong values at the heart of our business. Our core capability is the manufacture of bespoke sheet metal products — supplied individually or combined with CNC punching, laser cutting, bending, fabrication and powder coating.</p>
+      </div>
+      <div class="buttonRow">
+        <a href="/contact-us" class="orangeButton"><p>Request a Quote</p></a>
+        <a href="tel:+441782749000" class="centerFlex phoneGap">
+          <Phone />
+          <p>01782 749000</p>
+        </a>
       </div>
     </div>
-  </Reveal>
+    <div class="imgHouse">
+      <Image src={RollerTable} alt={'Picture of multiple kilns in a green and grey colour on the bowson engineering transport van'} />
+      <div class="yearsIn">
+        <h4>35+</h4>
+        <p>Years in business</p>
+      </div>
+    </div>
+  </div>
   <InfoGrid borderAndBg={true} />
   <div class="mainBlock mainBlockGridEqual">
     <div class="mainBlockText">

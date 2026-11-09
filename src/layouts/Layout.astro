@@ -9,10 +9,10 @@ import { ClientRouter } from "astro:transitions";
 interface Props {
   title: string;
   description: string;
+  hideCanonical?: boolean
 }
 
-const title = Astro.props.title
-const description = Astro.props.description
+const { title, description, hideCanonical = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -30,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- TODO: look into yoast SEO they are good - content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {!hideCanonical && <link rel="canonical" href={canonicalURL} />}
     <ClientRouter />
   </head>
   <body>

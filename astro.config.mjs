@@ -18,4 +18,5 @@ export default defineConfig({
   ],
   site: 'https://www.bowson.co.uk',
   integrations: [sitemap()],
+  image: { layout: 'constrained' },
 });
