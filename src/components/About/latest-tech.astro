@@ -8,16 +8,16 @@ const latestTechnology: ServiceKitType[] = [
   {
     image: Solidworks,
     title: 'Solidworks 3D CAD',
-    description: 'From concept to production-ready drawings.'
+    description: 'From concept to production-ready drawings.',
+    imageAlt: 'The Solidworks Company Logo'
   }
 ]
 ---
 
-<!-- TEXT: SORT THIS -->
 <div class="servicesDisplay">
   {
     latestTechnology.map((item, i) => (
-      <Reveal from="down" delay={i * 70}>
+      <Reveal delay={i * 70}>
         <div class="technologyItem">
           <div class="techImg">
             <Image src={item.image} alt={item.title} />
