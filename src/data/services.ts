@@ -20,6 +20,7 @@ export type MightNeedType = {
   description: string;
   href: string;
   imageAlt: string;
+  coverFit?: true;
 };
 
 export type ServiceType = {

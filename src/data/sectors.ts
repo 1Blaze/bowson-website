@@ -1,6 +1,12 @@
 import type { QuestionAskedType } from '../components/faqs.astro';
+import { AgricultureEstate } from './sectors/agriculture-estate';
 import { CeramicsPottery } from './sectors/ceramics-pottery';
+import { Manufacturing } from './sectors/manufacturing';
+import { MaterialHandling } from './sectors/material-handling-storage';
+import { SafetyAccess } from './sectors/safety-access';
+import { VehicleCampervan } from './sectors/vehicle-campervan-conversions';
 import type { MightNeedType } from './services';
+// TODO: all the header images for these
 
 type DesignType = {
   title: string;
@@ -26,14 +32,13 @@ export type SectorType = {
   otherSectors: MightNeedType[];
 };
 
-// TODO: Do all the data for these
 const Services: Record<string, SectorType> = {
-  'agriculture-estate': CeramicsPottery,
+  'agriculture-estate': AgricultureEstate,
   'ceramics-pottery': CeramicsPottery,
-  'manufacturing-production': CeramicsPottery,
-  'material-handling-storage': CeramicsPottery,
-  'safety-access': CeramicsPottery,
-  'vehicle-campervan-conversions': CeramicsPottery,
+  'manufacturing-production': Manufacturing,
+  'material-handling-storage': MaterialHandling,
+  'safety-access': SafetyAccess,
+  'vehicle-campervan-conversions': VehicleCampervan,
 };
 
 export const GetSector = (id: string): SectorType => {
