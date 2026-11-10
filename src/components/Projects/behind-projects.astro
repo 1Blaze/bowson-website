@@ -11,30 +11,25 @@ type ServiceType = {
   svg: typeof Merit;
 };
 
-// TEXT THIS
 const services: ServiceType[] = [
   {
-    title: 'ISO 9001',
-    description: 'Documented quality, traceability and material certs available.',
-    svg: Sheild
-
+    title: 'Family-owned since 1990',
+    description: 'Three generations of making sheet metal products in Stoke-on-Trent.',
+    svg: Sheild,
   },
   {
-    title: 'Full Workflow',
-    description: 'CNC punch, laser, press brake, welding, powder coating in-house.',
-    svg: Factory
-
+    title: 'In-house workflow',
+    description: 'CNC punching, press brake bending, rolling, welding and powder coating all under one roof, with laser-cut blanks through our cutting partner.',
+    svg: Factory,
   },
   {
-    title: 'Repeat Customers',
-    description: 'From OEMs to one-off commissions — built on relationships.',
-    svg: Merit
-
-  },
+    title: 'Repeat customers',
+    description: 'Manufacturers and businesses come back to us for the same parts again and again, from one-offs to regular batches.',
+    svg: Merit,
+  }
 ];
 ---
 
-<!-- TEXT: SORT THIS -->
 <div class="servicesDisplay">
   {
     services.map((service, i) => (
