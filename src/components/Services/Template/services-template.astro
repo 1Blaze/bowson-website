@@ -117,7 +117,7 @@ const data = GetService(id)
     </a>
   </div>
   <Faqs darkerBg={true} questionData={data.questionsAsked} />
-  <div class="mainBlock mainBlockGrid">
+  <div class="mainBlock">
     <div class="mainBlockText">
       <p class="blueTitle">Related services</p>
       <div class="textBlock">
@@ -152,6 +152,12 @@ const data = GetService(id)
 
   .sectionTop {
     --heroHeight: 470px !important;
+  }
+
+  .serviceItem {
+    img {
+      object-fit: cover;
+    }
   }
 
   .whereItsUsed {
