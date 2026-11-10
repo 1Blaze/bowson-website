@@ -18,17 +18,38 @@ const questionData: QuestionAskedType = {
   questions: [
     {
       question: 'Can you handle one-offs and prototypes, or just production runs?',
-      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
-    },
+      answer: 'Both. A large part of our work is one-off and small-batch: cabinets, machine guards, brackets and prototypes. We also run repeat production, so quantities can grow without changing supplier.',    },
     {
       question: 'Do I need finished drawings to get a quote',
-      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
-    }
+      answer: 'No. We can work from technical drawings, sketches, existing samples or an initial idea. If you need help developing your design, our SolidWorks 3D CAD design service can produce models and technical drawings, while helping identify cost-effective ways to manufacture your product.',    },
+    {
+      question: 'What is sheet metal fabrication, and what can be made with it?',
+      answer: 'Sheet metal fabrication turns flat sheet into finished products through a number of different processes including punching, bending, rolling, welding and finishing, the goal being to create the required parts, assemblies and items meeting specific purposes and tolerances. Producing a wide range of parts such as cabinets and enclosures, machine guards, work benches, stillages, pallet gates, kiln hoods and deer towers from steel, stainless steel and aluminium',
+    },
+    {
+      question: 'What file formats can you accept?',
+      answer: 'We can work with a range of common engineering file formats, including DXF, DWG, STEP, 3D CAD files and PDF drawings. If you only have a sketch, sample or physical part, get in touch and we can discuss the best way to develop it into a manufacturable design.',
+    },
+    {
+      question: 'How quickly can you turn work around?',
+      answer: 'We aim to provide quotations within 24 hours of receiving your enquiry. Typical production lead times are around 2–4 weeks, depending on the complexity, quantity and requirements of the job. If you have a specific deadline, let us know and we will confirm what is achievable.',
+    },
+    {
+      question: 'What materials do you work with?',
+      answer: 'Mild steel, stainless steel and aluminium sheet. See the capacity table above for the thicknesses we can punch, cut, bend and roll, and tell us if your part falls outside it.',
+    },
+    {
+      question: 'Can you powder coat parts you have not made?',
+      answer: 'Yes. Our in-house powder coating facility is available for both our own manufactured products and components supplied by customers. With our own coating booth and curing oven, we offer a range of stock powder colours to provide a durable, professional finish.',
+    },
+    {
+      question: 'What manufacturing tolerances can you work to?',
+      answer: 'Achievable tolerances depend on the material, thickness, manufacturing process and geometry of the component. We consider these requirements during the design and quotation stage to ensure parts are manufactured to suit their intended application. If you have specific tolerances or drawing requirements, include them with your enquiry.',
+    },
   ]
 }
 ---
 
-<!-- TEXT: SORT THIS -->
 <section class="sectionHome">
   <div class="sectionTop">
     <div class="imgBg">
@@ -38,7 +59,7 @@ const questionData: QuestionAskedType = {
     <div class="sectionImgOver">
       <div class="sectionTopFlex">
         <p class="orangeColour">Services</p>
-        <h1>In-house engineering from design to finished product.</h1>
+        <h1>Sheet metal fabrication from design to finished product.</h1>
       </div>
       <p class="sectionTopDesc">CNC punching, laser cutting, press brake bending, MIG/TIG welding, powder coating and SolidWorks design — all under one roof in Stoke-on-Trent. One PO, one supplier, finished parts.</p>
       <div class="sectionTopButtons">
@@ -58,8 +79,8 @@ const questionData: QuestionAskedType = {
     <div class="mainBlockText">
       <p class="blueTitle">What we do</p>
       <div class="textBlock">
-        <h2 class="h2Title">Six in-house services, one supplier.</h2>
-        <h3>Pick a service to see equipment, capacities and typical applications — or get in touch and we'll match the right combination to your project.</h3>
+        <h2 class="h2Title">Six services, one supplier.</h2>
+        <h3>Pick a service to see equipment, capacities and typical applications, or get in touch and we'll match the right combination to your project.</h3>
       </div>
     </div>
     <ServiceGrid />
@@ -131,19 +152,19 @@ const questionData: QuestionAskedType = {
             </tr>
             <tr>
               <td class="bold">CNC Punch</td>
-              <td>3000 x 1250</td>
+              <td>3000 x 1250 mm</td>
             </tr>
             <tr>
               <td class="bold">Laser Cutting</td>
-              <td>4000 x 2000</td>
+              <td>4000 x 2000 mm</td>
             </tr>
             <tr>
               <td class="bold">Press Brake</td>
-              <td>3000 x 130 Ton</td>
+              <td>3000 mm x 130 Ton</td>
             </tr>
             <tr>
               <td class="bold">Powder Coating</td>
-              <td>3.3w x 2.4h x 4l</td>
+              <td>3.3W x 2.4H x 4L M</td>
             </tr>
           </table>
         </Reveal>

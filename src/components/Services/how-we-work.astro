@@ -14,37 +14,33 @@ type ServiceType = {
 
 const services: ServiceType[] = [
   {
-    title: 'CNC Punching',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Clipboard
-
+    title: 'Enquiry',
+    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within 24 hours.',
+    svg: Clipboard,
   },
   {
-    title: 'CNC Punching',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Stars
-
+    title: 'Design & Review',
+    description: 'Where needed, we produce SolidWorks drawings and review the design to find the most cost-effective way to make it.',
+    svg: Stars,
   },
   {
-    title: 'CNC Punching',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Cog
-
+    title: 'Manufacture',
+    description: 'CNC punching, press brake bending, rolling and welding in our own workshop.',
+    svg: Cog,
   },
   {
-    title: 'CNC Punching',
-    description: 'Send a drawing, sketch or sample. We confirm materials, quantities and finish, and quote within one working day.',
-    svg: Delivery
+    title: 'Finish & deliver',
+    description: 'In-house powder coating, weld cleaning where needed, then delivery or collection as a finished part.',
+    svg: Delivery,
   },
 ];
 ---
 
-<!-- TEXT: SORT THIS -->
 <div class="servicesDisplay">
   {
     services.map((service, i) => (
       <Reveal delay={i * 70} from="left">
-        <GreySvgBox {...service} title={`${i + 1}. Enquiry`} />
+        <GreySvgBox {...service} title={`${i + 1}. ${service.title}`} />
       </Reveal>
     ))
   }
