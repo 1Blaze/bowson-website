@@ -14,13 +14,21 @@ const questionData: QuestionAskedType = {
   description: 'A few answers to the things customers most often ask before sending an enquiry.',
   questions: [
     {
-      question: 'Can you handle one-offs and prototypes, or just production runs?',
-      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
+      question: 'What should I include in my enquiry?',
+      answer: 'A drawing, sketch, sample or photo, plus the material if you know it, the quantity you need, the finish you want and your deadline. If you are missing any of these, send what you have and we will fill in the gaps with you.',
     },
     {
-      question: 'Do I need finished drawings to get a quote',
-      answer: 'Both. A huge part of our work is one-off and small-batch — bespoke cabinets, machine guards, brackets, prototypes. The same shop also handles repeat production for OEM customers, so quantities can scale without changing supplier.'
-    }
+      question: 'How quickly will I hear back?',
+      answer: 'We quote within 24 hours of receiving your enquiry. If it is urgent, call us on 01782 749000 and tell us your deadline.',
+    },
+    {
+      question: 'Can I visit the workshop, or can you come to me?',
+      answer: 'We can visit your site to measure up, and you are welcome to visit our workshop in Fenton. Call or email first so we can arrange a time.',
+    },
+    {
+      question: 'Will you keep my drawings and designs confidential?',
+      answer: 'Yes. We treat customer drawings and designs as confidential, and we are happy to sign an NDA if you need one.',
+    },
   ]
 }
 ---
@@ -37,7 +45,7 @@ const questionData: QuestionAskedType = {
           </div>
           <h1>Let's talk about your <span class="underline">next project</span></h1>
         </div>
-        <p class="sectionTopDesc">Whether you need a one-off prototype or a repeat production run, our team in Stoke-on-Trent is ready to help. Call, email, drop in, or send us a brief below — we'll come back the same working day.</p>
+        <p class="sectionTopDesc">Whether you need a one-off prototype or a repeat production run, our team in Fenton, Stoke-on-Trent is ready to help. Call, email, visit by appointment, or send us a brief below, and we will quote within 24 hours.</p>
         <div class="sectionTopButtons">
           <a href="/contact-us" class="blueButton whitePath">
             <Phone />
@@ -81,8 +89,6 @@ const questionData: QuestionAskedType = {
   </div>
   <Faqs darkerBg={true} questionData={questionData} />
 </section>
-
-<!-- TEXT THIS -->
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;

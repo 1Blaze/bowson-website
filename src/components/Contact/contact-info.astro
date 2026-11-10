@@ -1,49 +1,69 @@
 ---
 import Reveal from '../reveal.astro';
-import Stars from '@assets/svgs/stars.svg';
-import Sheild from '@assets/svgs/shield.svg';
-import Factory from '@assets/svgs/factory.svg';
-import Lightning from '@assets/svgs/lightning.svg';
-import GreySvgBox from '../grey-svg-box.astro';
+import Phone from '@assets/svgs/phone.svg';
+import Clock from '@assets/svgs/clock.svg';
+import Mail from '@assets/svgs/mail.svg';
+import Location from '@assets/svgs/location.svg';
 
 type ServiceType = {
   title: string;
+  a: string;
+  href: string;
   description: string;
-  svg: typeof Stars;
+  svg: typeof Phone;
 };
 
 const services: ServiceType[] = [
   {
-    title: 'Quality & reliability',
-    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
-    svg: Sheild
+    title: 'Call us',
+    a: '01782 749000',
+    href: 'tel:+441782749000',
+    description: 'Mon-Fri, workshop hours',
+    svg: Phone
   },
   {
-    title: 'Quality & reliability',
-    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
-    svg: Lightning
+    title: 'Email',
+    a: 'info@bowson.co.uk',
+    href: 'mailto:info@bowson.co.uk',
+    description: 'Quotes & Technical Questions',
+    svg: Mail
   },
   {
-    title: 'Quality & reliability',
-    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
-    svg: Stars
+    title: 'Visit',
+    a: 'ST4 2TE, Fenton',
+    href: 'https://maps.app.goo.gl/MSDCLWn35raHv1AEA',
+    description: 'Oak House, Dewsbury Road',
+    svg: Location
   },
   {
-    title: 'Quality & reliability',
-    description: 'Consistent, accurate work delivered on time — whether it\'s a custom one-off or a larger batch run.',
-    svg: Factory
+    title: 'Hours',
+    a: 'Mon-Thu 07:30-16:00',
+    href: '',
+    description: 'Fri 07:30-13:00',
+    svg: Clock
   },
 ];
 ---
 
-<!-- TEXT: SORT THIS -->
 <div class="servicesDisplay">
   {
-    services.map((service, i) => (
-      <Reveal delay={i * 70} from="left">
-        <GreySvgBox {...service} />
-      </Reveal>
-    ))
+    services.map((service, i) => {
+      const Icon = service.svg;
+      return (
+        <Reveal delay={i * 70} from="left">
+          <div class="howWeWork bluePath">
+            <div class="svgHouse">
+              <Icon />
+            </div>
+            <div class="textGap">
+              <p>{service.title}</p>
+              <a href={service.href}>{service.a}</a>
+              <span>{service.description}</span>
+            </div>
+          </div>
+        </Reveal>
+      );
+    })
   }
 </div>
 
@@ -54,6 +74,62 @@ const services: ServiceType[] = [
     @include bp(lg) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 25px;
+    }
+  }
+
+  .howWeWork {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border: 0.8px solid #e5e9f0;
+    box-shadow:
+      0px 1px 3px rgba(15, 23, 42, 0.06),
+      0px 1px 2px rgba(15, 23, 42, 0.04);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    .svgHouse {
+      width: 44px;
+      height: 44px;
+      background: rgba(2, 132, 199, 0.1);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .textGap {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 11px;
+      color: #4b5563;
+    }
+
+    a {
+      font-family: var(--font-barlow);
+      font-weight: 700;
+      font-size: 18px;
+      color: #0f172a;
+      text-decoration: none;
+      transition: 0.3s;
+
+      &:hover {
+        color: #0393cf !important;
+      }
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      color: #4b5563;
     }
   }
 </style>

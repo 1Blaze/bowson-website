@@ -1,5 +1,8 @@
 ---
 import Lightning from '@assets/svgs/lightning.svg';
+import Family from '@assets/svgs/family.svg';
+import Clock from '@assets/svgs/clock.svg';
+import Location from '@assets/svgs/location.svg';
 import Reveal from '../reveal.astro';
 
 type ServiceType = {
@@ -10,24 +13,24 @@ type ServiceType = {
 
 const services: ServiceType[] = [
   {
-    title: '50+ years',
+    title: '30+ years',
     description: 'British Engineering',
     svg: Lightning
   },
   {
-    title: '50+ years',
-    description: 'British Engineering',
-    svg: Lightning
+    title: 'Family Run',
+    description: 'Third Generation Family Run',
+    svg: Family
   },
   {
-    title: '50+ years',
-    description: 'British Engineering',
-    svg: Lightning
+    title: 'UK Wide',
+    description: 'Delivery & Collection',
+    svg: Location
   },
   {
-    title: '50+ years',
-    description: 'British Engineering',
-    svg: Lightning
+    title: 'Same Day',
+    description: 'Quote / Enquiry Response',
+    svg: Clock
   },
 ];
 ---
@@ -48,7 +51,6 @@ const services: ServiceType[] = [
     })
   }
 </div>
-<!-- TEXT: SORT THIS -->
 
 <style lang="scss">
   @use '../../styles/breakpoints' as *;
