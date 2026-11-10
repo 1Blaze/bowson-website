@@ -47,6 +47,7 @@ const lengthOfProjects = projects.length
     {
       projects.map(({ slug, data }, index) => (
         <Reveal class={data.selected ? 'projectItemFeatured project-card' : 'project-card'} delay={index * 70} data-title={data.title.toLowerCase()} data-summary={data.description.toLowerCase()} data-tag={data.tag}>
+          {/* TODO: sort out how the text is massive! */}
           <SectorItem orangeText={data.tag} title={data.title} description={data.description} cta="View Project" href={'projects/' + slug} selected={data.selected} image={data.image} imageAlt={data.imageAlt} />
         </Reveal>
       ))

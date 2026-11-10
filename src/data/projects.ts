@@ -1,3 +1,4 @@
+import { DeerTower, DogKennels } from './projects/agriculture-estate';
 import { ExampleProject } from './projects/example';
 
 type SpecType = {
@@ -26,7 +27,7 @@ export type ProjectType = {
   tag: string;
   selected: boolean;
   challenge: string;
-  soultion: string;
+  solution: string;
   features: string[];
   outcome: string;
   specification: SpecType[];
@@ -35,8 +36,8 @@ export type ProjectType = {
 
 const Projects: Record<string, ProjectType> = {
   // 'agriculture-estate': CeramicsPottery,
-  'deer-towers': ExampleProject,
-  'dog-kennels': ExampleProject,
+  'deer-towers': DeerTower,
+  'dog-kennels': DogKennels,
 
   // 'ceramics-pottery': CeramicsPottery,
   'truck-kilns': ExampleProject,

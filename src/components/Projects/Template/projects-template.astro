@@ -67,7 +67,7 @@ const data = GetProject(id)
           <div class="orangeBox"></div>
           <h3>The Soltuion</h3>
         </div>
-        <p>{data.soultion}</p>
+        <p>{data.solution}</p>
       </div>
       <div class="projectSpec">
         <h3 class="projectSpecHeader">Project Specification</h3>
@@ -277,6 +277,10 @@ const data = GetProject(id)
       0px 6px 12px -6px rgba(15, 23, 42, 0.08),
       0px 12px 30px -10px rgba(2, 132, 199, 0.25);
     border-radius: 16px;
+
+    @include bp(lg) {
+      height: 502px;
+    }
 
     img {
       height: 100%;
