@@ -19,8 +19,9 @@ const {caseStudies} = Astro.props
         <a href={data.href} class="caseStudy">
           <Image src={data.image} alt={data.title} />
           <div class="caseStudyCol">
-            <p>NO. 01 — Logistics & Storage</p>
-            <h3>Mezzanine Pallet Gate</h3>
+            <p>NO. 0{index + 1} — Logistics & Storage</p>
+            {/* TODO: make this work with categories instead of descriptions! */}
+            <h3>{data.title}</h3>
             <div class="readRow orangePath">
               <span>Read</span>
               <Arrow />
