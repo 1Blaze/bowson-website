@@ -3,6 +3,8 @@ import Rollers from '@assets/images/Sectors/rollers.webp';
 import Stillage from '@assets/images/Sectors/stillage.webp';
 import Tower from '@assets/images/Sectors/tower.webp';
 import Ceramics from '@assets/images/Sectors/ceramics.webp';
+import TruckKiln from '@assets/images/hero_image.webp';
+import Ikons from '@assets/images/Projects/ikon_bases.webp';
 
 export const CeramicsPottery: SectorType = {
   seoTitle: 'Kiln Frames, Hoods & Fabrication | Bowson Engineering',
@@ -59,13 +61,19 @@ export const CeramicsPottery: SectorType = {
     ],
   },
   builtFor: [
-    // TODO: add the truck kiln, the yellow kiln and a kiln cage, and link to the real project pages
     {
-      image: Ceramics,
-      imageAlt: 'Blue powder coated steel kiln frame with a hood section on top',
-      title: 'Kiln frame',
-      description: 'A fabricated steel kiln frame with a hood section, powder coated in-house.',
-      href: '/projects/[slug]',
+      image: TruckKiln,
+      imageAlt: 'Yellow and black steel truck kiln frame with its truck pulled out on a yellow track',
+      title: 'A Split Truck Kiln Frame',
+      description: 'A large bespoke truck kiln frame manufactured in split sections to pass through a restricted doorway, complete with a detachable track and wheeled truck for loading and unloading ceramics.',
+      href: '/projects/truck-kilns',
+    },
+    {
+      image: Ikons,
+      imageAlt: 'Batch of blue powder coated steel kiln shell frames hanging in the powder coating area',
+      title: 'Batch Production of Kiln Shells',
+      description: 'Repeat manufacture of steel shells for top-loading kilns, produced in batches of 36 approximately every two months. Production processes have been refined over successive orders to improve efficiency and reduce manufacturing costs.',
+      href: '/projects/batch-kilns',
     },
   ],
   customersGet: ['Kiln Frames manufactured to your drawings', 'Consistent components for repeat production', 'Powder-coated components ready for assembly', 'Design and fabrication managed under one roof'],

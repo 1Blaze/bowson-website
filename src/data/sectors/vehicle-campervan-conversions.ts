@@ -57,13 +57,12 @@ export const VehicleCampervan: SectorType = {
     ],
   },
   builtFor: [
-    // TODO: add roof bars and mounting plates once you have photos, and link to the real project page
     {
+      title: 'Re-engineered Campervan Seatbed',
+      description: 'A steel campervan seatbed redesigned in SolidWorks through several revisions with the customer. The finished design passed the customer’s official crash testing and was manufactured by Bowson Engineering in regular production batches.',
       image: Seatbed,
-      imageAlt: 'Black steel campervan seatbed frame with seatbelts and red release buttons',
-      title: 'Seatbed frame',
-      description: 'A powder coated steel seatbed frame with seatbelts and release buttons, manufactured for a campervan converter.',
-      href: '/projects/[slug]',
+      imageAlt: 'Black steel campervan seatbed frame with fitted seatbelts and red release buttons',
+      href: '/projects/seatbeds',
     },
   ],
   customersGet: ['Components made to fit your vehicle and design', 'Repeat batches that match the first', 'Powder-coated parts ready for fitting', 'Design and fabrication managed under one roof'],

@@ -2,6 +2,7 @@ import type { SectorType } from '../sectors';
 import Rollers from '@assets/images/Sectors/rollers.webp'; // TODO: change to a dog kennel photo
 import Stillage from '@assets/images/Sectors/stillage.webp';
 import Tower from '@assets/images/Sectors/tower.webp';
+import DogKennel from '@assets/images/Projects/dog_kennel.webp';
 import Ceramics from '@assets/images/Sectors/ceramics.webp';
 
 export const AgricultureEstate: SectorType = {
@@ -58,8 +59,8 @@ export const AgricultureEstate: SectorType = {
     ],
   },
   builtFor: [
-    // TODO: link to the real project page
-    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/[slug]' },
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+    { image: DogKennel, imageAlt: 'Galvanised steel mesh kennel fronts with doors and latches beside a drainage channel', title: 'Dog Kennels', description: 'Bespoke galvanised steel mesh kennel panels with doors, together with U-channels, bases, mesh and run panels, manufactured to size for a dog kennel installation.', href: '/projects/dog-kennels' },
   ],
   customersGet: ['Durable steel structures designed for outdoor use', 'Built to your site and requirements', 'Design and fabrication from a single supplier', 'A quote within 24 hours'],
   otherSectors: [

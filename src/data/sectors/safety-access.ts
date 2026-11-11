@@ -3,6 +3,8 @@ import Rollers from '@assets/images/Sectors/rollers.webp';
 import Stillage from '@assets/images/Sectors/stillage.webp';
 import Tower from '@assets/images/Sectors/tower.webp';
 import Guard from '@assets/images/Sectors/machineguard.webp';
+import Shelter from '@assets/images/Projects/smoking_shelter.webp';
+import MachineCover from '@assets/images/Projects/machinecover.webp';
 
 export const SafetyAccess: SectorType = {
   seoTitle: 'Machine Guarding, Safety Barriers & Access | Bowson Engineering',
@@ -58,13 +60,26 @@ export const SafetyAccess: SectorType = {
     ],
   },
   builtFor: [
-    // TODO: add the smoking shelter, an access platform, mobile steps and a fire escape, and link to the real project pages
     {
+      title: 'Bespoke Steel Outdoor Shelters',
+      description: 'A range of bespoke steel-framed outdoor shelters, including smoking shelters, cycle shelters and general-purpose cover shelters. Manufactured as complete units with options including clear panels, roofing and integrated bike racks.',
+      image: Shelter,
+      imageAlt: 'Blue powder-coated steel outdoor shelter with clear side panels and transparent roof',
+      href: '/projects/outdoor-shelters',
+    },
+    {
+      title: 'Bespoke Steel Machine Guarding',
+      description: 'Bespoke steel machine guarding manufactured to suit production machinery, from replacement guards made to match existing equipment to complete new guarding systems with integrated access doors.',
       image: Guard,
-      imageAlt: 'Steel mesh machine guarding with a gate and yellow safety barrier around production equipment',
-      title: 'Machine guarding',
-      description: 'Steel mesh guarding with a gate and a yellow safety barrier around production equipment.',
-      href: '/projects/[slug]',
+      imageAlt: 'Steel mesh machine guarding with an integrated access gate and yellow safety barrier around production equipment',
+      href: '/projects/machine-guarding',
+    },
+    {
+      title: 'Bespoke Dust-Resistant Paint Machine Enclosure',
+      description: 'A bespoke steel enclosure designed in SolidWorks to protect a paint machine from dust and dirt contamination, featuring removable panels, clear access doors at both ends and a reinforced roof for filter maintenance.',
+      image: MachineCover,
+      imageAlt: 'Black steel machine cover with a clear hinged door open beside a production machine',
+      href: '/projects/machine-cover',
     },
   ],
   customersGet: ['Guarding and barriers made to fit your site', 'Built to the specification you provide', 'Finished in safety colours or your own', 'Design and fabrication managed under one roof'],

@@ -6,7 +6,6 @@ import { MaterialHandling } from './sectors/material-handling-storage';
 import { SafetyAccess } from './sectors/safety-access';
 import { VehicleCampervan } from './sectors/vehicle-campervan-conversions';
 import type { MightNeedType } from './services';
-// TODO: all the header images for these
 
 type DesignType = {
   title: string;

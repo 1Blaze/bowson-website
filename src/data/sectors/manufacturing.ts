@@ -3,6 +3,8 @@ import Rollers from '@assets/images/Sectors/rollers.webp'; // TODO: CHANGE TO MA
 import Stillage from '@assets/images/Sectors/stillage.webp';
 import Tower from '@assets/images/Sectors/tower.webp';
 import Ceramics from '@assets/images/Sectors/ceramics.webp';
+import Workbenches from '@assets/images/Projects/workbenches.webp';
+import RollStand from '@assets/images/Sectors/rollers.webp';
 
 export const Manufacturing: SectorType = {
   seoTitle: 'Metal Fabrication for Manufacturers | Bowson Engineering',
@@ -37,13 +39,20 @@ export const Manufacturing: SectorType = {
     ],
   },
   builtFor: [
-    // TODO: this section later
     {
-      image: Rollers,
-      imageAlt: 'TODO',
-      title: 'Work Benches',
-      description: 'Ventilated cabinets for battery and tool charging stations, finished in brand colours.',
-      href: '/laser-cutting',
+      image: Workbenches,
+      imageAlt: 'Rows of blue powder coated steel pallet building benches with back panels, shelves and overhead frames',
+      title: 'Pallet Assembly Workbenches',
+      description: 'A batch of twelve bespoke steel workbenches designed for pallet assembly, featuring dedicated positioning areas, integrated tool storage and overhead tool rails to support an organised and efficient production process.',
+      href: '/projects/work-benches',
+    },
+    {
+      title: 'Roll Stand for a Cutting Table',
+      description: 'A bespoke powder coated steel roll stand designed to hold full rolls of polymer material beside a cutting table, keeping the rolls clear of the working area and allowing the full table length to be used.',
+      image: RollStand,
+      imageAlt: 'White steel roll stand holding rolls of material beside a cutting table',
+      href: '/projects/roll-stand',
+      coverFit: true,
     },
   ],
   customersGet: ['Bespoke components made to your specifications', 'Multiple manufacturing processes under one roof', 'One-off components through to repeat production', 'Finished and powder-coated products'],

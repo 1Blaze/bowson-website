@@ -104,8 +104,8 @@ const data = GetSector(id)
       {
         data.builtFor.map((service, i) => (
           <Reveal delay={i * 70}>
-            <a href={`/${service.href}`} class="serviceItem">
-              <Image src={service.image} alt={service.title} />
+            <a href={`${service.href}`} class="serviceItem">
+              <Image class={service.coverFit ? 'imgCoverFit' : ''} src={service.image} alt={service.title} />
               <div class="serviceTextGap">
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>

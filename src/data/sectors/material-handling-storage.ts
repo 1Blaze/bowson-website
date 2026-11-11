@@ -3,6 +3,7 @@ import Rollers from '@assets/images/Sectors/rollers.webp';
 import Stillage from '@assets/images/Sectors/stillage.webp';
 import Tower from '@assets/images/Sectors/tower.webp';
 import Guard from '@assets/images/Sectors/machineguard.webp';
+import PalletGate from '@assets/images/Projects/pallet_gate.webp';
 
 export const MaterialHandling: SectorType = {
   seoTitle: 'Steel Stillages, Pallet Gates & Storage | Bowson Engineering',
@@ -57,13 +58,19 @@ export const MaterialHandling: SectorType = {
     ],
   },
   builtFor: [
-    // TODO: add the stacked stillages, a pallet gate with a better photo and bottle cages, and link to the real project pages
     {
+      title: 'Mezzanine Pallet Gate',
+      description: 'A bespoke steel mezzanine pallet gate manufactured to provide a controlled loading area for transferring pallets between floor levels, incorporating guard rails and a hazard-striped landing plate.',
+      image: PalletGate,
+      imageAlt: 'Dark grey steel pallet gate with blue rails and a yellow hazard-striped landing plate',
+      href: '/projects/pallet-gates',
+    },
+    {
+      title: 'Bespoke Steel Stillages',
+      description: 'A range of bespoke steel stillages manufactured for different handling and storage applications, including ware board stillages for pottery and fabric-divided stillages for separating and protecting components.',
       image: Stillage,
       imageAlt: 'White steel stillage with grey fabric dividers',
-      title: 'Stillage with fabric dividers',
-      description: 'A white powder coated steel stillage with grey fabric dividers.',
-      href: '/projects/[slug]',
+      href: '/projects/stillages',
     },
   ],
   customersGet: ['Equipment made to your product sizes and handling methods', 'Stackable and mobile designs available', 'Finished in your choice of colour', 'Design and fabrication managed under one roof'],

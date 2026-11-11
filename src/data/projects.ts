@@ -52,7 +52,7 @@ const Projects: Record<string, ProjectType> = {
   'batch-kilns': KilnShellBatchProject,
 
   // 'safety-access': CeramicsPottery,
-  'smoking-shelters': SheltersProject,
+  'outdoor-shelters': SheltersProject,
   'machine-cover': MachineCoverProject,
   'machine-guarding': MachineGuardingProject,
 
