@@ -1,15 +1,16 @@
 import type { ProjectType } from '../projects';
 import Tower from '@assets/images/Projects/deer_tower.webp';
+import DogKennel from '@assets/images/Projects/dog_kennel.webp';
 
 export const DeerTower: ProjectType = {
   title: 'Galvanised Steel Deer Tower',
   description: 'A bespoke galvanised steel deer tower featuring an enclosed cabin and access ladder, manufactured as a durable alternative to a traditional timber lookout structure.',
   seoTitle: 'Galvanised Steel Deer Tower | Bowson Engineering',
-  seoDesc: 'See how Bowson Engineering manufactured a bespoke galvanised steel deer tower with an enclosed cabin and access ladder for an outdoor lookout application.',
+  seoDesc: 'See how Bowson Engineering manufactured a bespoke galvanised steel deer tower with an enclosed cabin and access ladder for an outdoor lookout application. Manufactured by Bowson Engineering, Stoke-on-Trent.',
   image: Tower,
   imageAlt: 'Galvanised steel deer tower with an enclosed cabin and access ladder in woodland',
   imageFig: 'Fig. 01 // Agriculture & Estate',
-  tag: 'Agriculture & Estate',
+  tag: 'Agriculture & Estates',
   selected: true,
   locationData: {
     location: 'Staffordshire, England',
@@ -38,10 +39,10 @@ export const DogKennels: ProjectType = {
   description: 'Bespoke galvanised steel mesh kennel panels with doors, together with U-channels, bases, mesh and run panels, manufactured to size for a dog kennel installation.',
   seoTitle: 'Galvanised Steel Dog Kennel Panels | Bowson Engineering',
   seoDesc: 'Galvanised steel mesh kennel panels, doors, U-channels, bases, mesh and run panels for dog kennels, manufactured by Bowson Engineering in Stoke-on-Trent.',
-  image: Tower,
+  image: DogKennel,
   imageAlt: 'Galvanised steel mesh kennel fronts with doors and latches beside a drainage channel',
   imageFig: 'Fig. 02 // Agriculture & Estate',
-  tag: 'Agriculture & Estate',
+  tag: 'Agriculture & Estates',
   selected: false,
   locationData: {
     location: 'England',

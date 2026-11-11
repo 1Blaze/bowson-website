@@ -1,5 +1,10 @@
 import { DeerTower, DogKennels } from './projects/agriculture-estate';
+import { KilnShellBatchProject, TruckKilnProject } from './projects/ceramics-pottery';
 import { ExampleProject } from './projects/example';
+import { PalletBenchesProject, RollStandProject } from './projects/manufacturing-production';
+import { PalletGateProject, StillagesProject } from './projects/material-handling-storage';
+import { MachineCoverProject, MachineGuardingProject, SheltersProject } from './projects/safety-access';
+import { SeatbedProject } from './projects/vehicle-campervan-conversions';
 
 type SpecType = {
   title: string;
@@ -39,23 +44,25 @@ const Projects: Record<string, ProjectType> = {
   'deer-towers': DeerTower,
   'dog-kennels': DogKennels,
 
-  // 'ceramics-pottery': CeramicsPottery,
-  'truck-kilns': ExampleProject,
-  'fk-heavy-duty-kilns': ExampleProject,
-
   // 'manufacturing-production': CeramicsPottery,
-  'work-benches': ExampleProject,
-  'roll-stand': ExampleProject,
+  'work-benches': PalletBenchesProject,
+  'roll-stand': RollStandProject,
+
+  // 'ceramics-pottery': CeramicsPottery,
+  'truck-kilns': TruckKilnProject,
+  'batch-kilns': KilnShellBatchProject,
+
+  // 'safety-access': CeramicsPottery,
+  'smoking-shelters': SheltersProject,
+  'machine-cover': MachineCoverProject,
+  'machine-guarding': MachineGuardingProject,
 
   // 'material-handling-storage': CeramicsPottery,
-  'pallet-gates': ExampleProject,
-  stillages: ExampleProject,
-  // 'safety-access': CeramicsPottery,
-  'machine-guarding': ExampleProject,
-  'smoking-shelters': ExampleProject,
+  'pallet-gates': PalletGateProject,
+  stillages: StillagesProject,
 
   // 'vehicle-campervan-conversions': CeramicsPottery,
-  seatbeds: ExampleProject,
+  seatbeds: SeatbedProject,
 };
 
 const tags = ['Manufacturing', 'Agriculture & Estates', 'Ceramics & Pottery', 'Material Handling & Storage', 'Safety & Access', 'Vehicle & Campervan Conversions'];
