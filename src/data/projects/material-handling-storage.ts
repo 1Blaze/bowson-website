@@ -24,7 +24,7 @@ export const PalletGateProject: ProjectType = {
   },
   challenge: 'The customer required a dedicated loading area for transferring pallets on and off a mezzanine floor. The arrangement needed to accommodate pallet handling while providing guard rails around the loading opening when access was not required.',
   solution: 'Bowson designed and manufactured a bespoke steel pallet gate incorporating a guard rail structure and a hazard-striped landing plate. The assembly was made to suit the mezzanine opening based on site measurements, then fabricated and powder coated in our workshop.',
-  features: ['Bespoke steel pallet gate assembly', 'Integrated guard rails around the loading area', 'Hazard-striped landing plate', 'Manufactured to suit the mezzanine opening', 'Grey and blue powder-coated finish [confirm]', 'Fabricated and powder coated in-house'],
+  features: ['Bespoke steel pallet gate assembly', 'Integrated guard rails around the loading area', 'Hazard-striped landing plate', 'Manufactured to suit the mezzanine opening', 'Grey and blue powder-coated finish', 'Fabricated and powder coated in-house'],
   outcome: 'A purpose-built mezzanine pallet gate that provides a dedicated area for pallet transfer, incorporating the necessary gate structure, guard rails and clearly marked landing plate.',
   specification: [
     { title: 'Application', value: 'Mezzanine pallet loading' },

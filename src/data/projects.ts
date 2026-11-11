@@ -1,6 +1,5 @@
 import { DeerTower, DogKennels } from './projects/agriculture-estate';
 import { KilnShellBatchProject, TruckKilnProject } from './projects/ceramics-pottery';
-import { ExampleProject } from './projects/example';
 import { PalletBenchesProject, RollStandProject } from './projects/manufacturing-production';
 import { PalletGateProject, StillagesProject } from './projects/material-handling-storage';
 import { MachineCoverProject, MachineGuardingProject, SheltersProject } from './projects/safety-access';

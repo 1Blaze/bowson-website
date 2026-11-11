@@ -1,5 +1,5 @@
 ---
-import { Font } from "astro:assets";
+import { Font, getImage } from "astro:assets";
 import Navbar from "../components/Navbar/Navbar.astro";
 import Footer from "../components/Footer/Footer.astro";
 import '@/styles/global.scss'
@@ -9,29 +9,64 @@ import { ClientRouter } from "astro:transitions";
 interface Props {
   title: string;
   description: string;
-  hideCanonical?: boolean
+  hideCanonical?: boolean;
+  noindex?: boolean;
+  image?: ImageMetadata;             // per-page share image, e.g. a project photo
+  imageAlt?: string;
+  schema?: Record<string, unknown>[]; // JSON-LD nodes from src/lib/schema.ts
 }
 
-const { title, description, hideCanonical = false } = Astro.props;
+const { 
+  title, 
+  description, 
+  hideCanonical = false, 
+  noindex = false, 
+  image,
+  imageAlt = 'Bowson Engineering, sheet metal fabrication in Stoke-on-Trent',
+  schema = [],
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const ogUrl = image
+  ? new URL((await getImage({ src: image, width: 1200, height: 630, format: 'jpg', fit: 'cover' })).src, Astro.site).href
+  : new URL('/og-default.jpg', Astro.site).href;
+// const jsonLd = schema.length ? toJsonLd(schema) : null;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <!-- TODO: Bowson Favicon -->
-    <meta name="generator" content={Astro.generator} />
-    <Font cssVariable="--font-inter" />
-    <Font cssVariable="--font-barlow" />
-    <!-- TODO: all this stuff so its SEO optimised and shit -->
-    <!-- TODO: look into yoast SEO they are good - content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="apple-mobile-web-app-title" content={'Bowson Eng'} />
+
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    {noindex && <meta name="robots" content="noindex, follow" />}
     {!hideCanonical && <link rel="canonical" href={canonicalURL} />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/bowson.svg" />
+    <link rel="icon" href="/bowson.ico" />
+    <Font cssVariable="--font-inter" />
+    <Font cssVariable="--font-barlow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={'Bowson Engineering'} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <!-- x/twitter falls back to the open graph tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- {jsonLd && <script type="application/ld+json" set:html={jsonLd} />} -->
+    <!-- TODO: JSON LD -->
+
     <ClientRouter />
   </head>
   <body>

@@ -1,44 +1,8 @@
 <!-- TODO SEO -->
 
-**Short answer:** I've reordered the plan now that I know the site isn't live yet. The content and data work moves to the front, because it's the biggest gap and everything else depends on it. Performance testing goes in Step 5, because it needs a public URL. Your Astro version (7.1) is well past 5.10, so the `image: { layout: 'constrained' }` config is available to you.
-
-## Step 1: Content and data (the big job, in priority order)
-
-**Order of the 23 pages**
-
-1. **Six service pages:** CNC punching, laser cutting, metal forming, welding, powder coating, 3D CAD. These are your highest-intent searches, so write them first.
-2. **Six sector pages:** manufacturing, agriculture and estate, ceramics and pottery, material handling and storage, safety and access, vehicle and campervan. Many of these have niche, low-competition terms (deer towers, kiln hoods, seatbeds).
-3. **Eleven project pages:** worst placeholder state ("SEO TITLE", empty descriptions), but the slowest to write because each needs customer details and permission.
-
-**For each page, write:**
-
-- [ ] Title (keyword-first, under 60 characters), meta description, H1
-- [ ] Intro and body copy, using only claims you can verify
-- [ ] Image, alt text and a clear call to action
-- [ ] Links to related services, sectors and projects
-
-**Start now, in parallel**
-
-- [ ] Ask each customer behind a project for permission, and ask how to describe them.
-- [ ] Gather the facts for each project: what you made, quantity, material, finish, and the problem it solved.
-- [ ] Track the review requests you've sent, and add real testimonials as they arrive.
-
-**Other content to check**
-
-- [ ] Featured work text and alts, and the About timeline.
-- [ ] Final products list.
-- [ ] Home, About and Contact copy against the same rules.
-- [ ] Decide your "Stoke-on-Trent" approach for titles.
-
 ## Step 2: Before launch (technical)
 
-- [ ] **Build guard** in `Layout.astro`, so no page can ship with an empty or placeholder title.
-- [ ] **Hero images:** `priority`, and remove `<Reveal>` from the home and About heroes.
-- [ ] **All other images:** `widths` and `sizes`, or the `layout` config, then check the Network tab.
-- [ ] **404 page:** helpful links, and `hideCanonical`.
-- [ ] **Canonicals and sitemap:** rebuild, and check everything uses `www`.
 - [ ] **`LocalBusiness` JSON-LD** on the home and contact pages.
-- [ ] **Trailing slashes:** pick one, and keep it consistent.
 
 ## Step 3: Launch day (server)
 
