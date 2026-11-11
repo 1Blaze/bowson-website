@@ -1,6 +1,9 @@
 import type { ProjectType } from '../projects';
 import TruckKiln from '@assets/images/hero_image.webp';
 import Ikons from '@assets/images/Projects/ikon_bases.webp';
+import DogKennel from '@assets/images/Projects/dog_kennel.webp';
+import MachineCover from '@assets/images/Projects/machinecover.webp';
+import RollStand from '@assets/images/Sectors/rollers.webp';
 
 export const TruckKilnProject: ProjectType = {
   title: 'A Split Truck Kiln Frame',
@@ -42,6 +45,24 @@ export const TruckKilnProject: ProjectType = {
     { title: 'Overall size', value: '1.5D × 1.4W × 2.1H, in m' },
   ],
   number: '003',
+  caseStudies: [
+    { image: DogKennel, imageAlt: 'Galvanised steel mesh kennel fronts with doors and latches beside a drainage channel', title: 'Dog Kennels', description: 'Bespoke galvanised steel mesh kennel panels with doors, together with U-channels, bases, mesh and run panels, manufactured to size for a dog kennel installation.', href: '/projects/dog-kennels' },
+    {
+      title: 'Bespoke Dust-Resistant Paint Machine Enclosure',
+      description: 'A bespoke steel enclosure designed in SolidWorks to protect a paint machine from dust and dirt contamination, featuring removable panels, clear access doors at both ends and a reinforced roof for filter maintenance.',
+      image: MachineCover,
+      imageAlt: 'Black steel machine cover with a clear hinged door open beside a production machine',
+      href: '/projects/machine-cover',
+    },
+    {
+      title: 'Roll Stand for a Cutting Table',
+      description: 'A bespoke powder coated steel roll stand designed to hold full rolls of polymer material beside a cutting table, keeping the rolls clear of the working area and allowing the full table length to be used.',
+      image: RollStand,
+      imageAlt: 'White steel roll stand holding rolls of material beside a cutting table',
+      href: '/projects/roll-stand',
+      coverFit: true,
+    },
+  ],
 };
 
 export const KilnShellBatchProject: ProjectType = {
@@ -76,4 +97,22 @@ export const KilnShellBatchProject: ProjectType = {
     { title: 'Material', value: 'Mild Steel & Stainless Steel' },
   ],
   number: '004',
+  caseStudies: [
+    { image: DogKennel, imageAlt: 'Galvanised steel mesh kennel fronts with doors and latches beside a drainage channel', title: 'Dog Kennels', description: 'Bespoke galvanised steel mesh kennel panels with doors, together with U-channels, bases, mesh and run panels, manufactured to size for a dog kennel installation.', href: '/projects/dog-kennels' },
+    {
+      title: 'Bespoke Dust-Resistant Paint Machine Enclosure',
+      description: 'A bespoke steel enclosure designed in SolidWorks to protect a paint machine from dust and dirt contamination, featuring removable panels, clear access doors at both ends and a reinforced roof for filter maintenance.',
+      image: MachineCover,
+      imageAlt: 'Black steel machine cover with a clear hinged door open beside a production machine',
+      href: '/projects/machine-cover',
+    },
+    {
+      title: 'Roll Stand for a Cutting Table',
+      description: 'A bespoke powder coated steel roll stand designed to hold full rolls of polymer material beside a cutting table, keeping the rolls clear of the working area and allowing the full table length to be used.',
+      image: RollStand,
+      imageAlt: 'White steel roll stand holding rolls of material beside a cutting table',
+      href: '/projects/roll-stand',
+      coverFit: true,
+    },
+  ],
 };

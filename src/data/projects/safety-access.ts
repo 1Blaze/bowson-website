@@ -2,6 +2,9 @@ import type { ProjectType } from '../projects';
 import Shelter from '@assets/images/Projects/smoking_shelter.webp';
 import Guard from '@assets/images/Sectors/machineguard.webp';
 import MachineCover from '@assets/images/Projects/machinecover.webp';
+import Workbenches from '@assets/images/Projects/workbenches.webp';
+import PalletGate from '@assets/images/Projects/pallet_gate.webp';
+import Tower from '@assets/images/Projects/deer_tower.webp';
 
 export const SheltersProject: ProjectType = {
   title: 'Bespoke Steel Outdoor Shelters',
@@ -50,6 +53,23 @@ export const SheltersProject: ProjectType = {
     { title: 'Sizes', value: 'Manufactured to order' },
   ],
   number: '009',
+  caseStudies: [
+    {
+      image: Workbenches,
+      imageAlt: 'Rows of blue powder coated steel pallet building benches with back panels, shelves and overhead frames',
+      title: 'Pallet Assembly Workbenches',
+      description: 'A batch of twelve bespoke steel workbenches designed for pallet assembly, featuring dedicated positioning areas, integrated tool storage and overhead tool rails to support an organised and efficient production process.',
+      href: '/projects/work-benches',
+    },
+    {
+      title: 'Mezzanine Pallet Gate',
+      description: 'A bespoke steel mezzanine pallet gate manufactured to provide a controlled loading area for transferring pallets between floor levels, incorporating guard rails and a hazard-striped landing plate.',
+      image: PalletGate,
+      imageAlt: 'Dark grey steel pallet gate with blue rails and a yellow hazard-striped landing plate',
+      href: '/projects/pallet-gates',
+    },
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+  ],
 };
 
 export const MachineGuardingProject: ProjectType = {
@@ -98,6 +118,23 @@ export const MachineGuardingProject: ProjectType = {
     { title: 'Installation', value: 'Available as an additional service' },
   ],
   number: '010',
+  caseStudies: [
+    {
+      image: Workbenches,
+      imageAlt: 'Rows of blue powder coated steel pallet building benches with back panels, shelves and overhead frames',
+      title: 'Pallet Assembly Workbenches',
+      description: 'A batch of twelve bespoke steel workbenches designed for pallet assembly, featuring dedicated positioning areas, integrated tool storage and overhead tool rails to support an organised and efficient production process.',
+      href: '/projects/work-benches',
+    },
+    {
+      title: 'Mezzanine Pallet Gate',
+      description: 'A bespoke steel mezzanine pallet gate manufactured to provide a controlled loading area for transferring pallets between floor levels, incorporating guard rails and a hazard-striped landing plate.',
+      image: PalletGate,
+      imageAlt: 'Dark grey steel pallet gate with blue rails and a yellow hazard-striped landing plate',
+      href: '/projects/pallet-gates',
+    },
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+  ],
 };
 
 export const MachineCoverProject: ProjectType = {
@@ -145,4 +182,21 @@ export const MachineCoverProject: ProjectType = {
     { title: 'Finish', value: 'Black powder coating' },
   ],
   number: '011',
+  caseStudies: [
+    {
+      image: Workbenches,
+      imageAlt: 'Rows of blue powder coated steel pallet building benches with back panels, shelves and overhead frames',
+      title: 'Pallet Assembly Workbenches',
+      description: 'A batch of twelve bespoke steel workbenches designed for pallet assembly, featuring dedicated positioning areas, integrated tool storage and overhead tool rails to support an organised and efficient production process.',
+      href: '/projects/work-benches',
+    },
+    {
+      title: 'Mezzanine Pallet Gate',
+      description: 'A bespoke steel mezzanine pallet gate manufactured to provide a controlled loading area for transferring pallets between floor levels, incorporating guard rails and a hazard-striped landing plate.',
+      image: PalletGate,
+      imageAlt: 'Dark grey steel pallet gate with blue rails and a yellow hazard-striped landing plate',
+      href: '/projects/pallet-gates',
+    },
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+  ],
 };

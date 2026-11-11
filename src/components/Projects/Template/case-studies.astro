@@ -1,18 +1,22 @@
 ---
-import { GetAllProjects } from "~/src/data/projects";
 import Reveal from "../../reveal.astro";
 import { Image } from "astro:assets";
 import Arrow from '@assets/svgs/arrow-button.svg'
+import type { MightNeedType } from "~/src/data/services";
 
-const projects = GetAllProjects()
-// TODO: make this based on the actual project data maybe?
+interface Props {
+  caseStudies: MightNeedType[]
+}
+
+const {caseStudies} = Astro.props
+
 ---
 
 <div class="servicesDisplay">
   {
-    projects.slice(0, 3).map(({ slug, data }, i) => (
-      <Reveal delay={i * 70} from="left">
-        <a href={slug} class="caseStudy">
+    caseStudies.map((data, index) => (
+      <Reveal delay={index * 70} from="left">
+        <a href={data.href} class="caseStudy">
           <Image src={data.image} alt={data.title} />
           <div class="caseStudyCol">
             <p>NO. 01 — Logistics & Storage</p>

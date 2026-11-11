@@ -1,5 +1,8 @@
 import type { ProjectType } from '../projects';
 import Seatbed from '@assets/images/Sectors/seatbed.webp';
+import Shelter from '@assets/images/Projects/smoking_shelter.webp';
+import MachineCover from '@assets/images/Projects/machinecover.webp';
+import Stillage from '@assets/images/Sectors/stillage.webp';
 
 export const SeatbedProject: ProjectType = {
   title: 'Re-engineered Campervan Seatbed',
@@ -35,4 +38,27 @@ export const SeatbedProject: ProjectType = {
     { title: 'Fitted components', value: 'Seatbelts, rails and associated components' },
   ],
   number: '012',
+  caseStudies: [
+    {
+      title: 'Bespoke Steel Outdoor Shelters',
+      description: 'A range of bespoke steel-framed outdoor shelters, including smoking shelters, cycle shelters and general-purpose cover shelters. Manufactured as complete units with options including clear panels, roofing and integrated bike racks.',
+      image: Shelter,
+      imageAlt: 'Blue powder-coated steel outdoor shelter with clear side panels and transparent roof',
+      href: '/projects/outdoor-shelters',
+    },
+    {
+      title: 'Bespoke Dust-Resistant Paint Machine Enclosure',
+      description: 'A bespoke steel enclosure designed in SolidWorks to protect a paint machine from dust and dirt contamination, featuring removable panels, clear access doors at both ends and a reinforced roof for filter maintenance.',
+      image: MachineCover,
+      imageAlt: 'Black steel machine cover with a clear hinged door open beside a production machine',
+      href: '/projects/machine-cover',
+    },
+    {
+      title: 'Bespoke Steel Stillages',
+      description: 'A range of bespoke steel stillages manufactured for different handling and storage applications, including ware board stillages for pottery and fabric-divided stillages for separating and protecting components.',
+      image: Stillage,
+      imageAlt: 'White steel stillage with grey fabric dividers',
+      href: '/projects/stillages',
+    },
+  ],
 };

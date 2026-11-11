@@ -1,6 +1,9 @@
 import type { ProjectType } from '../projects';
 import Workbenches from '@assets/images/Projects/workbenches.webp';
 import RollStand from '@assets/images/Sectors/rollers.webp';
+import Tower from '@assets/images/Sectors/tower.webp';
+import Ikons from '@assets/images/Projects/ikon_bases.webp';
+import Stillage from '@assets/images/Sectors/stillage.webp';
 
 export const PalletBenchesProject: ProjectType = {
   title: 'Pallet Assembly Workbenches',
@@ -33,6 +36,23 @@ export const PalletBenchesProject: ProjectType = {
     { title: 'Bench size', value: '1.3L × 1.5W × 1.1H, in m' },
   ],
   number: '005',
+  caseStudies: [
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+    {
+      image: Ikons,
+      imageAlt: 'Batch of blue powder coated steel kiln shell frames hanging in the powder coating area',
+      title: 'Batch Production of Kiln Shells',
+      description: 'Repeat manufacture of steel shells for top-loading kilns, produced in batches of 36 approximately every two months. Production processes have been refined over successive orders to improve efficiency and reduce manufacturing costs.',
+      href: '/projects/batch-kilns',
+    },
+    {
+      title: 'Bespoke Steel Stillages',
+      description: 'A range of bespoke steel stillages manufactured for different handling and storage applications, including ware board stillages for pottery and fabric-divided stillages for separating and protecting components.',
+      image: Stillage,
+      imageAlt: 'White steel stillage with grey fabric dividers',
+      href: '/projects/stillages',
+    },
+  ],
 };
 
 export const RollStandProject: ProjectType = {
@@ -66,4 +86,21 @@ export const RollStandProject: ProjectType = {
     { title: 'Material and finish', value: 'Steel, powder coated white' },
   ],
   number: '006',
+  caseStudies: [
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+    {
+      image: Ikons,
+      imageAlt: 'Batch of blue powder coated steel kiln shell frames hanging in the powder coating area',
+      title: 'Batch Production of Kiln Shells',
+      description: 'Repeat manufacture of steel shells for top-loading kilns, produced in batches of 36 approximately every two months. Production processes have been refined over successive orders to improve efficiency and reduce manufacturing costs.',
+      href: '/projects/batch-kilns',
+    },
+    {
+      title: 'Bespoke Steel Stillages',
+      description: 'A range of bespoke steel stillages manufactured for different handling and storage applications, including ware board stillages for pottery and fabric-divided stillages for separating and protecting components.',
+      image: Stillage,
+      imageAlt: 'White steel stillage with grey fabric dividers',
+      href: '/projects/stillages',
+    },
+  ],
 };

@@ -4,7 +4,6 @@ import Stillage from '@assets/images/Sectors/stillage.webp';
 import Tower from '@assets/images/Sectors/tower.webp';
 import Ceramics from '@assets/images/Sectors/ceramics.webp';
 import Workbenches from '@assets/images/Projects/workbenches.webp';
-import RollStand from '@assets/images/Sectors/rollers.webp';
 
 export const Manufacturing: SectorType = {
   seoTitle: 'Metal Fabrication for Manufacturers | Bowson Engineering',
@@ -49,7 +48,7 @@ export const Manufacturing: SectorType = {
     {
       title: 'Roll Stand for a Cutting Table',
       description: 'A bespoke powder coated steel roll stand designed to hold full rolls of polymer material beside a cutting table, keeping the rolls clear of the working area and allowing the full table length to be used.',
-      image: RollStand,
+      image: Rollers,
       imageAlt: 'White steel roll stand holding rolls of material beside a cutting table',
       href: '/projects/roll-stand',
       coverFit: true,

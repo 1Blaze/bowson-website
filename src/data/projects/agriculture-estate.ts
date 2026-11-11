@@ -1,6 +1,9 @@
 import type { ProjectType } from '../projects';
 import Tower from '@assets/images/Projects/deer_tower.webp';
 import DogKennel from '@assets/images/Projects/dog_kennel.webp';
+import TruckKiln from '@assets/images/hero_image.webp';
+import PalletGate from '@assets/images/Projects/pallet_gate.webp';
+import Seatbed from '@assets/images/Sectors/seatbed.webp';
 
 export const DeerTower: ProjectType = {
   title: 'Galvanised Steel Deer Tower',
@@ -32,6 +35,29 @@ export const DeerTower: ProjectType = {
     { title: 'Cabin size', value: '1.2 m × 1.2 m' },
   ],
   number: '001',
+  caseStudies: [
+    {
+      title: 'A Split Truck Kiln Frame',
+      description: 'A large bespoke truck kiln frame manufactured in split sections to pass through a restricted doorway, complete with a detachable track and wheeled truck for loading and unloading ceramics.',
+      image: TruckKiln,
+      imageAlt: 'Yellow and black steel truck kiln frame with its truck pulled out on a yellow track',
+      href: '/projects/truck-kilns',
+    },
+    {
+      title: 'Mezzanine Pallet Gate',
+      description: 'A bespoke steel mezzanine pallet gate manufactured to provide a controlled loading area for transferring pallets between floor levels, incorporating guard rails and a hazard-striped landing plate.',
+      image: PalletGate,
+      imageAlt: 'Dark grey steel pallet gate with blue rails and a yellow hazard-striped landing plate',
+      href: '/projects/pallet-gates',
+    },
+    {
+      title: 'Re-engineered Campervan Seatbed',
+      description: 'A steel campervan seatbed redesigned in SolidWorks through several revisions with the customer. The finished design passed the customer’s official crash testing and was manufactured by Bowson Engineering in regular production batches.',
+      image: Seatbed,
+      imageAlt: 'Black steel campervan seatbed frame with fitted seatbelts and red release buttons',
+      href: '/projects/seatbeds',
+    },
+  ],
 };
 
 export const DogKennels: ProjectType = {
@@ -65,4 +91,27 @@ export const DogKennels: ProjectType = {
     { title: 'Quantity', value: '36x Doors, 40x Mesh Panels, 390x U Channels' },
   ],
   number: '002',
+  caseStudies: [
+    {
+      title: 'A Split Truck Kiln Frame',
+      description: 'A large bespoke truck kiln frame manufactured in split sections to pass through a restricted doorway, complete with a detachable track and wheeled truck for loading and unloading ceramics.',
+      image: TruckKiln,
+      imageAlt: 'Yellow and black steel truck kiln frame with its truck pulled out on a yellow track',
+      href: '/projects/truck-kilns',
+    },
+    {
+      title: 'Mezzanine Pallet Gate',
+      description: 'A bespoke steel mezzanine pallet gate manufactured to provide a controlled loading area for transferring pallets between floor levels, incorporating guard rails and a hazard-striped landing plate.',
+      image: PalletGate,
+      imageAlt: 'Dark grey steel pallet gate with blue rails and a yellow hazard-striped landing plate',
+      href: '/projects/pallet-gates',
+    },
+    {
+      title: 'Re-engineered Campervan Seatbed',
+      description: 'A steel campervan seatbed redesigned in SolidWorks through several revisions with the customer. The finished design passed the customer’s official crash testing and was manufactured by Bowson Engineering in regular production batches.',
+      image: Seatbed,
+      imageAlt: 'Black steel campervan seatbed frame with fitted seatbelts and red release buttons',
+      href: '/projects/seatbeds',
+    },
+  ],
 };

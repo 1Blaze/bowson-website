@@ -1,6 +1,9 @@
 import type { ProjectType } from '../projects';
 import PalletGate from '@assets/images/Projects/pallet_gate.webp';
 import Stillages from '@assets/images/Sectors/stillage.webp';
+import Tower from '@assets/images/Sectors/tower.webp';
+import RollStand from '@assets/images/Sectors/rollers.webp';
+import TruckKiln from '@assets/images/hero_image.webp';
 
 export const PalletGateProject: ProjectType = {
   title: 'Mezzanine Pallet Gate',
@@ -34,6 +37,24 @@ export const PalletGateProject: ProjectType = {
     { title: 'Finish', value: 'Powdercoated grey and dark blue' },
   ],
   number: '007',
+  caseStudies: [
+    {
+      title: 'Roll Stand for a Cutting Table',
+      description: 'A bespoke powder coated steel roll stand designed to hold full rolls of polymer material beside a cutting table, keeping the rolls clear of the working area and allowing the full table length to be used.',
+      image: RollStand,
+      imageAlt: 'White steel roll stand holding rolls of material beside a cutting table',
+      href: '/projects/roll-stand',
+      coverFit: true,
+    },
+    {
+      image: TruckKiln,
+      imageAlt: 'Yellow and black steel truck kiln frame with its truck pulled out on a yellow track',
+      title: 'A Split Truck Kiln Frame',
+      description: 'A large bespoke truck kiln frame manufactured in split sections to pass through a restricted doorway, complete with a detachable track and wheeled truck for loading and unloading ceramics.',
+      href: '/projects/truck-kilns',
+    },
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+  ],
 };
 
 export const StillagesProject: ProjectType = {
@@ -70,4 +91,22 @@ export const StillagesProject: ProjectType = {
     { title: 'Sizes', value: 'Manufactured to order' },
   ],
   number: '008',
+  caseStudies: [
+    {
+      title: 'Roll Stand for a Cutting Table',
+      description: 'A bespoke powder coated steel roll stand designed to hold full rolls of polymer material beside a cutting table, keeping the rolls clear of the working area and allowing the full table length to be used.',
+      image: RollStand,
+      imageAlt: 'White steel roll stand holding rolls of material beside a cutting table',
+      href: '/projects/roll-stand',
+      coverFit: true,
+    },
+    {
+      image: TruckKiln,
+      imageAlt: 'Yellow and black steel truck kiln frame with its truck pulled out on a yellow track',
+      title: 'A Split Truck Kiln Frame',
+      description: 'A large bespoke truck kiln frame manufactured in split sections to pass through a restricted doorway, complete with a detachable track and wheeled truck for loading and unloading ceramics.',
+      href: '/projects/truck-kilns',
+    },
+    { image: Tower, imageAlt: 'Galvanised steel deer tower with an enclosed cabin and ladder in woodland', title: 'Deer tower', description: 'A galvanised steel lookout tower with an enclosed cabin and ladder, built to replace a traditional wooden structure.', href: '/projects/deer-towers' },
+  ],
 };

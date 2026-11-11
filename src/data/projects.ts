@@ -4,6 +4,7 @@ import { PalletBenchesProject, RollStandProject } from './projects/manufacturing
 import { PalletGateProject, StillagesProject } from './projects/material-handling-storage';
 import { MachineCoverProject, MachineGuardingProject, SheltersProject } from './projects/safety-access';
 import { SeatbedProject } from './projects/vehicle-campervan-conversions';
+import type { MightNeedType } from './services';
 
 type SpecType = {
   title: string;
@@ -36,6 +37,7 @@ export type ProjectType = {
   outcome: string;
   specification: SpecType[];
   number: string;
+  caseStudies: MightNeedType[];
 };
 
 const Projects: Record<string, ProjectType> = {
