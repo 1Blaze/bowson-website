@@ -1,5 +1,5 @@
 import type { SectorType } from '../sectors';
-import Rollers from '@assets/images/Sectors/rollers.webp'; // TODO: CHANGE TO MANUFACTURING IMAGE
+import Rollers from '@assets/images/Sectors/rollers.webp';
 import Stillage from '@assets/images/Sectors/stillage.webp';
 import Tower from '@assets/images/Sectors/tower.webp';
 import Ceramics from '@assets/images/Sectors/ceramics.webp';
