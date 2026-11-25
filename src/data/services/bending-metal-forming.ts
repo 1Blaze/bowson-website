@@ -2,6 +2,7 @@ import Punch from '@assets/images/Services/punch.webp';
 import Powdercoating from '@assets/images/services/oven.webp';
 import Welding from '@assets/images/services/weld.webp';
 import Forming from '@assets/images/services/forming.webp';
+import Rollers from '@assets/images/services/rollers.webp';
 import type { ServiceType } from '../services';
 
 export const Bending_Forming: ServiceType = {
@@ -20,10 +21,10 @@ export const Bending_Forming: ServiceType = {
   theKit: [
     { image: Forming, title: 'CNC press brake', description: 'Our press brake gives accurate, repeatable bends on enclosures, covers and brackets, from prototypes to batches.', imageAlt: 'Formed sheet metal enclosures with punched slots in sides alongside a press brake machine' },
     {
-      image: Forming, // TODO: photo of the rolls
-      title: 'In-house rolling',
-      description: '[Describe your rolling machine and what it makes, for example cylinders and curved sections.]',
-      imageAlt: '[Describe the rolling photo]',
+      image: Rollers,
+      title: 'In-house sheet metal rolling',
+      description: 'Our powered and manual rolling machines form flat sheet metal into curved sections and cylindrical shapes, supporting the manufacture of bespoke components, covers and enclosures.',
+      imageAlt: 'Powered and manual sheet metal rolling machines in Bowson Engineering’s workshop',
     },
   ],
   whereItsUsed: ['Cabinets and enclosures', 'Machine guards and covers', 'Kiln hoods and canopies', 'Brackets and frames', 'Cylinders and curved sections'],
