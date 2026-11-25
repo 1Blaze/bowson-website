@@ -1,9 +1,10 @@
 ---
 import ContactContent from '../components/Contact/contact-content.astro';
 import Layout from '../layouts/Layout.astro';
+import { localBusinessSchema } from '../lib/schema';
 
 ---
 
-<Layout title="Contact Us | Bowson Engineering" description="Request a quote or get in touch with Bowson Engineering, a family-run sheet metal fabricator. We're ready to discuss your next project.">
+<Layout title="Contact Us | Bowson Engineering" description="Request a quote or get in touch with Bowson Engineering, a family-run sheet metal fabricator. We're ready to discuss your next project." aboutBusiness schema={[localBusinessSchema(Astro.site!)]}>
   <ContactContent />
 </Layout>

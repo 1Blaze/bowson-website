@@ -39,17 +39,7 @@ export const BUSINESS = {
   sameAs: ['https://www.linkedin.com/company/5650038', 'https://www.facebook.com/BowsonEng'] as string[],
 
   // Only list areas you genuinely serve. Delivery area is still unconfirmed.
-  areaServed: [
-    {
-      '@type': 'City',
-      name: 'Stoke-on-Trent',
-    },
-    {
-      '@type': 'AdministrativeArea',
-      name: 'Staffordshire',
-    },
-    { '@type': 'Country', name: 'United Kingdom' },
-  ],
+  areaServed: [{ '@type': 'Country', name: 'United Kingdom' }],
 
   hours: [
     {
@@ -64,7 +54,7 @@ export const BUSINESS = {
     },
   ],
 
-  services: ['CNC Punching', 'Laser-cut parts (sourced through our cutting partner)', 'Metal bending and forming', 'Welding and fabrication', 'Powder coating', '3D CAD design'],
+  services: ['Sheet metal fabrication', 'CNC turret punching', 'CNC press brake bending', 'Metal rolling and forming', 'MIG welding', 'TIG welding', 'Metal fabrication and assembly', 'Industrial powder coating', '3D CAD design and modelling', 'Laser cutting through an external cutting partner'],
 
-  knowsAbout: ['Sheet metal fabrication', 'CNC punching', 'Metal bending and forming', 'MIG and TIG welding', 'Powder coating', 'SolidWorks 3D CAD'],
+  knowsAbout: ['Sheet metal engineering', 'Sheet metal fabrication', 'CNC turret punching', 'CNC press brake operation', 'Sheet metal bending and forming', 'Metal rolling', 'MIG welding', 'TIG welding', 'Steel fabrication', 'Stainless steel fabrication', 'Aluminium fabrication', 'Industrial powder coating', '3D CAD modelling', 'SolidWorks', 'Bespoke metalwork', 'Manufacturing engineering'],
 };

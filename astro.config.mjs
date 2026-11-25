@@ -20,4 +20,8 @@ export default defineConfig({
   integrations: [sitemap()],
   image: { layout: 'constrained' },
   trailingSlash: 'never',
+  // build: {
+  //   // Example: Generate `page.html` instead of `page/index.html` during build.
+  //   format: 'file',
+  // },
 });

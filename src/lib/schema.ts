@@ -82,6 +82,7 @@ export function webPageSchema(
     title: string;
     description: string;
     path: string;
+    aboutBusiness?: boolean;
   },
 ): Node {
   const url = new URL(page.path, site).href;
@@ -95,9 +96,7 @@ export function webPageSchema(
     isPartOf: {
       '@id': `${site.origin}/#website`,
     },
-    about: {
-      '@id': `${site.origin}/#business`,
-    },
+    ...(page.aboutBusiness && { about: { '@id': `${site.origin}/#business` } }),
     inLanguage: 'en-GB',
   };
 }
@@ -118,5 +117,8 @@ export function breadcrumbSchema(site: URL, trail: { name: string; path: string 
 
 // Safe to drop into <script type="application/ld+json" set:html={...} />
 export function toJsonLd(nodes: Node[]): string {
-  return JSON.stringify({ '@context': 'https://schema.org', '@graph': nodes }).replace(/</g, '\\u003c');
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': nodes,
+  }).replace(/</g, '\\u003c');
 }
